@@ -64,29 +64,40 @@
           </p>
         </section>
 
-        <section class="card card--wide" id="projects">
+        <section class="projects-section" id="projects">
           <h2>프로젝트</h2>
-          <article class="project">
-            <div class="project-head">
-              <h3>agent_with_gpt</h3>
-              <span class="badge">비공개 저장소</span>
-            </div>
-            <p class="project-sub">LLM 기반 타겟 보드 테스트 자동화 파이프라인</p>
-            <p>
-              <code>git push</code>가 들어오면 LLM 에이전트가 커밋과 테스트 코드를 읽어
-              워크로드 특성을 분석하고, 유휴 테스트 보드 중 가장 적합한 것을 직접 골라
-              할당합니다. 정해진 규칙표가 아니라 하드웨어 특성에 대한 모델의 추론으로
-              판단하기 때문에, 새로운 보드 종류가 추가돼도 코드 수정이 필요 없습니다.
-            </p>
-            <p>
-              이후 SSH/시리얼 엔진으로 보드에 코드를 배포·실행하고, 에러가 나면
-              일시적 오류(flaky)인지 회귀 버그인지 LLM이 판정합니다. 결과는 Notion에
-              기록되고, 이전 대비 정확도가 기준 이상 떨어지면 파이프라인을 실패 처리해
-              병합을 막습니다. 자연어 챗봇·대시보드로 실험 기록 조회와 보고서(.docx)
-              생성도 가능합니다.
-            </p>
-            <p class="tags">Python · OpenAI API · GitHub Actions (self-hosted) · Notion API · SSH</p>
-          </article>
+          <div class="projects-grid">
+
+            <article class="project-card">
+              <div class="project-head">
+                <h3>agent_with_gpt</h3>
+                <span class="badge">비공개 저장소</span>
+              </div>
+              <p class="project-sub">LLM 기반 타겟 보드 테스트 자동화 파이프라인</p>
+              <p>
+                <code>git push</code>가 들어오면 LLM 에이전트가 커밋·테스트 코드를 읽어
+                워크로드 특성을 분석하고, 유휴 보드 중 가장 적합한 것을 골라 배포·실행합니다.
+                에러는 일시적 오류(flaky)인지 회귀인지 판정하고, 결과는 Notion에 기록하며
+                정확도가 기준 이상 떨어지면 파이프라인을 실패 처리해 병합을 막습니다.
+              </p>
+              <p class="tags">Python · OpenAI API · GitHub Actions · Notion API · SSH</p>
+            </article>
+
+            <!--
+            새 프로젝트는 위 <article>를 복사해서 추가하세요:
+
+            <article class="project-card">
+              <div class="project-head">
+                <h3>프로젝트 이름</h3>
+                <a class="badge badge-link" href="https://github.com/dhwld-n/repo">GitHub ↗</a>
+              </div>
+              <p class="project-sub">한 줄 소개</p>
+              <p>두세 문장 설명.</p>
+              <p class="tags">기술 · 스택 · 나열</p>
+            </article>
+            -->
+
+          </div>
         </section>
 
         <section class="card" id="skills">

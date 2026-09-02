@@ -228,8 +228,29 @@ code {
   color: var(--ink-soft);
 }
 
+/* ===== Projects ===== */
+.projects-section { grid-column: 1 / -1; }
+.projects-section > h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 14px; }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  gap: 16px;
+  align-items: start;
+}
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.project-card p { color: var(--ink-soft); font-size: 0.9rem; }
+.project-card p + p { margin-top: 10px; }
+
 .project-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
-.project-head h3 { font-size: 1.05rem; font-weight: 700; }
+.project-head h3 { font-size: 1.02rem; font-weight: 700; }
+.badge-link { color: var(--accent-deep); text-decoration: none; }
+.badge-link:hover { background: var(--accent-soft); }
 .badge {
   font-size: 0.68rem;
   font-weight: 600;
