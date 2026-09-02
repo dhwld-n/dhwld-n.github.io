@@ -64,7 +64,7 @@ const PROJECTS = {
       "LLM 추상화 — 모든 모델 호출을 단일 모듈로 통일, 환경변수 2개로 로컬 모델(Ollama 등) 전환 가능.",
       "Flask 대시보드 — 파이프라인 현황 · 실험 기록 · AI 어시스턴트 · GitHub Actions 로그를 한 화면에.",
     ],
-    stack: ["Python", "OpenAI API", "GitHub Actions (self-hosted)", "Notion API", "SSH", "Flask"],
+    stack: ["Python", "Gemini API", "LLM Function Calling", "GitHub Actions (self-hosted)", "Notion API", "SSH", "Flask"],
     principle:
       '"판단은 코드로 검증 가능하게, 서술은 LLM에게." 정답이 정해진 판단은 파이썬이 결정론적으로 ' +
       "계산하고, LLM은 그 결과를 설명하거나 사람이 읽을 문장을 씁니다.",
