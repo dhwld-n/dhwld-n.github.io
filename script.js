@@ -70,7 +70,7 @@ const PROJECTS = {
       "계산하고, LLM은 그 결과를 설명하거나 사람이 읽을 문장을 씁니다.",
     links: [
       { label: "▶ 데모 열기", href: "agent_with_gpt.html", primary: true },
-      { label: "agent_with_gpt", href: "https://github.com/dhwld-n/agent_with_gpt" },
+      { label: "GitHub에서 코드 보기", href: "https://github.com/dhwld-n/agent_with_gpt-public" },
     ],
   },
 };
