@@ -10,96 +10,165 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <a href="/" class="logo">오지우</a>
-    <nav>
-      <a href="#about">소개</a>
-      <a href="#projects">프로젝트</a>
-      <a href="#contact">연락처</a>
-    </nav>
-    <button id="theme-toggle" aria-label="테마 전환" title="테마 전환">
-      <span class="theme-icon-light">☀️</span>
-      <span class="theme-icon-dark">🌙</span>
-    </button>
-  </header>
+  <div class="app">
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+      <a href="/" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        오지우
+      </a>
 
-  <main>
-    <section class="hero">
-      <p class="eyebrow">Developer</p>
-      <h1><span class="accent">LLM</span>을 기반으로<br />다양한 분야에 도전하는 개발자</h1>
-      <p class="lead">
-        안녕하세요, 오지우입니다. 대규모 언어 모델을 활용해
-        에이전트, 자동화, 서비스 등 여러 분야의 문제를 풀어가고 있습니다.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
-        <a class="btn btn-ghost" href="https://github.com/dhwld-n">GitHub</a>
+      <div class="profile">
+        <div class="avatar" aria-hidden="true">OJ</div>
+        <div class="profile-text">
+          <span class="profile-name">오지우</span>
+          <span class="profile-role">AI 전공 · 부산대</span>
+        </div>
       </div>
-    </section>
 
-    <section id="about">
-      <h2>소개</h2>
-      <p>
-        부산대학교 정보컴퓨터공학부 인공지능전공에 재학 중입니다 (2025.3 ~).
-        LLM을 코드·하드웨어·CI 같은 실제 엔지니어링 파이프라인에 연결하는 데
-        관심이 많습니다.
-      </p>
-      <p>
-        <code>agent_with_gpt</code> 프로젝트에서는 <code>git push</code> 한 번에
-        워크로드 특성을 분석해 테스트 보드를 고르고, 실행·회귀 판정·보고서 작성까지
-        이어지는 자동화 에이전트를 만들었습니다. "판단은 코드로 검증 가능하게,
-        서술은 LLM에게"라는 원칙 아래, 믿고 맡길 수 있는 에이전트를 설계하는
-        일을 하고 싶습니다.
-      </p>
-      <ul class="skill-list">
-        <li>LLM / OpenAI API</li>
-        <li>LLM Agent / Function Calling</li>
-        <li>Python</li>
-        <li>CI 자동화 (GitHub Actions)</li>
-        <li>Flask</li>
-        <li>Notion API</li>
-      </ul>
-    </section>
+      <nav class="nav">
+        <a href="#about" class="nav-item is-active"><span class="dot" aria-hidden="true"></span>소개</a>
+        <a href="#skills" class="nav-item"><span class="dot" aria-hidden="true"></span>기술 스택</a>
+        <a href="#projects" class="nav-item"><span class="dot" aria-hidden="true"></span>프로젝트</a>
+        <a href="#contact" class="nav-item"><span class="dot" aria-hidden="true"></span>연락처</a>
+      </nav>
 
-    <section id="projects">
-      <h2>프로젝트</h2>
-      <div class="card-grid">
-        <article class="card">
-          <h3>agent_with_gpt — 타겟 보드 자동화 에이전트</h3>
+      <div class="sidebar-foot">
+        <button id="theme-toggle" class="nav-item" type="button" aria-label="테마 전환">
+          <span class="theme-icon-light" aria-hidden="true">☀</span><span class="theme-icon-dark" aria-hidden="true">☾</span>
+          <span class="theme-label">테마</span>
+        </button>
+        <a href="https://github.com/dhwld-n" class="nav-item">GitHub</a>
+      </div>
+    </aside>
+
+    <!-- ===== Main ===== -->
+    <main class="main">
+      <header class="topbar">
+        <div class="hello">
+          <p class="hello-kicker">HELLO, I'M</p>
+          <h1>오지우 <span class="wave" aria-hidden="true">👋</span></h1>
+        </div>
+        <div class="topbar-chip">부산 · 2025</div>
+      </header>
+
+      <div class="grid">
+        <section class="card card--wide" id="about">
+          <h2>소개</h2>
           <p>
-            <code>git push</code>가 들어오면 LLM 에이전트가 커밋과 테스트 코드를 읽어
-            워크로드 특성을 분석하고, 유휴 테스트 보드 중 가장 적합한 것을 직접 골라
-            할당합니다. 정해진 규칙표가 아니라 하드웨어 특성에 대한 모델의 추론으로
-            판단하기 때문에, 새로운 보드 종류가 추가돼도 코드 수정이 필요 없습니다.
+            부산대학교 정보컴퓨터공학부 인공지능전공에 재학 중입니다 (2025.3 ~).
+            LLM을 코드·하드웨어·CI 같은 실제 엔지니어링 파이프라인에 연결하는 데
+            관심이 많습니다.
           </p>
           <p>
-            이후 SSH/시리얼 엔진으로 보드에 코드를 배포·실행하고, 에러가 나면
-            일시적 오류(flaky)인지 회귀 버그인지 LLM이 판정합니다. 결과는 Notion에
-            기록되고, 이전 대비 정확도가 기준 이상 떨어지면 파이프라인을 실패 처리해
-            병합을 막습니다. 자연어 챗봇·대시보드로 실험 기록 조회와 보고서(.docx)
-            생성도 가능합니다.
+            <code>agent_with_gpt</code> 프로젝트에서는 <code>git push</code> 한 번에
+            워크로드 특성을 분석해 테스트 보드를 고르고, 실행·회귀 판정·보고서 작성까지
+            이어지는 자동화 에이전트를 만들었습니다. "판단은 코드로 검증 가능하게,
+            서술은 LLM에게"라는 원칙 아래, 믿고 맡길 수 있는 에이전트를 설계하는
+            일을 하고 싶습니다.
           </p>
-          <p class="tags">Python · OpenAI API · GitHub Actions (self-hosted) · Notion API · SSH</p>
-          <div class="card-links">
-            <a href="https://github.com/dhwld-n/agent_with_gpt">GitHub</a>
+        </section>
+
+        <section class="card card--wide" id="projects">
+          <h2>프로젝트</h2>
+          <article class="project">
+            <div class="project-head">
+              <h3>agent_with_gpt</h3>
+              <span class="badge">비공개 저장소</span>
+            </div>
+            <p class="project-sub">LLM 기반 타겟 보드 테스트 자동화 파이프라인</p>
+            <p>
+              <code>git push</code>가 들어오면 LLM 에이전트가 커밋과 테스트 코드를 읽어
+              워크로드 특성을 분석하고, 유휴 테스트 보드 중 가장 적합한 것을 직접 골라
+              할당합니다. 정해진 규칙표가 아니라 하드웨어 특성에 대한 모델의 추론으로
+              판단하기 때문에, 새로운 보드 종류가 추가돼도 코드 수정이 필요 없습니다.
+            </p>
+            <p>
+              이후 SSH/시리얼 엔진으로 보드에 코드를 배포·실행하고, 에러가 나면
+              일시적 오류(flaky)인지 회귀 버그인지 LLM이 판정합니다. 결과는 Notion에
+              기록되고, 이전 대비 정확도가 기준 이상 떨어지면 파이프라인을 실패 처리해
+              병합을 막습니다. 자연어 챗봇·대시보드로 실험 기록 조회와 보고서(.docx)
+              생성도 가능합니다.
+            </p>
+            <p class="tags">Python · OpenAI API · GitHub Actions (self-hosted) · Notion API · SSH</p>
+          </article>
+        </section>
+
+        <section class="card" id="skills">
+          <h2>기술 스택</h2>
+          <ul class="chips">
+            <li>LLM / OpenAI API</li>
+            <li>LLM Agent / Function Calling</li>
+            <li>Python</li>
+            <li>CI 자동화 (GitHub Actions)</li>
+            <li>Flask</li>
+            <li>Notion API</li>
+          </ul>
+        </section>
+
+        <section class="card" id="contact">
+          <h2>연락처</h2>
+          <p>제안이나 협업 문의는 아래로 연락 주세요.</p>
+          <div class="contact-links">
+            <a href="mailto:ohjiwoo2023@naver.com">ohjiwoo2023@naver.com</a>
+            <a href="https://github.com/dhwld-n">GitHub</a>
           </div>
-        </article>
+        </section>
       </div>
-    </section>
+    </main>
 
-    <section id="contact">
-      <h2>연락처</h2>
-      <p>제안이나 협업 문의는 아래로 연락 주세요.</p>
-      <div class="contact-links">
-        <a href="mailto:ohjiwoo2023@naver.com">ohjiwoo2023@naver.com</a>
-        <a href="https://github.com/dhwld-n">GitHub</a>
+    <!-- ===== Right rail ===== -->
+    <aside class="rail">
+      <div class="rail-panel">
+        <h2>지금 집중하는 것</h2>
+
+        <figure class="donut-figure">
+          <svg class="donut" viewBox="0 0 140 140" role="img" aria-label="관심 비중: LLM 에이전트 50%, CI 자동화 30%, 온디바이스 추론 20%">
+            <g transform="rotate(-90 70 70)">
+              <circle class="donut-track" cx="70" cy="70" r="54" />
+              <circle class="donut-seg seg-1" cx="70" cy="70" r="54"
+                      stroke-dasharray="163.6 175.7" stroke-dashoffset="0" />
+              <circle class="donut-seg seg-2" cx="70" cy="70" r="54"
+                      stroke-dasharray="95.8 243.5" stroke-dashoffset="-169.6" />
+              <circle class="donut-seg seg-3" cx="70" cy="70" r="54"
+                      stroke-dasharray="61.9 277.4" stroke-dashoffset="-271.4" />
+            </g>
+          </svg>
+        </figure>
+
+        <ul class="legend">
+          <li><span class="swatch sw-1" aria-hidden="true"></span>LLM 에이전트<b>50%</b></li>
+          <li><span class="swatch sw-2" aria-hidden="true"></span>CI 자동화<b>30%</b></li>
+          <li><span class="swatch sw-3" aria-hidden="true"></span>온디바이스 추론<b>20%</b></li>
+        </ul>
+
+        <p class="rail-note">실제 워크플로를 판단·실행까지 자동화하는 에이전트를 만듭니다.</p>
+        <a class="rail-more" href="#projects">See more →</a>
       </div>
-    </section>
-  </main>
+
+      <div class="rail-card">
+        <h3>빠른 정보</h3>
+        <dl class="facts">
+          <div>
+            <dt>학력</dt>
+            <dd>부산대학교 정보컴퓨터공학부<br />인공지능전공 (2025.3 ~)</dd>
+          </div>
+          <div>
+            <dt>위치</dt>
+            <dd>부산, 대한민국</dd>
+          </div>
+          <div>
+            <dt>관심 분야</dt>
+            <dd>LLM 에이전트 · CI 자동화 · 온디바이스 추론</dd>
+          </div>
+        </dl>
+      </div>
+    </aside>
+  </div>
 
   <footer class="site-footer">
     <p>© <span id="year"></span> 오지우. Built with GitHub Pages.</p>
