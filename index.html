@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오지우 — 포트폴리오</title>
+  <meta name="description" content="LLM을 기반으로 다양한 분야에 도전하는 개발자, 오지우의 포트폴리오" />
+  <meta property="og:title" content="오지우 — 포트폴리오" />
+  <meta property="og:description" content="LLM을 기반으로 다양한 분야에 도전하는 개발자" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="#" class="logo">오지우</a>
+    <nav>
+      <a href="#about">소개</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#contact">연락처</a>
+    </nav>
+    <button id="theme-toggle" aria-label="테마 전환" title="테마 전환">
+      <span class="theme-icon-light">☀️</span>
+      <span class="theme-icon-dark">🌙</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Developer</p>
+      <h1><span class="accent">LLM</span>을 기반으로<br />다양한 분야에 도전하는 개발자</h1>
+      <p class="lead">
+        안녕하세요, 오지우입니다. 대규모 언어 모델을 활용해
+        에이전트, 자동화, 서비스 등 여러 분야의 문제를 풀어가고 있습니다.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
+        <a class="btn btn-ghost" href="https://github.com/dhwld-n">GitHub</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>소개</h2>
+      <p>
+        여기에 자기소개를 2~4문장으로 적으세요. 어떤 배경을 가지고 있고,
+        LLM으로 어떤 문제를 풀어왔으며, 앞으로 어떤 분야에 도전하고 싶은지
+        쓰면 좋습니다.
+      </p>
+      <ul class="skill-list">
+        <li>LLM / GPT API</li>
+        <li>Agent / Tool Use</li>
+        <li>Python</li>
+        <li>Prompt Engineering</li>
+        <li>RAG</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>프로젝트</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>agent_with_gpt</h3>
+          <p>GPT를 활용한 에이전트 프로젝트. (여기에 한두 문장으로 목적과 맡은 역할, 사용 기술을 설명하세요.)</p>
+          <p class="tags">Python · GPT API · Agent</p>
+          <div class="card-links">
+            <a href="https://github.com/dhwld-n/agent_with_gpt">GitHub</a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>프로젝트 추가</h3>
+          <p>새 프로젝트가 생기면 이 카드를 복사해서 채우면 됩니다.</p>
+          <p class="tags">기술 스택</p>
+          <div class="card-links">
+            <a href="https://github.com/dhwld-n">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>연락처</h2>
+      <p>제안이나 협업 문의는 아래로 연락 주세요.</p>
+      <div class="contact-links">
+        <a href="mailto:ohjiwoo2023@naver.com">ohjiwoo2023@naver.com</a>
+        <a href="https://github.com/dhwld-n">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> 오지우. Built with GitHub Pages.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
