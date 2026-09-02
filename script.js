@@ -69,6 +69,9 @@ const PROJECTS = {
     principle:
       '"판단은 코드로 검증 가능하게, 서술은 LLM에게." 정답이 정해진 판단은 파이썬이 결정론적으로 ' +
       "계산하고, LLM은 그 결과를 설명하거나 사람이 읽을 문장을 씁니다.",
+    links: [
+      { label: "agent_with_gpt", href: "https://github.com/dhwld-n/agent_with_gpt" },
+    ],
   },
 };
 
@@ -94,6 +97,12 @@ const PROJECTS = {
       .join("");
     const work = p.work.map((w) => `<li>${esc(w)}</li>`).join("");
     const stack = p.stack.map((s) => `<li>${esc(s)}</li>`).join("");
+    const links = (p.links || [])
+      .map(
+        (l) =>
+          `<a href="${esc(l.href)}" target="_blank" rel="noopener noreferrer">${esc(l.label)} ↗</a>`
+      )
+      .join("");
 
     body.innerHTML = `
       <div class="modal-head">
@@ -112,6 +121,7 @@ const PROJECTS = {
       <h4>기술 스택</h4>
       <ul class="chips">${stack}</ul>
       ${p.principle ? `<div class="modal-principle">${esc(p.principle)}</div>` : ""}
+      ${links ? `<div class="modal-links">${links}</div>` : ""}
     `;
   }
 

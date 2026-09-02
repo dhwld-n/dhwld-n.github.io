@@ -485,6 +485,30 @@ code {
   line-height: 1.6;
 }
 
+.modal-links {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.modal-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 8px 13px;
+  transition: transform 0.12s ease;
+}
+.modal-links a:hover { transform: translateY(-1px); }
+
 @keyframes modal-fade { from { opacity: 0; } }
 @keyframes modal-rise { from { opacity: 0; transform: translateY(12px); } }
 
