@@ -46,9 +46,8 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const PROJECTS = {
   agent_with_gpt: {
     icon: "🤖",
-    title: "agent_with_gpt",
+    title: "LLM 기반 타겟 보드 테스트 자동화 파이프라인",
     badge: "비공개 저장소",
-    tagline: "LLM 기반 타겟 보드 테스트 자동화 파이프라인",
     meta: [
       ["유형", "감바랩스(Gamba Labs) 인턴십 프로젝트"],
       ["기간", "2026.07.28 ~ 2026.08.07"],
@@ -104,7 +103,7 @@ const PROJECTS = {
           ${p.badge ? `<span class="badge">${esc(p.badge)}</span>` : ""}
         </div>
       </div>
-      <p class="modal-tagline">${esc(p.tagline)}</p>
+      ${p.tagline ? `<p class="modal-tagline">${esc(p.tagline)}</p>` : ""}
       <dl class="modal-meta">${meta}</dl>
       <h4>프로젝트 개요</h4>
       <p>${esc(p.overview)}</p>
