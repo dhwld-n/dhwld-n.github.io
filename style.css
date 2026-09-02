@@ -36,6 +36,15 @@ body {
 
 a { color: inherit; }
 
+code {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
 /* Header */
 .site-header {
   position: sticky;
