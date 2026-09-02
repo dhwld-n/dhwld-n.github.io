@@ -47,7 +47,6 @@ const PROJECTS = {
   agent_with_gpt: {
     icon: "🤖",
     title: "LLM 기반 타겟 보드 테스트 자동화 파이프라인",
-    badge: "비공개 저장소",
     meta: [
       ["유형", "감바랩스(Gamba Labs) 인턴십 프로젝트"],
       ["기간", "2026.07.28 ~ 2026.08.07"],
