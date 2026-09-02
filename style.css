@@ -508,6 +508,13 @@ code {
   transition: transform 0.12s ease;
 }
 .modal-links a:hover { transform: translateY(-1px); }
+.modal-links a.is-primary {
+  font-family: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
 
 @keyframes modal-fade { from { opacity: 0; } }
 @keyframes modal-rise { from { opacity: 0; transform: translateY(12px); } }

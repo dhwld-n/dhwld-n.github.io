@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>agent_with_gpt — 데모 · 오지우</title>
+  <meta name="description" content="LLM 기반 타겟 보드 테스트 자동화 파이프라인 — 에이전트가 워크로드를 분석해 테스트 보드를 고르는 과정 데모" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260903b" />
+  <style>
+    .demo-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: clamp(16px, 4vw, 40px) clamp(16px, 4vw, 28px) 60px;
+    }
+    .demo-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+    }
+    .back-link:hover { color: var(--accent-deep); }
+    #theme-toggle {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      width: 36px; height: 36px;
+      display: grid; place-items: center;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+    .theme-icon-dark { display: none; }
+    :root[data-theme="dark"] .theme-icon-light { display: none; }
+    :root[data-theme="dark"] .theme-icon-dark { display: inline; }
+
+    .demo-hero h1 {
+      font-family: "Quicksand", sans-serif;
+      font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .demo-kicker {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .demo-hero > p { color: var(--ink-soft); font-size: 0.96rem; max-width: 62ch; }
+    .demo-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .demo-meta span {
+      background: var(--card-tint);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+
+    .demo-section { margin-top: 44px; }
+    .demo-section > h2 {
+      font-family: "Quicksand", sans-serif;
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+    }
+    .demo-section > p { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 10px; }
+
+    /* pipeline strip */
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: stretch;
+    }
+    .flow-step {
+      flex: 1 1 120px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 12px 13px;
+      box-shadow: var(--shadow-sm);
+    }
+    .flow-step b { display: block; font-size: 0.82rem; margin-bottom: 3px; }
+    .flow-step span { font-size: 0.74rem; color: var(--ink-mute); line-height: 1.45; }
+    .flow-step.is-focus { border-color: var(--accent); }
+
+    .principle {
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+    .principle b { color: var(--ink); }
+
+    /* ---- interactive demo ---- */
+    .demo-note {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--accent-deep);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 4px 11px;
+      margin-bottom: 14px;
+    }
+    .scenario-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .scenario-tab {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--ink-soft);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .scenario-tab:hover { border-color: var(--accent); }
+    .scenario-tab.is-active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .demo-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: clamp(16px, 3vw, 22px);
+      box-shadow: var(--shadow-sm);
+    }
+    .input-block { margin-bottom: 14px; }
+    .input-block .label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      margin-bottom: 5px;
+    }
+    .input-block .val { font-size: 0.86rem; color: var(--ink-soft); }
+    pre.code {
+      background: var(--card-tint);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 12px 14px;
+      overflow-x: auto;
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 0.78rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+    .run-btn {
+      margin-top: 16px;
+      width: 100%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-sm);
+      padding: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform 0.12s ease, opacity 0.15s ease;
+    }
+    .run-btn:hover { transform: translateY(-1px); }
+    .run-btn:disabled { opacity: 0.55; cursor: default; transform: none; }
+
+    .agent-log { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+    .log-step {
+      display: flex;
+      gap: 11px;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .log-step.show { opacity: 1; transform: none; }
+    .log-dot {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      display: grid; place-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .log-body { font-size: 0.87rem; color: var(--ink-soft); line-height: 1.6; }
+    .log-body b { color: var(--ink); }
+    .log-body .tool {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      background: var(--card-tint);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 1px 6px;
+      color: var(--accent-deep);
+    }
+    .analysis-list { margin: 6px 0 0; padding-left: 16px; }
+    .analysis-list li { margin-bottom: 3px; }
+
+    .boards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+    .board {
+      background: var(--card-tint);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 12px;
+      text-align: center;
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+    }
+    .board b { display: block; font-size: 0.84rem; }
+    .board span { font-size: 0.72rem; color: var(--ink-mute); }
+    .board.chosen {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+    .board.chosen b { color: var(--accent-deep); }
+
+    .assignment {
+      margin-top: 14px;
+      border: 1px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: var(--r-sm);
+      padding: 14px 16px;
+      font-size: 0.87rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+    .assignment b { color: var(--ink); }
+
+    .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .mini-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+    .mini-card h3 { font-size: 0.92rem; margin-bottom: 6px; }
+    .mini-card p { font-size: 0.84rem; color: var(--ink-soft); line-height: 1.55; }
+
+    .repo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent-deep);
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 8px 13px;
+    }
+
+    @media (max-width: 560px) {
+      .boards { grid-template-columns: 1fr; }
+      .mini-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .log-step { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-wrap">
+    <div class="demo-top">
+      <a class="back-link" href="/">← 포트폴리오</a>
+      <button id="theme-toggle" type="button" aria-label="테마 전환">
+        <span class="theme-icon-light" aria-hidden="true">☀</span><span class="theme-icon-dark" aria-hidden="true">☾</span>
+      </button>
+    </div>
+
+    <header class="demo-hero">
+      <p class="demo-kicker">PROJECT DEMO</p>
+      <h1>LLM 기반 타겟 보드 테스트 자동화 파이프라인</h1>
+      <p>
+        머신러닝 추론 워크로드를 여러 종류의 타겟 보드에서 테스트하는 과정을
+        <code>git push</code> 한 번으로 자동화합니다. 그중 <b>에이전트가 워크로드를
+        분석해 테스트 보드를 고르는 단계</b>를 아래에서 직접 실행해 볼 수 있습니다.
+      </p>
+      <div class="demo-meta">
+        <span>감바랩스(Gamba Labs) 인턴십</span>
+        <span>2026.07 – 08</span>
+        <span>Python · LLM · GitHub Actions</span>
+      </div>
+    </header>
+
+    <section class="demo-section">
+      <h2>파이프라인</h2>
+      <p><code>.github/workflows/test.yml</code> — <code>on: push</code>, self-hosted 러너에서 실행.</p>
+      <div class="flow">
+        <div class="flow-step is-focus">
+          <b>1 · 보드 선택</b>
+          <span>LLM이 커밋·테스트 코드를 읽고 워크로드를 분석해 유휴 보드 중 적합한 것을 선택</span>
+        </div>
+        <div class="flow-step">
+          <b>2 · 배포·실행</b>
+          <span>연결 방식(SSH·시리얼·로컬)별 엔진으로 보드에 코드를 올려 테스트 실행</span>
+        </div>
+        <div class="flow-step">
+          <b>3 · 회귀 판정</b>
+          <span>정확도가 기준 이상 떨어지면 파이프라인 실패 처리 → 병합 차단</span>
+        </div>
+        <div class="flow-step">
+          <b>4 · 기록·알림</b>
+          <span>결과를 Notion에 기록, Teams로 알림</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>핵심 원칙</h2>
+      <div class="principle">
+        <b>"판단은 코드로 검증 가능하게, 서술은 LLM에게."</b> 정답이 정해진 판단(회귀 여부,
+        하이퍼파라미터 범위 초과 등)은 파이썬이 결정론적으로 계산하고, LLM은 그 결과를
+        설명하거나 사람이 읽을 문장을 씁니다. 예외는 두 가지 — <b>보드 선택</b>(하드웨어
+        특성 추론이 필요)과 <b>코드 리뷰</b>(주관적 판단).
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>데모 · 에이전트가 보드를 고르는 과정</h2>
+      <p class="demo-note">응답은 미리 준비한 예시입니다 (실제 <code>assign_board.py</code>의 프롬프트·출력 형식 기준)</p>
+
+      <div class="scenario-tabs" id="scenario-tabs"></div>
+
+      <div class="demo-panel">
+        <div class="input-block">
+          <div class="label">커밋 메시지</div>
+          <div class="val" id="in-commit"></div>
+        </div>
+        <div class="input-block">
+          <div class="label">변경된 파일</div>
+          <div class="val" id="in-files"></div>
+        </div>
+        <div class="input-block">
+          <div class="label">inference_test.py (발췌)</div>
+          <pre class="code" id="in-code"></pre>
+        </div>
+
+        <button class="run-btn" id="run-btn" type="button">에이전트 실행 ▸</button>
+
+        <div class="agent-log" id="agent-log"></div>
+      </div>
+    </section>
+
+    <section class="demo-section">
+      <h2>그 밖에</h2>
+      <div class="mini-grid">
+        <div class="mini-card">
+          <h3>성능 회귀 게이트</h3>
+          <p>직전 실행 대비 정확도가 기준(8%p) 이상 떨어지면 파이프라인을 <code>exit 1</code>로
+             실패시켜 병합을 차단합니다. 회귀가 잡히면 LLM이 원인 코드를 자동 진단하고
+             과거 회귀와 패턴을 비교합니다.</p>
+        </div>
+        <div class="mini-card">
+          <h3>자연어 인터페이스</h3>
+          <p>"이번 주 정확도 제일 높았던 조합이 뭐야?" 같은 질문에 답하고, <code>.docx</code>
+             보고서도 자연어로 생성합니다. 수치·통계는 코드가 계산하고 LLM은 서술만 담당합니다.</p>
+        </div>
+        <div class="mini-card">
+          <h3>엔진 분리</h3>
+          <p>보드 연결 방식별로 실행 엔진을 동일 인터페이스로 통일. 새 보드 타입 추가 =
+             엔진 파일 하나 + 매핑 한 줄.</p>
+        </div>
+        <div class="mini-card">
+          <h3>LLM 추상화</h3>
+          <p>모든 모델 호출을 단일 모듈로 통일. 환경변수 두 개(<code>LLM_BASE_URL</code>,
+             <code>LLM_MODEL_NAME</code>)로 Gemini·로컬 모델 등으로 교체 가능.</p>
+        </div>
+      </div>
+      <p style="margin-top:16px">
+        <a class="repo-link" href="https://github.com/dhwld-n/agent_with_gpt" target="_blank" rel="noopener noreferrer">agent_with_gpt ↗</a>
+      </p>
+    </section>
+  </div>
+
+  <script>
+    // ===== theme =====
+    (function () {
+      var root = document.documentElement;
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      root.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      document.getElementById("theme-toggle").addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
+      });
+    })();
+
+    // ===== demo data =====
+    var BOARDS = [
+      { id: "board-1", type: "RaspberryPi", note: "범용 ARM CPU" },
+      { id: "board-2", type: "Arduino", note: "저전력 MCU" },
+      { id: "board-3", type: "NPU", note: "추론 가속기" },
+    ];
+
+    var SCENARIOS = [
+      {
+        tab: "가벼운 MLP 학습·추론",
+        commit: "inference_test: 합성 분류 데이터셋으로 epoch 단위 학습 (은닉층 64,64)",
+        files: "inference_test.py",
+        code:
+          "X, y = make_classification(n_samples=2000, n_features=20, n_classes=4)\n" +
+          "model = MLPClassifier(hidden_layer_sizes=(64, 64), warm_start=True, max_iter=1)\n" +
+          "for epoch in range(1, 31):\n" +
+          "    model.partial_fit(X_train, y_train, classes=classes)\n" +
+          "preds = model.predict(X_test)   # 학습 후 추론",
+        analysis: [
+          "연산량: 가벼움 — 2,000샘플 × 20특징, 은닉층 64-64, 30 epoch",
+          "학습 여부: partial_fit으로 실제 학습을 진행한 뒤 추론",
+          "실시간성: 배치 처리, 지연 여유 있음",
+          "입력: 20차원 수치 벡터 — 행렬 연산량이 적어 전용 가속기 이득 작음",
+        ],
+        chosen: "board-1",
+        reason:
+          "이 워크로드는 합성 데이터 기반의 소규모 MLP를 30 epoch 학습한 뒤 추론까지 하는, " +
+          "연산량이 가벼운 배치 작업입니다. 입력이 저차원 수치 벡터라 행렬 연산량이 적어 NPU의 " +
+          "가속 이득이 크지 않고, 학습(fit)이 포함돼 있어 추론 전용 가속기보다 범용 CPU가 유연합니다. " +
+          "Arduino는 이 정도 학습을 돌리기엔 메모리·연산이 부족합니다. 따라서 범용 ARM CPU에서 " +
+          "학습·추론을 모두 안정적으로 처리할 수 있는 board-1(RaspberryPi)에 할당합니다.",
+      },
+      {
+        tab: "무거운 CNN 이미지 추론",
+        commit: "inference_test: MobileNetV2 사전학습 가중치로 이미지 추론 (224x224)",
+        files: "inference_test.py",
+        code:
+          "RESOLUTION = 224\n" +
+          "model = load_pretrained('mobilen_v2.onnx')   # 사전학습 가중치\n" +
+          "for frame in stream:                          # 학습 없음, 추론만 반복\n" +
+          "    x = preprocess(frame, RESOLUTION)\n" +
+          "    logits = model.run(x)",
+        analysis: [
+          "연산량: 무거움 — 합성곱 다수, 224×224 입력",
+          "학습 여부: 사전학습 가중치로 추론만 반복 (on-device inference)",
+          "실시간성: 프레임 단위 처리, 지연에 민감",
+          "입력: 이미지 — 합성곱은 행렬 연산 집약적, 전용 가속기에서 큰 이득",
+        ],
+        chosen: "board-3",
+        reason:
+          "사전학습된 CNN 가중치로 224×224 이미지를 반복 추론하는, 합성곱 연산이 지배적인 " +
+          "워크로드입니다. 학습이 없고 추론만 반복하며 프레임 지연에 민감합니다. 합성곱은 행렬 " +
+          "연산 집약적이라 전용 추론 가속기에서 큰 이득을 보고, RaspberryPi CPU만으로는 실시간 " +
+          "처리가 버겁습니다. Arduino는 이 모델을 올릴 수 없습니다. 따라서 추론 가속기가 있는 " +
+          "board-3(NPU)에 할당합니다.",
+      },
+      {
+        tab: "초경량 센서 임계값 로직",
+        commit: "inference_test: 가속도계 3축 임계값 기반 낙상 감지 (정수 연산)",
+        files: "inference_test.py",
+        code:
+          "while True:\n" +
+          "    ax, ay, az = read_accel()          # 시리얼 센서\n" +
+          "    magnitude = ax*ax + ay*ay + az*az   # 정수 연산\n" +
+          "    if magnitude > FALL_THRESHOLD:\n" +
+          "        report('fall')",
+        analysis: [
+          "연산량: 매우 가벼움 — 정수 비교, 별도 모델 없음",
+          "학습 여부: 없음",
+          "실시간성: 이벤트 감지, 연산 자체는 사소",
+          "입력: 시리얼 센서 스트림 — 저전력·상시 구동이 중요",
+        ],
+        chosen: "board-2",
+        reason:
+          "3축 가속도계 값의 크기를 임계값과 비교하는 정수 연산 중심의 초경량 로직으로, 학습도 " +
+          "없고 부동소수 연산도 최소화돼 있습니다. RaspberryPi나 NPU는 이 정도 작업엔 과합니다. " +
+          "센서가 시리얼로 직결되고 저전력·상시 구동이 중요하므로, 저전력 MCU인 " +
+          "board-2(Arduino)에 할당합니다.",
+      },
+    ];
+
+    var tabsEl = document.getElementById("scenario-tabs");
+    var logEl = document.getElementById("agent-log");
+    var runBtn = document.getElementById("run-btn");
+    var current = 0;
+    var running = false;
+
+    SCENARIOS.forEach(function (s, i) {
+      var b = document.createElement("button");
+      b.className = "scenario-tab" + (i === 0 ? " is-active" : "");
+      b.textContent = s.tab;
+      b.type = "button";
+      b.addEventListener("click", function () {
+        if (running) return;
+        current = i;
+        [].forEach.call(tabsEl.children, function (c, ci) {
+          c.classList.toggle("is-active", ci === i);
+        });
+        loadScenario(i);
+      });
+      tabsEl.appendChild(b);
+    });
+
+    function loadScenario(i) {
+      var s = SCENARIOS[i];
+      document.getElementById("in-commit").textContent = s.commit;
+      document.getElementById("in-files").textContent = s.files;
+      document.getElementById("in-code").textContent = s.code;
+      logEl.innerHTML = "";
+      runBtn.disabled = false;
+      runBtn.textContent = "에이전트 실행 ▸";
+    }
+
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function wait(ms) { return new Promise(function (r) { setTimeout(r, reduce ? 0 : ms); }); }
+
+    function addStep(n, html) {
+      var step = document.createElement("div");
+      step.className = "log-step";
+      step.innerHTML =
+        '<div class="log-dot">' + n + '</div><div class="log-body">' + html + "</div>";
+      logEl.appendChild(step);
+      requestAnimationFrame(function () { step.classList.add("show"); });
+      return step;
+    }
+
+    async function run() {
+      if (running) return;
+      running = true;
+      runBtn.disabled = true;
+      runBtn.textContent = "실행 중…";
+      logEl.innerHTML = "";
+      var s = SCENARIOS[current];
+
+      addStep(1, "<b>커밋·변경 파일·테스트 코드를 읽습니다.</b>");
+      await wait(650);
+
+      addStep(
+        2,
+        "<b>워크로드 특성 분석</b><ul class='analysis-list'>" +
+          s.analysis.map(function (a) { return "<li>" + a + "</li>"; }).join("") +
+          "</ul>"
+      );
+      await wait(900);
+
+      addStep(
+        3,
+        "<span class='tool'>get_idle_boards()</span> 호출 → " +
+          BOARDS.map(function (b) { return b.id + "(" + b.type + ")"; }).join(", ")
+      );
+      await wait(750);
+
+      var boardsWrap = document.createElement("div");
+      boardsWrap.className = "boards";
+      boardsWrap.innerHTML = BOARDS.map(function (b) {
+        return "<div class='board' data-id='" + b.id + "'><b>" + b.id +
+          "</b><span>" + b.type + " · " + b.note + "</span></div>";
+      }).join("");
+      logEl.appendChild(boardsWrap);
+      await wait(600);
+
+      addStep(
+        4,
+        "<span class='tool'>assign_board(\"" + s.chosen + "\", reason)</span> 호출 — 유휴 보드 중 워크로드에 가장 맞는 보드를 선택"
+      );
+      await wait(500);
+
+      var chosenCard = boardsWrap.querySelector("[data-id='" + s.chosen + "']");
+      if (chosenCard) chosenCard.classList.add("chosen");
+      await wait(400);
+
+      var a = document.createElement("div");
+      a.className = "assignment";
+      a.innerHTML = "<b>→ " + s.chosen + " 에 할당</b><br />" + s.reason;
+      logEl.appendChild(a);
+
+      runBtn.textContent = "다시 실행 ▸";
+      runBtn.disabled = false;
+      running = false;
+    }
+
+    runBtn.addEventListener("click", run);
+    loadScenario(0);
+  </script>
+</body>
+</html>

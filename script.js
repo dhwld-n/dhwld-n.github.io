@@ -69,6 +69,7 @@ const PROJECTS = {
       '"판단은 코드로 검증 가능하게, 서술은 LLM에게." 정답이 정해진 판단은 파이썬이 결정론적으로 ' +
       "계산하고, LLM은 그 결과를 설명하거나 사람이 읽을 문장을 씁니다.",
     links: [
+      { label: "▶ 데모 열기", href: "agent_with_gpt.html", primary: true },
       { label: "agent_with_gpt", href: "https://github.com/dhwld-n/agent_with_gpt" },
     ],
   },
@@ -97,10 +98,12 @@ const PROJECTS = {
     const work = p.work.map((w) => `<li>${esc(w)}</li>`).join("");
     const stack = p.stack.map((s) => `<li>${esc(s)}</li>`).join("");
     const links = (p.links || [])
-      .map(
-        (l) =>
-          `<a href="${esc(l.href)}" target="_blank" rel="noopener noreferrer">${esc(l.label)} ↗</a>`
-      )
+      .map((l) => {
+        const ext = /^https?:/.test(l.href);
+        const attrs = ext ? ' target="_blank" rel="noopener noreferrer"' : "";
+        const cls = l.primary ? ' class="is-primary"' : "";
+        return `<a href="${esc(l.href)}"${attrs}${cls}>${esc(l.label)}${ext ? " ↗" : ""}</a>`;
+      })
       .join("");
 
     body.innerHTML = `
