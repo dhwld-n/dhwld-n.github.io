@@ -188,7 +188,7 @@ code {
 .wave { font-family: "Inter", sans-serif; }
 .topbar-avatar {
   flex-shrink: 0;
-  height: 84px;
+  height: 140px;
   width: auto;
 }
 .topbar-chip {
