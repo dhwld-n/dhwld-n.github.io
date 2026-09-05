@@ -19,26 +19,15 @@
 // ===== 푸터 연도 =====
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// ===== 스크롤에 따라 사이드바 현재 항목 표시 =====
+// ===== 클릭한 메뉴만 활성 표시 (처음엔 아무것도 선택 안 됨) =====
 (function () {
   const links = Array.from(document.querySelectorAll('.nav-item[href^="#"]'));
-  const sections = links
-    .map((l) => document.querySelector(l.getAttribute("href")))
-    .filter(Boolean);
-  if (!("IntersectionObserver" in window) || !sections.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        links.forEach((l) =>
-          l.classList.toggle("is-active", l.getAttribute("href") === "#" + entry.target.id)
-        );
-      });
-    },
-    { rootMargin: "-45% 0px -50% 0px" }
-  );
-  sections.forEach((s) => observer.observe(s));
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      links.forEach((l) => l.classList.remove("is-active"));
+      link.classList.add("is-active");
+    });
+  });
 })();
 
 // ===== 프로젝트 상세 =====
