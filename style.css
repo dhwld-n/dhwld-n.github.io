@@ -201,17 +201,36 @@ code {
 }
 .theme-toggle-btn:hover { border-color: var(--accent); color: var(--accent-deep); }
 .speech-bubble h1 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cartoon-line {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  width: fit-content;
   font-size: clamp(1.3rem, 2.6vw, 1.7rem);
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.3;
   color: var(--ink);
-  -webkit-text-stroke: 8px var(--accent);
-  paint-order: stroke fill;
 }
-.speech-name {
-  font-size: 1.2em;
-  font-weight: 700;
-  color: var(--ink);
+.cartoon-line::before,
+.cartoon-line::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  white-space: nowrap;
+}
+.cartoon-line::before {
+  -webkit-text-stroke: 13px var(--accent);
+  color: var(--accent);
+}
+.cartoon-line::after {
+  -webkit-text-stroke: 7px var(--card);
+  color: var(--card);
 }
 .topbar-avatar {
   flex-shrink: 0;
