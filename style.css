@@ -203,7 +203,7 @@ code {
 .speech-bubble {
   position: relative;
   background: var(--card);
-  border: 1px solid var(--border);
+  border: 2px solid var(--accent);
   border-radius: var(--r-md);
   padding: 10px 16px;
   box-shadow: var(--shadow-sm);
@@ -217,8 +217,8 @@ code {
   width: 16px;
   height: 16px;
   background: var(--card);
-  border-left: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
   border-radius: 0 0 0 3px;
 }
 .speech-bubble h1 {
