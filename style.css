@@ -203,7 +203,7 @@ code {
 .speech-bubble {
   position: relative;
   background: var(--card);
-  border: 2px solid var(--accent);
+  border: 3px solid var(--accent);
   border-radius: var(--r-md);
   padding: 10px 16px;
   box-shadow: var(--shadow-sm);
@@ -211,14 +211,14 @@ code {
 .speech-bubble::before {
   content: "";
   position: absolute;
-  left: -9px;
+  left: -10px;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
   width: 16px;
   height: 16px;
   background: var(--card);
-  border-left: 2px solid var(--accent);
-  border-bottom: 2px solid var(--accent);
+  border-left: 3px solid var(--accent);
+  border-bottom: 3px solid var(--accent);
   border-radius: 0 0 0 3px;
 }
 .speech-bubble h1 {
