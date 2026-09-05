@@ -184,7 +184,7 @@ code {
 }
 .theme-toggle-btn {
   flex-shrink: 0;
-  align-self: flex-end;
+  align-self: flex-start;
   display: flex;
   align-items: center;
   gap: 6px;
