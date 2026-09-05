@@ -200,41 +200,37 @@ code {
   box-shadow: var(--shadow-sm);
 }
 .theme-toggle-btn:hover { border-color: var(--accent); color: var(--accent-deep); }
+.speech-bubble {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 10px 16px;
+  box-shadow: var(--shadow-sm);
+}
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 16px;
+  height: 16px;
+  background: var(--card);
+  border-left: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0 0 0 3px;
+}
 .speech-bubble h1 {
-  line-height: 0;
+  font-size: clamp(0.9rem, 1.7vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ink-soft);
 }
-.cartoon-svg {
-  width: 300px;
-  height: auto;
-  overflow: visible;
-}
-.cartoon-svg text {
-  font-family: "Quicksand", sans-serif;
+.speech-name {
+  font-size: 1.2em;
   font-weight: 700;
-  font-size: 26px;
-}
-.cartoon-svg text.cartoon-big { font-size: 32px; }
-.cartoon-stroke-outer {
-  stroke: var(--accent);
-  stroke-width: 11px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  fill: var(--accent);
-}
-.cartoon-stroke-inner {
-  stroke: var(--card);
-  stroke-width: 5px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  fill: var(--card);
-}
-.cartoon-fill { fill: var(--ink); }
-.cartoon-tail {
-  fill: var(--card);
-  stroke: var(--accent);
-  stroke-width: 7px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
+  color: var(--ink);
 }
 .topbar-avatar {
   flex-shrink: 0;
