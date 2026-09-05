@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "OkDandan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2508-2@1.0/OkDanDan-Bold.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* light — soft periwinkle dashboard */
   --page: #c9d6f2;
@@ -139,6 +147,7 @@ code {
   gap: 11px;
   padding: 11px 13px;
   border-radius: var(--r-sm);
+  font-family: "OkDandan", "Quicksand", sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--ink-soft);
@@ -146,7 +155,6 @@ code {
   background: transparent;
   cursor: pointer;
   width: 100%;
-  font-family: inherit;
   transition: background 0.15s ease, color 0.15s ease;
 }
 .nav-item .dot {
