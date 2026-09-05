@@ -522,25 +522,6 @@ code {
 .modal-meta-row dt { flex-shrink: 0; width: 80px; color: var(--ink-mute); font-weight: 600; }
 .modal-meta-row dd { color: var(--ink-soft); }
 
-.modal-result {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 14px 16px;
-  background: var(--accent-soft);
-  border-radius: var(--r-sm);
-  margin-bottom: 20px;
-}
-.modal-result-icon { font-size: 1.4rem; line-height: 1; margin-top: 2px; }
-.modal-result-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--accent-deep);
-  margin-bottom: 4px;
-}
-.modal-result-text { font-weight: 600; color: var(--ink); line-height: 1.5; }
-
 .modal-body h4 {
   font-size: 0.9rem;
   font-weight: 700;

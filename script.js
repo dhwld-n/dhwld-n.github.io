@@ -40,9 +40,8 @@ const PROJECTS = {
       ["개발 기간", "2026.07.28 ~ 2026.08.07 (2주, 감바랩스 인턴십)"],
       ["인원 구성", "1인 개발 (설계·구현·문서화 전담)"],
       ["본인 역할", "문제 정의부터 시나리오 설계, 구현, 빌드, 최종 보고서 & 인수인계 문서 작성까지 전 과정을 단독으로 수행"],
+      ["결과 및 성과", "2주 인턴십 과제 완수 — LLM 기반 보드 자동 할당 파이프라인 구현 및 최종 보고서 · 인수인계 문서 납품"],
     ],
-    result:
-      "2주 인턴십 과제 완수 — LLM 기반 보드 자동 할당 파이프라인 구현 및 최종 보고서 · 인수인계 문서 납품",
     overview:
       "머신러닝 추론 워크로드를 여러 종류의 타겟 보드(RaspberryPi·Arduino·NPU 등)에서 " +
       "테스트하는 과정을 git push 한 번으로 자동화하는 CI 파이프라인입니다. 보드 선택 · 배포 · " +
@@ -104,14 +103,6 @@ const PROJECTS = {
       </div>
       ${p.tagline ? `<p class="modal-tagline">${esc(p.tagline)}</p>` : ""}
       <dl class="modal-meta">${meta}</dl>
-      ${p.result ? `
-      <div class="modal-result">
-        <span class="modal-result-icon" aria-hidden="true">🏆</span>
-        <div>
-          <p class="modal-result-label">결과 및 성과</p>
-          <p class="modal-result-text">${esc(p.result)}</p>
-        </div>
-      </div>` : ""}
       <h4>프로젝트 개요</h4>
       <p>${esc(p.overview)}</p>
       <h4>수행 내용</h4>
