@@ -5,6 +5,13 @@
   font-style: normal;
   font-display: optional;
 }
+@font-face {
+  font-family: "MitmiFont";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: optional;
+}
 
 :root {
   /* light — soft periwinkle dashboard */
@@ -67,7 +74,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--page);
   color: var(--ink);
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-family: "MitmiFont", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   padding: clamp(0px, 3vw, 32px);
