@@ -192,7 +192,7 @@ code {
 .wave { font-family: "Inter", sans-serif; }
 .topbar-avatar {
   flex-shrink: 0;
-  height: 150px;
+  height: 145px;
   width: auto;
 }
 .topbar-chip {
