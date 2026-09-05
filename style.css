@@ -201,36 +201,40 @@ code {
 }
 .theme-toggle-btn:hover { border-color: var(--accent); color: var(--accent-deep); }
 .speech-bubble h1 {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  line-height: 0;
 }
-.cartoon-line {
-  position: relative;
-  z-index: 0;
-  display: inline-block;
-  width: fit-content;
-  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+.cartoon-svg {
+  width: 300px;
+  height: auto;
+  overflow: visible;
+}
+.cartoon-svg text {
+  font-family: "Quicksand", sans-serif;
   font-weight: 700;
-  line-height: 1.3;
-  color: var(--ink);
+  font-size: 26px;
 }
-.cartoon-line::before,
-.cartoon-line::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  white-space: nowrap;
+.cartoon-svg text.cartoon-big { font-size: 32px; }
+.cartoon-stroke-outer {
+  stroke: var(--accent);
+  stroke-width: 11px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: var(--accent);
 }
-.cartoon-line::before {
-  -webkit-text-stroke: 6px var(--accent);
-  color: var(--accent);
+.cartoon-stroke-inner {
+  stroke: var(--card);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: var(--card);
 }
-.cartoon-line::after {
-  -webkit-text-stroke: 3px var(--card);
-  color: var(--card);
+.cartoon-fill { fill: var(--ink); }
+.cartoon-tail {
+  fill: var(--card);
+  stroke: var(--accent);
+  stroke-width: 7px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 .topbar-avatar {
   flex-shrink: 0;
