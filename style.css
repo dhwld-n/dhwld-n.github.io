@@ -200,31 +200,13 @@ code {
   box-shadow: var(--shadow-sm);
 }
 .theme-toggle-btn:hover { border-color: var(--accent); color: var(--accent-deep); }
-.speech-bubble {
-  position: relative;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: 10px 16px;
-  box-shadow: var(--shadow-sm);
-}
-.speech-bubble::before {
-  content: "";
-  position: absolute;
-  left: -9px;
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
-  width: 16px;
-  height: 16px;
-  background: var(--card);
-  border-left: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  border-radius: 0 0 0 3px;
-}
 .speech-bubble h1 {
-  font-size: clamp(0.9rem, 1.7vw, 1.05rem);
-  font-weight: 600;
-  color: var(--ink-soft);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink);
+  -webkit-text-stroke: 8px var(--accent);
+  paint-order: stroke fill;
 }
 .speech-name {
   font-size: 1.2em;
