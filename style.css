@@ -177,6 +177,10 @@ code {
   gap: 18px;
   margin-bottom: 26px;
 }
+.hello {
+  position: relative;
+  top: 26px;
+}
 .hello-kicker {
   font-size: 0.8rem;
   font-weight: 600;
