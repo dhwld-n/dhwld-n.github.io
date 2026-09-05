@@ -225,11 +225,11 @@ code {
   white-space: nowrap;
 }
 .cartoon-line::before {
-  -webkit-text-stroke: 13px var(--accent);
+  -webkit-text-stroke: 6px var(--accent);
   color: var(--accent);
 }
 .cartoon-line::after {
-  -webkit-text-stroke: 7px var(--card);
+  -webkit-text-stroke: 3px var(--card);
   color: var(--card);
 }
 .topbar-avatar {
