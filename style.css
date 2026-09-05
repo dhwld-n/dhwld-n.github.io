@@ -214,6 +214,9 @@ code {
   height: 145px;
   width: auto;
 }
+.avatar-dark { display: none; }
+:root[data-theme="dark"] .avatar-light { display: none; }
+:root[data-theme="dark"] .avatar-dark { display: block; }
 .topbar-chip {
   flex-shrink: 0;
   background: var(--card);
