@@ -202,30 +202,34 @@ code {
 .theme-toggle-btn:hover { border-color: var(--accent); color: var(--accent-deep); }
 .speech-bubble {
   position: relative;
-  background: var(--card);
-  border: 3px solid var(--accent);
-  border-radius: var(--r-md);
-  padding: 10px 16px;
-  box-shadow: var(--shadow-sm);
 }
 .speech-bubble::before {
   content: "";
   position: absolute;
-  left: -10px;
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
-  width: 16px;
-  height: 16px;
+  left: -7px;
+  top: 18px;
+  transform: rotate(45deg);
+  width: 14px;
+  height: 14px;
   background: var(--card);
   border-left: 3px solid var(--accent);
   border-bottom: 3px solid var(--accent);
   border-radius: 0 0 0 3px;
+  z-index: 1;
 }
 .speech-bubble h1 {
+  display: inline;
   font-size: clamp(0.9rem, 1.7vw, 1.05rem);
   font-weight: 600;
-  line-height: 1.5;
   color: var(--ink-soft);
+  background: var(--card);
+  border: 3px solid var(--accent);
+  border-radius: 999px;
+  padding: 7px 16px;
+  line-height: 2.7;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  box-shadow: var(--shadow-sm);
 }
 .speech-name {
   font-size: 1.2em;
