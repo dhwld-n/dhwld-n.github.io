@@ -172,9 +172,9 @@ code {
 
 .topbar {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 18px;
   margin-bottom: 26px;
 }
 .hello-kicker {
@@ -188,14 +188,8 @@ code {
 .wave { font-family: "Inter", sans-serif; }
 .topbar-avatar {
   flex-shrink: 0;
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: top center;
-  background: var(--card);
-  border: 2px solid var(--card);
-  box-shadow: var(--shadow-sm);
+  height: 84px;
+  width: auto;
 }
 .topbar-chip {
   flex-shrink: 0;
