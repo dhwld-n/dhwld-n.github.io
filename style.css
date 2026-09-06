@@ -300,6 +300,7 @@ code {
 /* ===== Projects ===== */
 .projects-section {
   grid-column: 1 / -1;
+  max-width: 680px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
@@ -309,7 +310,7 @@ code {
 .projects-section > h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 14px; }
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 480px), 1fr));
+  grid-template-columns: 1fr;
   gap: 16px;
   align-items: start;
 }
@@ -321,7 +322,6 @@ code {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  max-width: 620px;
 }
 .project-card p { color: var(--ink-soft); font-size: 0.9rem; }
 .project-card p + p { margin-top: 10px; }
