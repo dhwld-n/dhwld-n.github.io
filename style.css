@@ -324,7 +324,7 @@ code {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  max-width: 300px;
+  max-width: 280px;
 }
 .project-title {
   font-size: 1.02rem;
