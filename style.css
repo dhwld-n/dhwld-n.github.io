@@ -298,8 +298,10 @@ code {
 }
 
 /* ===== Projects ===== */
+.section-block { grid-column: 1 / -1; }
+.block-heading { font-size: 1.05rem; font-weight: 600; margin-bottom: 14px; }
+
 .projects-section {
-  grid-column: 1 / -1;
   max-width: 680px;
   background: var(--card);
   border: 1px solid var(--border);
@@ -307,50 +309,41 @@ code {
   padding: 22px;
   box-shadow: var(--shadow-sm);
 }
-.projects-section > h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 14px; }
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
-  justify-items: start;
   gap: 16px;
   align-items: start;
 }
 .project-card {
+  background: var(--card-tint);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  max-width: 460px;
 }
 .project-title {
   font-size: 1.02rem;
   font-weight: 700;
   line-height: 1.45;
-  margin-bottom: 10px;
-}
-.project-body {
-  background: var(--card-tint);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: 18px;
-  box-shadow: var(--shadow-sm);
-  max-width: 250px;
+  margin-bottom: 8px;
 }
 .project-card p { color: var(--ink-soft); font-size: 0.9rem; }
 .project-card p + p { margin-top: 10px; }
 .project-card[data-project] {
   cursor: pointer;
-}
-.project-card[data-project] .project-body {
   transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
 }
-.project-card[data-project]:hover .project-body {
+.project-card[data-project]:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   border-color: var(--accent);
 }
 .project-card[data-project]:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: var(--r-sm);
+  outline-offset: 2px;
 }
 .project-more {
   margin-top: 14px;
