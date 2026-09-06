@@ -84,6 +84,10 @@ const PROJECTS = {
       "온 · 오프라인 홍보 — 비단앱 · 비단주머니 등 Bdan 서비스와 BWB2026 컨퍼런스 홍보 활동.",
       "학습 · 네트워킹 — 블록체인 · 디지털 자산 · 스마트시티 관련 학습, 실무자 강연, 다양한 전공의 대학생들과 정기 모임 · 네트워킹.",
     ],
+    figure: {
+      src: "beyond-busan-diagram.jpg",
+      caption: "개인미션 제안 — 녹색 자산의 토큰화 실행 구조 (전력 데이터 수집 → AI 최적화 → Bdan 에코 토큰 발행 → 자본 순환)",
+    },
     stackLabel: "키워드",
     stack: ["콘텐츠 기획", "사용자 리서치", "카드뉴스", "블록체인 · 디지털 자산", "홍보 마케팅"],
     links: [
@@ -135,6 +139,7 @@ const PROJECTS = {
       <dl class="modal-meta">${meta}</dl>
       ${p.overview ? `<h4>${esc(p.overviewLabel || "프로젝트 개요")}</h4><p>${esc(p.overview)}</p>` : ""}
       ${work ? `<h4>${esc(p.workLabel || "수행 내용")}</h4><ul class="modal-list">${work}</ul>` : ""}
+      ${p.figure ? `<figure class="modal-figure"><img src="${esc(p.figure.src)}" alt="${esc(p.figure.caption || "")}" />${p.figure.caption ? `<figcaption>${esc(p.figure.caption)}</figcaption>` : ""}</figure>` : ""}
       ${stack ? `<h4>${esc(p.stackLabel || "기술 스택")}</h4><ul class="chips">${stack}</ul>` : ""}
       ${p.principle ? `<div class="modal-principle">${esc(p.principle)}</div>` : ""}
       ${links ? `<div class="modal-links">${links}</div>` : ""}

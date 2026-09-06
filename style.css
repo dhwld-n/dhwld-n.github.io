@@ -545,6 +545,22 @@ code {
   border-radius: 50%;
   background: var(--accent);
 }
+.modal-figure {
+  margin: 18px 0 4px;
+}
+.modal-figure img {
+  width: 100%;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: #fff;
+  display: block;
+}
+.modal-figure figcaption {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--ink-mute);
+  line-height: 1.5;
+}
 .modal-principle {
   margin-top: 20px;
   padding: 14px 16px;
