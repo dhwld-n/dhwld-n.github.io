@@ -7,7 +7,7 @@
 }
 @font-face {
   font-family: "MitmiFont";
-  src: url("omyu-pretty-subset.woff2?v=2026090629") format("woff2");
+  src: url("omyu-pretty-subset.woff2?v=2026090632") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -384,6 +384,9 @@ code {
 
 /* ===== Right rail ===== */
 .rail { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
+.rail-controls { display: flex; justify-content: flex-end; gap: 8px; }
+.rail-controls .theme-toggle-btn { align-self: auto; }
+.lang-label { font-weight: 600; letter-spacing: 0.02em; }
 .rail-panel {
   background: linear-gradient(165deg, var(--rail-from), var(--rail-to));
   color: var(--rail-ink);
@@ -655,7 +658,7 @@ code {
   .grid { grid-template-columns: 1fr; }
   .card--wide, .card { grid-column: auto; }
   .rail { grid-row: auto; padding: 0 16px 24px; }
-  .theme-toggle-btn {
+  .rail-controls {
     position: fixed;
     top: 12px;
     right: 12px;

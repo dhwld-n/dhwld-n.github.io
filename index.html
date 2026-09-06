@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/gh/projectnoonnu/2508-2@1.0/OkDanDan-Bold.woff2" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="omyu-pretty-subset.woff2?v=2026090629" />
-  <link rel="stylesheet" href="style.css?v=2026090630" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="omyu-pretty-subset.woff2?v=2026090632" />
+  <link rel="stylesheet" href="style.css?v=2026090632" />
 </head>
 <body>
   <div class="app">
@@ -26,11 +26,11 @@
       </a>
 
       <nav class="nav">
-        <a href="#about" class="nav-item"><span class="dot" aria-hidden="true"></span>Introduction</a>
-        <a href="#skills" class="nav-item"><span class="dot" aria-hidden="true"></span>Areas of Interest</a>
-        <a href="#projects" class="nav-item"><span class="dot" aria-hidden="true"></span>Projects</a>
-        <a href="#ambassador" class="nav-item"><span class="dot" aria-hidden="true"></span>Brand Ambassador Program</a>
-        <a href="#contact" class="nav-item"><span class="dot" aria-hidden="true"></span>Contact</a>
+        <a href="#about" class="nav-item"><span class="dot" aria-hidden="true"></span><span data-i18n="nav_about">Introduction</span></a>
+        <a href="#skills" class="nav-item"><span class="dot" aria-hidden="true"></span><span data-i18n="nav_skills">Areas of Interest</span></a>
+        <a href="#projects" class="nav-item"><span class="dot" aria-hidden="true"></span><span data-i18n="nav_projects">Projects</span></a>
+        <a href="#ambassador" class="nav-item"><span class="dot" aria-hidden="true"></span><span data-i18n="nav_ambassador">Brand Ambassador Program</span></a>
+        <a href="#contact" class="nav-item"><span class="dot" aria-hidden="true"></span><span data-i18n="nav_contact">Contact</span></a>
       </nav>
 
     </aside>
@@ -42,65 +42,65 @@
           <img class="topbar-avatar avatar-light" src="avatar.png" alt="오지우 캐릭터 프로필" />
           <img class="topbar-avatar avatar-dark" src="avatar-dark.png" alt="오지우 캐릭터 프로필" />
           <div class="speech-bubble">
-            <h1>Welcome to<br /><span class="speech-name">오지우</span>'s Archive :)</h1>
+            <h1 data-i18n="hero_h1">Welcome to<br /><span class="speech-name">오지우</span>'s Archive :)</h1>
           </div>
         </div>
       </header>
 
       <div class="grid">
         <div class="section-block" id="about">
-          <h2 class="block-heading">Introduction</h2>
+          <h2 class="block-heading" data-i18n="head_about">Introduction</h2>
           <section class="card">
-            <p>안녕하세요, 저는 부산대학교에서 인공지능을 전공하고 있는 오지우입니다.</p>
-            <p>단순히 전공에만 국한되지 않고, 관심 있는 분야에는 직접 부딪혀보며 배우는 걸 좋아합니다.</p>
-            <p>LLM을 기반으로 다양한 프로덕트를 만드는 것에 관심이 많습니다.</p>
+            <p data-i18n="about_p1">안녕하세요, 저는 부산대학교에서 인공지능을 전공하고 있는 오지우입니다.</p>
+            <p data-i18n="about_p2">단순히 전공에만 국한되지 않고, 관심 있는 분야에는 직접 부딪혀보며 배우는 걸 좋아합니다.</p>
+            <p data-i18n="about_p3">LLM을 기반으로 다양한 프로덕트를 만드는 것에 관심이 많습니다.</p>
           </section>
         </div>
 
         <div class="section-block" id="skills">
-          <h2 class="block-heading">Areas of Interest</h2>
+          <h2 class="block-heading" data-i18n="head_skills">Areas of Interest</h2>
           <section class="card">
             <ul class="chips">
-              <li>Python</li>
-              <li>C</li>
-              <li>LLM · 에이전트</li>
-              <li>머신러닝</li>
-              <li>웹 (Flask)</li>
-              <li>CI 자동화</li>
+              <li data-i18n="skill_python">Python</li>
+              <li data-i18n="skill_c">C</li>
+              <li data-i18n="skill_llm">LLM · 에이전트</li>
+              <li data-i18n="skill_ml">머신러닝</li>
+              <li data-i18n="skill_web">웹 (Flask)</li>
+              <li data-i18n="skill_ci">CI 자동화</li>
             </ul>
           </section>
         </div>
 
         <div class="section-block" id="projects">
-          <h2 class="block-heading">Projects</h2>
+          <h2 class="block-heading" data-i18n="head_projects">Projects</h2>
           <section class="projects-section">
             <div class="projects-grid">
 
               <article class="project-card" data-project="agent_with_gpt" role="button" tabindex="0"
                        aria-label="LLM 기반 타겟 보드 테스트 자동화 파이프라인 자세히 보기">
-                <h3 class="project-title">LLM 기반<br />타겟 보드 테스트 자동화 파이프라인</h3>
-                <p>
+                <h3 class="project-title" data-i18n="card_agent_title">LLM 기반<br />타겟 보드 테스트 자동화 파이프라인</h3>
+                <p data-i18n="card_agent_desc">
                   <code>git push</code> 한 번으로 보드 선택·배포·실행·회귀 판정·기록까지
                   이어지는 CI 파이프라인.<br />감바랩스 인턴십 프로젝트.
                 </p>
-                <span class="project-more">자세히 보기 →</span>
+                <span class="project-more" data-i18n="card_more">자세히 보기 →</span>
               </article>
 
               <article class="project-card" data-project="tinker" role="button" tabindex="0"
                        aria-label="심심풀이 웹 도구 모음 Tinker 자세히 보기">
-                <h3 class="project-title">심심풀이 웹 도구 모음<br />Tinker</h3>
-                <p>
+                <h3 class="project-title" data-i18n="card_tinker_title">심심풀이 웹 도구 모음<br />Tinker</h3>
+                <p data-i18n="card_tinker_desc">
                   사주 · 타로부터 얼굴 피부 분석, &lsquo;나와 닮은 공룡&rsquo;까지.<br />
                   계산 · 이미지 처리는 브라우저, 텍스트는 Gemini 스트리밍.
                 </p>
-                <span class="project-more">자세히 보기 →</span>
+                <span class="project-more" data-i18n="card_more">자세히 보기 →</span>
               </article>
 
               <!--
               새 프로젝트는 위 <article>를 복사해서 추가하세요.
               1) 이 카드에 data-project="고유id" 를 넣고
               2) script.js 의 PROJECTS 객체에 같은 id 로 상세 내용을 추가하면
-                 클릭 시 상세 모달이 열립니다.
+                 클릭 시 상세 모달이 열립니다. (제목/설명 문구는 I18N + PROJECTS 양쪽에)
               -->
 
             </div>
@@ -108,26 +108,26 @@
         </div>
 
         <div class="section-block" id="ambassador">
-          <h2 class="block-heading">Brand Ambassador Program</h2>
+          <h2 class="block-heading" data-i18n="head_ambassador">Brand Ambassador Program</h2>
           <section class="projects-section">
             <div class="projects-grid">
               <article class="project-card" data-project="beyond_busan" role="button" tabindex="0"
                        aria-label="부산디지털자산거래소 대학생 서포터즈 BEYOND BUSAN 3기 자세히 보기">
-                <h3 class="project-title">[부산디지털자산거래소]<br />대학생 서포터즈 BEYOND BUSAN 3기</h3>
-                <p>
+                <h3 class="project-title" data-i18n="card_bb_title">[부산디지털자산거래소]<br />대학생 서포터즈 BEYOND BUSAN 3기</h3>
+                <p data-i18n="card_bb_desc">
                   Bdan 공식 대학생 서포터즈. 부팀장으로 에너지·탄소 금융 아이디어 제안,
                   비단앱 사용성 리서치, 블록체인·디지털 자산 카드뉴스 기획을 담당.
                 </p>
-                <span class="project-more">자세히 보기 →</span>
+                <span class="project-more" data-i18n="card_more">자세히 보기 →</span>
               </article>
             </div>
           </section>
         </div>
 
         <div class="section-block" id="contact">
-          <h2 class="block-heading">Contact</h2>
+          <h2 class="block-heading" data-i18n="head_contact">Contact</h2>
           <section class="card">
-            <p>제안이나 협업 문의는 아래로 연락 주세요.</p>
+            <p data-i18n="contact_p">제안이나 협업 문의는 아래로 연락 주세요.</p>
             <div class="contact-links">
               <div class="contact-row">
                 <span class="contact-key">E-mail :</span>
@@ -145,12 +145,17 @@
 
     <!-- ===== Right rail ===== -->
     <aside class="rail">
-      <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="테마 전환">
-        <span class="theme-icon-light" aria-hidden="true">☀</span><span class="theme-icon-dark" aria-hidden="true">☾</span>
-        <span class="theme-label">테마</span>
-      </button>
+      <div class="rail-controls">
+        <button id="lang-toggle" class="theme-toggle-btn" type="button" data-i18n-aria="lang_toggle_aria" aria-label="View this site in English">
+          <span aria-hidden="true">🌐</span><span class="lang-label">EN</span>
+        </button>
+        <button id="theme-toggle" class="theme-toggle-btn" type="button" data-i18n-aria="theme_toggle_aria" aria-label="테마 전환">
+          <span class="theme-icon-light" aria-hidden="true">☀</span><span class="theme-icon-dark" aria-hidden="true">☾</span>
+          <span class="theme-label" data-i18n="rail_theme">테마</span>
+        </button>
+      </div>
       <div class="rail-panel">
-        <h2>Focusing</h2>
+        <h2 data-i18n="rail_focusing">Focusing</h2>
 
         <figure class="donut-figure">
           <svg class="donut" viewBox="0 0 140 140" role="img" aria-label="기술 스택 비중: Python · AI 파이프라인 50%, 웹 · 백엔드(Flask) 30%, 툴링 & 자동화(CI/CD) 20%">
@@ -167,19 +172,19 @@
         </figure>
 
         <ul class="legend">
-          <li><span class="swatch sw-1" aria-hidden="true"></span>Python · AI 파이프라인<b>50%</b></li>
-          <li><span class="swatch sw-2" aria-hidden="true"></span>웹 · 백엔드 (Flask)<b>30%</b></li>
-          <li><span class="swatch sw-3" aria-hidden="true"></span>툴링 & 자동화 (CI/CD)<b>20%</b></li>
+          <li><span class="swatch sw-1" aria-hidden="true"></span><span data-i18n="legend_1">Python · AI 파이프라인</span><b>50%</b></li>
+          <li><span class="swatch sw-2" aria-hidden="true"></span><span data-i18n="legend_2">웹 · 백엔드 (Flask)</span><b>30%</b></li>
+          <li><span class="swatch sw-3" aria-hidden="true"></span><span data-i18n="legend_3">툴링 & 자동화 (CI/CD)</span><b>20%</b></li>
         </ul>
 
-        <a class="rail-more" href="#projects">See more →</a>
+        <a class="rail-more" href="#projects" data-i18n="rail_more">See more →</a>
       </div>
 
       <div class="rail-card">
-        <h3>Education</h3>
+        <h3 data-i18n="rail_edu">Education</h3>
         <dl class="facts">
           <div>
-            <dd>부산대학교 정보컴퓨터공학부<br />인공지능전공 재학 (2025.3 ~)</dd>
+            <dd data-i18n="rail_edu_body">부산대학교 정보컴퓨터공학부<br />인공지능전공 재학 (2025.3 ~)</dd>
           </div>
         </dl>
       </div>
@@ -187,17 +192,17 @@
   </div>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> 오지우. Built with GitHub Pages.</p>
+    <p data-i18n="footer">© <span id="year"></span> 오지우. Built with GitHub Pages.</p>
   </footer>
 
   <!-- ===== Project detail modal ===== -->
   <div class="modal-overlay" id="project-modal" hidden>
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <button class="modal-close" id="modal-close" type="button" aria-label="닫기">×</button>
+      <button class="modal-close" id="modal-close" type="button" data-i18n-aria="modal_close_aria" aria-label="닫기">×</button>
       <div class="modal-body" id="modal-body"></div>
     </div>
   </div>
 
-  <script src="script.js?v=2026090630"></script>
+  <script src="script.js?v=2026090632"></script>
 </body>
 </html>
