@@ -323,7 +323,7 @@ code {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  max-width: 200px;
+  max-width: 250px;
 }
 .project-card p { color: var(--ink-soft); font-size: 0.9rem; }
 .project-card p + p { margin-top: 10px; }
