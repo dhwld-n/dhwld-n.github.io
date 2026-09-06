@@ -312,6 +312,7 @@ code {
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
+  justify-items: start;
   gap: 16px;
   align-items: start;
 }
@@ -323,6 +324,7 @@ code {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  max-width: 300px;
 }
 .project-title {
   font-size: 1.02rem;
