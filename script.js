@@ -78,16 +78,18 @@ const PROJECTS = {
       "블록체인 · 디지털 자산 관련 학습과 지역사회 캠페인에 참여합니다.",
     workLabel: "주요 활동",
     work: [
-      "개인미션 · 아이디어 제안 — '녹색 자산의 토큰화: 리눅스 엣지 컴퓨팅 기반 부산 노후 산단 에너지 최적화 + Bdan 탄소 금융 플랫폼' 제안서 작성(금융 · 경제 부문). 라즈베리파이급 리눅스 엣지 디바이스로 노후 공장의 전력 데이터를 수집하고 AI(LSTM)로 에너지 낭비를 최적화한 뒤, 절감분을 스마트 컨트랙트로 인증해 Bdan에서 거래되는 RWA '스마트 에코 토큰'으로 발행하는 선순환 구조를 설계.",
+      {
+        text: "개인미션 · 아이디어 제안 — '녹색 자산의 토큰화: 리눅스 엣지 컴퓨팅 기반 부산 노후 산단 에너지 최적화 + Bdan 탄소 금융 플랫폼' 제안서 작성(금융 · 경제 부문). 라즈베리파이급 리눅스 엣지 디바이스로 노후 공장의 전력 데이터를 수집하고 AI(LSTM)로 에너지 낭비를 최적화한 뒤, 절감분을 스마트 컨트랙트로 인증해 Bdan에서 거래되는 RWA '스마트 에코 토큰'으로 발행하는 선순환 구조를 설계.",
+        figure: {
+          src: "beyond-busan-diagram.jpg",
+          caption: "제안 실행 구조 — 전력 데이터 수집 → AI 최적화 → Bdan 에코 토큰 발행 → 자본 순환",
+        },
+      },
       "개인미션 · 비단(Bdan) 앱 사용성 앙케이트 — 대학생 대상 설문으로 앱 첫인상 · UI · 핵심 기능(자산 조회 등)을 평가하고, 가입 · 로그인 이탈 요인과 개선 방향을 정리한 분석 리포트 작성.",
       "팀 콘텐츠 · 블록체인 · 디지털 자산 카드뉴스 제작 — '블록체인 개념 + 실생활 사례(CBDC, 모바일 신분증 등)', '디지털 자산 용어 정리' 등 대중 눈높이에 맞춘 카드뉴스 콘텐츠를 시리즈로 기획. 부팀장으로 매 회차 기획서 작성과 팀 진행을 맡음.",
       "온 · 오프라인 홍보 — 비단앱 · 비단주머니 등 Bdan 서비스와 BWB2026 컨퍼런스 홍보 활동.",
       "학습 · 네트워킹 — 블록체인 · 디지털 자산 · 스마트시티 관련 학습, 실무자 강연, 다양한 전공의 대학생들과 정기 모임 · 네트워킹.",
     ],
-    figure: {
-      src: "beyond-busan-diagram.jpg",
-      caption: "개인미션 제안 — 녹색 자산의 토큰화 실행 구조 (전력 데이터 수집 → AI 최적화 → Bdan 에코 토큰 발행 → 자본 순환)",
-    },
     stackLabel: "키워드",
     stack: ["콘텐츠 기획", "사용자 리서치", "카드뉴스", "블록체인 · 디지털 자산", "홍보 마케팅"],
     links: [
@@ -116,7 +118,17 @@ const PROJECTS = {
           `<div class="modal-meta-row"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`
       )
       .join("");
-    const work = (p.work || []).map((w) => `<li>${esc(w)}</li>`).join("");
+    const figHtml = (f) =>
+      `<figure class="modal-figure"><img src="${esc(f.src)}" alt="${esc(f.caption || "")}" />${
+        f.caption ? `<figcaption>${esc(f.caption)}</figcaption>` : ""
+      }</figure>`;
+    const work = (p.work || [])
+      .map((w) =>
+        typeof w === "string"
+          ? `<li>${esc(w)}</li>`
+          : `<li>${esc(w.text)}${w.figure ? figHtml(w.figure) : ""}</li>`
+      )
+      .join("");
     const stack = (p.stack || []).map((s) => `<li>${esc(s)}</li>`).join("");
     const links = (p.links || [])
       .map((l) => {
@@ -139,7 +151,7 @@ const PROJECTS = {
       <dl class="modal-meta">${meta}</dl>
       ${p.overview ? `<h4>${esc(p.overviewLabel || "프로젝트 개요")}</h4><p>${esc(p.overview)}</p>` : ""}
       ${work ? `<h4>${esc(p.workLabel || "수행 내용")}</h4><ul class="modal-list">${work}</ul>` : ""}
-      ${p.figure ? `<figure class="modal-figure"><img src="${esc(p.figure.src)}" alt="${esc(p.figure.caption || "")}" />${p.figure.caption ? `<figcaption>${esc(p.figure.caption)}</figcaption>` : ""}</figure>` : ""}
+      ${p.figure ? figHtml(p.figure) : ""}
       ${stack ? `<h4>${esc(p.stackLabel || "기술 스택")}</h4><ul class="chips">${stack}</ul>` : ""}
       ${p.principle ? `<div class="modal-principle">${esc(p.principle)}</div>` : ""}
       ${links ? `<div class="modal-links">${links}</div>` : ""}
