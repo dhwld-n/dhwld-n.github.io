@@ -309,7 +309,8 @@ code {
 .projects-section > h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 14px; }
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 360px));
+  justify-content: start;
   gap: 16px;
   align-items: start;
 }
