@@ -349,6 +349,7 @@ code {
 
 .project-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
 .project-head h3 { font-size: 1.02rem; font-weight: 700; }
+#ambassador .project-head h3 { font-size: 0.86rem; line-height: 1.45; }
 .badge-link { color: var(--accent-deep); text-decoration: none; }
 .badge-link:hover { background: var(--accent-soft); }
 .badge {
