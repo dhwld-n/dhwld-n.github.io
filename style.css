@@ -311,6 +311,7 @@ code {
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
+  justify-items: start;
   gap: 16px;
   align-items: start;
 }
@@ -322,6 +323,7 @@ code {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
+  max-width: 320px;
 }
 .project-card p { color: var(--ink-soft); font-size: 0.9rem; }
 .project-card p + p { margin-top: 10px; }
