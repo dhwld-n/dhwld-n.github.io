@@ -7,7 +7,7 @@
 }
 @font-face {
   font-family: "MitmiFont";
-  src: url("omyu-pretty-subset.woff2?v=2026090628") format("woff2");
+  src: url("omyu-pretty-subset.woff2?v=2026090629") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -302,7 +302,7 @@ code {
 .block-heading { font-size: 1.05rem; font-weight: 600; margin-bottom: 14px; }
 
 .projects-section {
-  max-width: 680px;
+  max-width: 920px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
@@ -311,8 +311,8 @@ code {
 }
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  justify-items: start;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 260px));
+  justify-content: start;
   gap: 16px;
   align-items: start;
 }
@@ -324,7 +324,6 @@ code {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  max-width: 280px;
 }
 .project-title {
   font-size: 1.02rem;
