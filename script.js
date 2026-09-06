@@ -60,6 +60,35 @@ const PROJECTS = {
       { label: "GitHub Repository", href: "https://github.com/dhwld-n/agent_with_gpt-public" },
     ],
   },
+
+  beyond_busan: {
+    icon: "🎓",
+    title: "[부산디지털자산거래소] 대학생 서포터즈 BEYOND BUSAN 3기",
+    meta: [
+      ["활동 기간", "2026.03.22 ~ 진행 중"],
+      ["주관", "부산디지털자산거래소 (Bdan)"],
+      ["인원 구성", "6명 (부딪 7조)"],
+      ["본인 역할", "부팀장 — 콘텐츠 기획서 작성 및 팀 운영, 리서치·분석 담당"],
+    ],
+    overviewLabel: "활동 개요",
+    overview:
+      "부산을 블록체인 · AI · 디지털 금융 허브 도시로 성장시키는 것을 목표로 하는 " +
+      "부산디지털자산거래소(Bdan) 공식 대학생 서포터즈입니다. 디지털 자산 산업에 대한 대중 인식을 " +
+      "높이고, 비단앱 · 디지털 월렛(비단주머니) 등 Bdan 서비스를 온 · 오프라인으로 홍보하며, " +
+      "블록체인 · 디지털 자산 관련 학습과 지역사회 캠페인에 참여합니다.",
+    workLabel: "주요 활동",
+    work: [
+      "비단(Bdan) 앱 사용성 앙케이트 — 대학생 대상 설문으로 앱 첫인상 · UI · 핵심 기능(자산 조회 등)을 평가하고, 가입 · 로그인 이탈 요인과 개선 방향을 정리한 분석 리포트 작성.",
+      "블록체인 · 디지털 자산 카드뉴스 제작 — '블록체인 개념 + 실생활 사례(CBDC, 모바일 신분증 등)', '디지털 자산 용어 정리' 등 대중 눈높이에 맞춘 카드뉴스 콘텐츠를 시리즈로 기획. 부팀장으로 매 회차 기획서 작성과 팀 진행을 맡음.",
+      "온 · 오프라인 홍보 — 비단앱 · 비단주머니 등 Bdan 서비스와 BWB2026 컨퍼런스 홍보 활동.",
+      "학습 · 네트워킹 — 블록체인 · 디지털 자산 · 스마트시티 관련 학습, 실무자 강연, 다양한 전공의 대학생들과 정기 모임 · 네트워킹.",
+    ],
+    stackLabel: "키워드",
+    stack: ["콘텐츠 기획", "사용자 리서치", "카드뉴스", "블록체인 · 디지털 자산", "홍보 마케팅"],
+    links: [
+      { label: "활동 공고 보기", href: "https://www.ssgsag.kr/posters/26936" },
+    ],
+  },
 };
 
 (function () {
@@ -82,8 +111,8 @@ const PROJECTS = {
           `<div class="modal-meta-row"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`
       )
       .join("");
-    const work = p.work.map((w) => `<li>${esc(w)}</li>`).join("");
-    const stack = p.stack.map((s) => `<li>${esc(s)}</li>`).join("");
+    const work = (p.work || []).map((w) => `<li>${esc(w)}</li>`).join("");
+    const stack = (p.stack || []).map((s) => `<li>${esc(s)}</li>`).join("");
     const links = (p.links || [])
       .map((l) => {
         const ext = /^https?:/.test(l.href);
@@ -103,12 +132,9 @@ const PROJECTS = {
       </div>
       ${p.tagline ? `<p class="modal-tagline">${esc(p.tagline)}</p>` : ""}
       <dl class="modal-meta">${meta}</dl>
-      <h4>프로젝트 개요</h4>
-      <p>${esc(p.overview)}</p>
-      <h4>수행 내용</h4>
-      <ul class="modal-list">${work}</ul>
-      <h4>기술 스택</h4>
-      <ul class="chips">${stack}</ul>
+      ${p.overview ? `<h4>${esc(p.overviewLabel || "프로젝트 개요")}</h4><p>${esc(p.overview)}</p>` : ""}
+      ${work ? `<h4>${esc(p.workLabel || "수행 내용")}</h4><ul class="modal-list">${work}</ul>` : ""}
+      ${stack ? `<h4>${esc(p.stackLabel || "기술 스택")}</h4><ul class="chips">${stack}</ul>` : ""}
       ${p.principle ? `<div class="modal-principle">${esc(p.principle)}</div>` : ""}
       ${links ? `<div class="modal-links">${links}</div>` : ""}
     `;
