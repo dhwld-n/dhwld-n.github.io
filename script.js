@@ -92,9 +92,6 @@ const PROJECTS = {
     ],
     stackLabel: "키워드",
     stack: ["콘텐츠 기획", "사용자 리서치", "블록체인 · 디지털 자산", "홍보 마케팅"],
-    links: [
-      { label: "활동 공고 보기", href: "https://www.ssgsag.kr/posters/26936" },
-    ],
   },
 };
 
