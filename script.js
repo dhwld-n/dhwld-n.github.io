@@ -146,11 +146,11 @@
       if (entry) el.setAttribute("aria-label", entry[lang] != null ? entry[lang] : entry.ko);
     });
 
-    const lt = document.getElementById("lang-toggle");
-    if (lt) {
-      const lbl = lt.querySelector(".lang-label");
-      if (lbl) lbl.textContent = lang === "ko" ? "EN" : "한국어";
-    }
+    document.querySelectorAll(".lang-opt").forEach((b) => {
+      const on = b.dataset.lang === lang;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
 
     setYear();
     try { localStorage.setItem("lang", lang); } catch (e) {}
@@ -160,12 +160,11 @@
     }
   }
 
-  const langToggle = document.getElementById("lang-toggle");
-  if (langToggle) {
-    langToggle.addEventListener("click", function () {
-      applyLang(LANG === "ko" ? "en" : "ko");
+  document.querySelectorAll(".lang-opt").forEach((b) => {
+    b.addEventListener("click", function () {
+      if (b.dataset.lang !== LANG) applyLang(b.dataset.lang);
     });
-  }
+  });
 
   // ===== 클릭한 메뉴만 활성 표시 (처음엔 아무것도 선택 안 됨) =====
   (function () {

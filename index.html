@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/gh/projectnoonnu/2508-2@1.0/OkDanDan-Bold.woff2" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="omyu-pretty-subset.woff2?v=2026090633" />
-  <link rel="stylesheet" href="style.css?v=2026090633" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="omyu-pretty-subset.woff2?v=2026090701" />
+  <link rel="stylesheet" href="style.css?v=2026090701" />
 </head>
 <body>
   <div class="app">
@@ -146,9 +146,10 @@
     <!-- ===== Right rail ===== -->
     <aside class="rail">
       <div class="rail-controls">
-        <button id="lang-toggle" class="theme-toggle-btn" type="button" data-i18n-aria="lang_toggle_aria" aria-label="View this site in English">
-          <span aria-hidden="true">🌐</span><span class="lang-label">EN</span>
-        </button>
+        <div class="lang-switch" role="group" aria-label="Language / 언어">
+          <button type="button" class="lang-opt" data-lang="ko">한글</button>
+          <button type="button" class="lang-opt" data-lang="en">EN</button>
+        </div>
         <button id="theme-toggle" class="theme-toggle-btn" type="button" data-i18n-aria="theme_toggle_aria" aria-label="테마 전환">
           <span class="theme-icon-light" aria-hidden="true">☀</span><span class="theme-icon-dark" aria-hidden="true">☾</span>
           <span class="theme-label" data-i18n="rail_theme">테마</span>
@@ -203,6 +204,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=2026090633"></script>
+  <script src="script.js?v=2026090701"></script>
 </body>
 </html>

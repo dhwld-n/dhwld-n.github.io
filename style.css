@@ -7,7 +7,7 @@
 }
 @font-face {
   font-family: "MitmiFont";
-  src: url("omyu-pretty-subset.woff2?v=2026090633") format("woff2");
+  src: url("omyu-pretty-subset.woff2?v=2026090701") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -384,9 +384,31 @@ code {
 
 /* ===== Right rail ===== */
 .rail { padding: 24px; display: flex; flex-direction: column; gap: 18px; }
-.rail-controls { display: flex; justify-content: flex-end; gap: 8px; }
+.rail-controls { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
 .rail-controls .theme-toggle-btn { align-self: auto; }
-.lang-label { font-weight: 600; letter-spacing: 0.02em; }
+.lang-switch {
+  display: inline-flex;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px;
+  box-shadow: var(--shadow-sm);
+}
+.lang-opt {
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 5px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.lang-opt.is-active { background: var(--accent); color: #fff; }
+.lang-opt:not(.is-active):hover { color: var(--accent-deep); }
 .rail-panel {
   background: linear-gradient(165deg, var(--rail-from), var(--rail-to));
   color: var(--rail-ink);
