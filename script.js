@@ -124,10 +124,8 @@
 
   const MODAL_LABELS = {
     overview: L("프로젝트 개요", "Overview"),
-    apps: L("수록 앱", "Apps included"),
     work: L("수행 내용", "Highlights"),
-    stack: L("관련 기술 스택", "Tech stack"),
-    outcome: L("결과 및 성과", "Outcome"),
+    stack: L("기술 스택", "Tech stack"),
   };
 
   function setYear() {
@@ -265,52 +263,23 @@
         [
           L("본인 역할", "My role"),
           L(
-            "전 기능 기획 · 구현부터 계산 로직 이식, LLM · 비전 파이프라인, 디자인 시스템, 배포까지 전 과정 단독 수행",
-            "Owned the whole process solo — feature planning & implementation, porting the calculation logic, the LLM / vision pipeline, the design system, and deployment"
+            "전 기능 기획 · 구현, 계산 로직 이식, LLM · 비전 파이프라인, 디자인 시스템, 배포까지 단독",
+            "Everything solo — feature planning & implementation, porting the calculation logic, the LLM / vision pipeline, the design system, and deployment"
           ),
+        ],
+        [
+          L("형태", "Format"),
+          L("정적 SPA + 서버리스 함수 · Vercel 배포", "Static SPA + serverless functions · deployed on Vercel"),
+        ],
+        [
+          L("결과 및 성과", "Outcome"),
+          L("tinker-tools.vercel.app 로 배포 및 운영 중", "Deployed and running at tinker-tools.vercel.app"),
         ],
       ],
       overview: L(
-        "웹앱 하나로 사주 · 타로 같은 명리 운세부터 얼굴 피부 분석, '나와 닮은 공룡'까지 가볍게 즐기는 도구를 모은 정적 SPA + 서버리스 웹앱입니다. 설치 없이 링크만 열면 바로 쓸 수 있고, 생년월일을 한 번 넣어 두면 프로필로 저장돼 홈 화면 요약과 모든 도구에 자동으로 쓰입니다. 전통 명리 계산과 이미지 압축 · 얼굴 스캔 같은 무거운 처리는 전부 브라우저 안에서 끝내고, 문장 생성만 Gemini가 맡아 서버 비용과 지연을 최소화했습니다. 지인들이 실제로 쓰는 링크라 사용성 피드백을 받아 기능을 계속 늘려 가고 있습니다.",
-        "A static SPA + serverless web app that gathers light, just-for-fun tools on one link — fortune tools like saju and tarot, facial skin analysis, and 'the dinosaur that looks like you'. No install: open the link and it works. Enter your birth date once and it's saved as a profile, reused for the home-screen summary and every tool. Heavy work — traditional fortune-telling math, image compression, live face scanning — all happens in the browser; only text generation goes through Gemini, keeping server cost and latency low. It's a link my friends actually use, so I keep adding features based on their feedback."
+        "사주·자미두수·타로 같은 명리·운세 도구와 게임 닉네임 생성기, 얼굴 사진 피부 분석 등 가볍게 즐기는 도구를 한 페이지에 모은 개인 웹앱입니다. 설치 없이 링크만 열면 바로 쓸 수 있습니다. 생년월일을 한 번 넣어 두면 프로필로 저장돼, 홈 화면의 오늘의 운세 요약과 각 도구에 자동으로 쓰입니다. 명리·운세 파트는 사주 · 자미두수 · 기문둔갑 · 궁합 · 타로 · 오늘의 운세를 다룹니다. 얼굴 사진 · 웹캠으로 피부 타입 · 데일리 루틴을 정리해 주는 피부 분석, '나와 닮은 공룡'(사주 · 얼굴) 등 도구는 계속 늘려 가는 중입니다. 계산과 이미지 처리는 브라우저에서 하고, 텍스트 생성만 Gemini가 스트리밍으로 담당합니다.",
+        "A personal web app that gathers light, just-for-fun tools on one page — fortune tools like saju, Zi Wei Dou Shu and tarot, a game-nickname generator, facial skin analysis, and more. No install: open the link and it works. Enter your birth date once and it is saved as a profile, then reused for the home-screen daily-fortune summary and across every tool. The fortune section covers saju, Zi Wei Dou Shu, Qi Men Dun Jia, compatibility, tarot and the daily fortune. New tools keep getting added — a skin analysis that reads a photo or webcam frame for skin type and a daily routine, 'the dinosaur that looks like you' (from saju or your face), and so on. Calculation and image processing run in the browser; only text generation is handled by Gemini, streamed."
       ),
-      apps: [
-        {
-          name: L("사주 · 자미두수 · 기문둔갑 · 궁합 · 타로 · 오늘의 운세", "Saju · Zi Wei Dou Shu · Qi Men Dun Jia · Compatibility · Tarot · Daily fortune"),
-          desc: L(
-            "전통 명리 계산은 브라우저에서 직접 수행하고, 풀이 문장만 Gemini가 스트리밍으로 생성",
-            "Runs the traditional calculations in the browser; only the reading itself is streamed from Gemini"
-          ),
-        },
-        {
-          name: L("게임 닉네임 생성기", "Game nickname generator"),
-          desc: L(
-            "스타일을 고르면 즉시 후보 생성, 이름을 넣으면 그 이름을 살려 LLM이 맞춤 작명",
-            "Style picks generate candidates instantly; entering a name has the LLM craft names around it"
-          ),
-        },
-        {
-          name: L("나의 피부는?", "How's my skin?"),
-          desc: L(
-            "얼굴 사진 업로드 또는 실시간 웹캠 스캔으로 피부 타입 · 데일리 루틴 · 제품을 추천",
-            "An uploaded photo or a live webcam scan gets skin type, a daily routine and product picks"
-          ),
-        },
-        {
-          name: L("나와 닮은 공룡", "The dinosaur that looks like you"),
-          desc: L(
-            "사주 기반(오행 상생 · 상극)과 얼굴 기반(Gemini 비전) 두 갈래로 결정론적 매칭",
-            "Deterministic matching two ways — by saju (element relationships) or by your face (Gemini vision)"
-          ),
-        },
-        {
-          name: L("타로 기록", "Tarot history"),
-          desc: L(
-            "리딩과 후속 질문 챗봇 대화를 기기에 저장해 나중에 다시 찾아볼 수 있는 개인 히스토리",
-            "Saves each reading and its follow-up chat on-device as a personal history you can revisit later"
-          ),
-        },
-      ],
       work: [
         L(
           "명리·운세 파트 — 사주 · 자미두수 · 기문둔갑 · 궁합 · 타로 · 오늘의 운세. 명리 계산(일주 · 명궁 · 오행국 · 오행 분포)은 saju.py · jamidusu.py를 calc.js로 이식해 브라우저에서 돌리고 파이썬 원본과 동일 출력을 검증. 음력 변환 라이브러리 번들.",
@@ -341,10 +310,6 @@
         L("Upstash Redis (KV 캐시)", "Upstash Redis (KV cache)"),
         L("정적 SPA", "Static SPA"),
       ],
-      outcome: L(
-        "tinker-tools.vercel.app 으로 배포해 지인들이 실사용 중 — 받은 피드백을 기능 요청으로 바꿔 계속 업데이트하고 있습니다.",
-        "Deployed at tinker-tools.vercel.app and used day to day by friends — I keep turning their feedback into new features."
-      ),
       links: [
         { label: L("▶ 사이트 열기", "▶ Open the site"), href: "https://tinker-tools.vercel.app", primary: true },
       ],
@@ -444,10 +409,6 @@
       )
       .join("");
 
-    const apps = (p.apps || [])
-      .map((a) => "<li><b>" + esc(tr(a.name)) + "</b> — " + esc(tr(a.desc)) + "</li>")
-      .join("");
-
     const work = (p.work || [])
       .map((w) => {
         const isObj = w && typeof w === "object" && "text" in w;
@@ -471,10 +432,8 @@
       .join("");
 
     const ovLabel = tr(p.overviewLabel) || MODAL_LABELS.overview[LANG];
-    const appsLabel = tr(p.appsLabel) || MODAL_LABELS.apps[LANG];
     const wkLabel = tr(p.workLabel) || MODAL_LABELS.work[LANG];
     const stLabel = tr(p.stackLabel) || MODAL_LABELS.stack[LANG];
-    const ocLabel = tr(p.outcomeLabel) || MODAL_LABELS.outcome[LANG];
 
     modalBody.innerHTML =
       '<div class="modal-head">' +
@@ -483,13 +442,8 @@
       "</div>" +
       '<dl class="modal-meta">' + meta + "</dl>" +
       (p.overview ? "<h4>" + esc(ovLabel) + "</h4><p>" + esc(tr(p.overview)) + "</p>" : "") +
-      (apps ? "<h4>" + esc(appsLabel) + '</h4><ul class="modal-apps">' + apps + "</ul>" : "") +
       (work ? "<h4>" + esc(wkLabel) + '</h4><ul class="modal-list">' + work + "</ul>" : "") +
       (stack ? "<h4>" + esc(stLabel) + '</h4><ul class="chips">' + stack + "</ul>" : "") +
-      (p.outcome
-        ? '<div class="modal-outcome"><span aria-hidden="true">🏆</span><div><b>' +
-          esc(ocLabel) + "</b><p>" + esc(tr(p.outcome)) + "</p></div></div>"
-        : "") +
       (links ? '<div class="modal-links">' + links + "</div>" : "");
   }
 
