@@ -78,8 +78,8 @@
       "A CI pipeline that carries a single <code>git push</code> through board selection, deployment, execution, regression checks and logging.<br />Gambalabs internship project."
     ),
     card_tinker_title: L(
-      "재미로 보는 웹 도구 모음",
-      "Web toys, just for fun"
+      "Tinker — 심심할 때 켜는 AI 웹 도구 모음",
+      "Tinker — AI web toys for when you're bored"
     ),
     card_tinker_desc: L(
       "사주 · 타로부터 얼굴 피부 분석, &lsquo;나와 닮은 공룡&rsquo;까지.<br />계산 · 이미지 처리는 브라우저, 텍스트는 Gemini 스트리밍.",
@@ -250,7 +250,7 @@
 
     tinker: {
       icon: "🍀",
-      title: L("Tinker — 재미로 보는 웹 도구 모음", "Tinker — web toys, just for fun"),
+      title: L("Tinker — 심심할 때 켜는 AI 웹 도구 모음", "Tinker — AI web toys for when you're bored"),
       meta: [
         [
           L("개발 기간", "Duration"),
