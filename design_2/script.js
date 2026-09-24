@@ -501,4 +501,22 @@
   if (deep && PROJECTS[decodeURIComponent(deep[1])]) {
     openModal(decodeURIComponent(deep[1]));
   }
+
+  // ===== 아바타 클릭 시 말풍선 팝 이펙트 재생 =====
+  const popEls = document.querySelectorAll(
+    ".speech-bubble, .pop-smoke, .pop-burst, .spark"
+  );
+  function replayBubblePop() {
+    popEls.forEach((el) => {
+      el.style.animation = "none";
+    });
+    void document.body.offsetWidth; // reflow로 애니메이션 리셋
+    popEls.forEach((el) => {
+      el.style.animation = "";
+    });
+  }
+  document.querySelectorAll(".topbar-avatar").forEach((avatar) => {
+    avatar.style.cursor = "pointer";
+    avatar.addEventListener("click", replayBubblePop);
+  });
 })();
