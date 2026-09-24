@@ -242,7 +242,7 @@ code {
   position: relative;
   display: inline-block;
   transform-origin: left center;
-  animation: bubble-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s both;
+  animation: bubble-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.75s both;
 }
 @keyframes bubble-pop {
   0% { opacity: 0; transform: scale(0.3); }
@@ -253,9 +253,9 @@ code {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100px;
-  height: 100px;
-  margin: -50px 0 0 -50px;
+  width: 130px;
+  height: 130px;
+  margin: -65px 0 0 -65px;
   image-rendering: pixelated;
   pointer-events: none;
   z-index: 2;
@@ -270,13 +270,13 @@ code {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 84px;
-  height: 84px;
-  margin: -42px 0 0 -42px;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
   image-rendering: pixelated;
   pointer-events: none;
   z-index: 2;
-  animation: pop-burst-flash 0.4s ease-out 0.43s both;
+  animation: pop-burst-flash 0.45s ease-out 0.4s both;
 }
 @keyframes pop-burst-flash {
   0% { opacity: 0; transform: scale(0.2); }
@@ -289,7 +289,7 @@ code {
   left: 50%;
   pointer-events: none;
   z-index: 2;
-  animation: spark-burst 0.7s ease-out 0.45s both;
+  animation: spark-burst 0.8s ease-out 0.4s both;
 }
 @keyframes spark-burst {
   0% { opacity: 0; transform: translate(0, 0) rotate(0deg) scale(1); }
@@ -297,30 +297,30 @@ code {
   100% { opacity: 0; transform: translate(var(--sx), var(--sy)) rotate(var(--rot, 0deg)) scale(0.25); }
 }
 .spark--dot {
-  width: 5px; height: 5px;
-  margin: -2.5px 0 0 -2.5px;
+  width: 7px; height: 7px;
+  margin: -3.5px 0 0 -3.5px;
   background: var(--accent-deep);
 }
 .spark--star {
-  width: 12px; height: 12px;
-  margin: -6px 0 0 -6px;
+  width: 17px; height: 17px;
+  margin: -8.5px 0 0 -8.5px;
   background: var(--seg-3);
   --rot: 70deg;
   clip-path: polygon(50% 0%, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0% 50%, 37% 37%);
 }
 .spark--white { background: var(--ink); }
-.spark-1  { --sx: 58px;  --sy: 0px; }
-.spark-2  { --sx: 50px;  --sy: -29px; }
-.spark-3  { --sx: 29px;  --sy: -50px; }
-.spark-4  { --sx: 0px;   --sy: -58px; }
-.spark-5  { --sx: -29px; --sy: -50px; }
-.spark-6  { --sx: -50px; --sy: -29px; }
-.spark-7  { --sx: -58px; --sy: 0px; }
-.spark-8  { --sx: -50px; --sy: 29px; }
-.spark-9  { --sx: -29px; --sy: 50px; }
-.spark-10 { --sx: 0px;   --sy: 58px; }
-.spark-11 { --sx: 29px;  --sy: 50px; }
-.spark-12 { --sx: 50px;  --sy: 29px; }
+.spark-1  { --sx: 78px;  --sy: 0px; }
+.spark-2  { --sx: 68px;  --sy: -39px; }
+.spark-3  { --sx: 39px;  --sy: -68px; }
+.spark-4  { --sx: 0px;   --sy: -78px; }
+.spark-5  { --sx: -39px; --sy: -68px; }
+.spark-6  { --sx: -68px; --sy: -39px; }
+.spark-7  { --sx: -78px; --sy: 0px; }
+.spark-8  { --sx: -68px; --sy: 39px; }
+.spark-9  { --sx: -39px; --sy: 68px; }
+.spark-10 { --sx: 0px;   --sy: 78px; }
+.spark-11 { --sx: 39px;  --sy: 68px; }
+.spark-12 { --sx: 68px;  --sy: 39px; }
 @media (prefers-reduced-motion: reduce) {
   .speech-bubble { animation: none; }
   .spark, .pop-burst, .pop-smoke { display: none; }
