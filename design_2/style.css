@@ -246,30 +246,45 @@ code {
 }
 @keyframes bubble-pop {
   0% { opacity: 0; transform: scale(0.3); }
-  60% { opacity: 1; transform: scale(1.08); }
+  55% { opacity: 1; transform: scale(1.14); }
   100% { opacity: 1; transform: scale(1); }
 }
 .spark {
   position: absolute;
   top: 50%;
   left: 8%;
-  width: 5px;
-  height: 5px;
-  margin: -2.5px 0 0 -2.5px;
-  background: var(--accent-deep);
   pointer-events: none;
-  animation: spark-burst 0.55s ease-out both;
+  animation: spark-burst 0.7s ease-out both;
 }
 @keyframes spark-burst {
-  0% { opacity: 1; transform: translate(0, 0) rotate(45deg) scale(1); }
-  100% { opacity: 0; transform: translate(var(--sx), var(--sy)) rotate(45deg) scale(0.2); }
+  0% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+  100% { opacity: 0; transform: translate(var(--sx), var(--sy)) rotate(var(--rot, 0deg)) scale(0.25); }
 }
-.spark-1 { --sx: 44px; --sy: -10px; }
-.spark-2 { --sx: 28px; --sy: -36px; }
-.spark-3 { --sx: -8px; --sy: -42px; }
-.spark-4 { --sx: -34px; --sy: -18px; }
-.spark-5 { --sx: -28px; --sy: 28px; }
-.spark-6 { --sx: 18px; --sy: 36px; }
+.spark--dot {
+  width: 5px; height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  background: var(--accent-deep);
+}
+.spark--star {
+  width: 12px; height: 12px;
+  margin: -6px 0 0 -6px;
+  background: var(--seg-3);
+  --rot: 70deg;
+  clip-path: polygon(50% 0%, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0% 50%, 37% 37%);
+}
+.spark--white { background: var(--ink); }
+.spark-1  { --sx: 58px;  --sy: 0px; }
+.spark-2  { --sx: 50px;  --sy: -29px; }
+.spark-3  { --sx: 29px;  --sy: -50px; }
+.spark-4  { --sx: 0px;   --sy: -58px; }
+.spark-5  { --sx: -29px; --sy: -50px; }
+.spark-6  { --sx: -50px; --sy: -29px; }
+.spark-7  { --sx: -58px; --sy: 0px; }
+.spark-8  { --sx: -50px; --sy: 29px; }
+.spark-9  { --sx: -29px; --sy: 50px; }
+.spark-10 { --sx: 0px;   --sy: 58px; }
+.spark-11 { --sx: 29px;  --sy: 50px; }
+.spark-12 { --sx: 50px;  --sy: 29px; }
 @media (prefers-reduced-motion: reduce) {
   .speech-bubble { animation: none; }
   .spark { display: none; }
