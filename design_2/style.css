@@ -12,6 +12,13 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* light — black space, warm stars */
@@ -199,7 +206,7 @@ code {
   align-items: center;
   gap: 11px;
   padding: 11px 13px;
-  font-family: "OkDandan", "Quicksand", sans-serif;
+  font-family: "DungGeunMo", "OkDandan", "Quicksand", sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   line-height: 1.5;
