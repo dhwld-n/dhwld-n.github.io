@@ -1,4 +1,11 @@
 @font-face {
+  font-family: "OkDandan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2508-2@1.0/OkDanDan-Bold.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
   font-family: "MitmiFont";
   src: url("../omyu-pretty-subset.woff2?v=2026090701") format("woff2");
   font-weight: normal;
@@ -94,7 +101,7 @@ body {
 }
 
 h1, h2, h3, .brand, .hello-kicker {
-  font-family: "Press Start 2P", "MitmiFont", monospace;
+  font-family: "OkDandan", "Quicksand", "Inter", "Noto Sans KR", sans-serif;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -150,8 +157,9 @@ code {
   align-items: center;
   gap: 11px;
   padding: 11px 13px;
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.62rem;
+  font-family: "OkDandan", "Quicksand", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
   line-height: 1.5;
   color: var(--ink-soft);
   border: 2px solid transparent;
@@ -199,10 +207,9 @@ code {
   border-right: 10px solid var(--border);
 }
 .speech-bubble h1 {
-  font-family: "MitmiFont", sans-serif;
   font-size: clamp(0.9rem, 1.7vw, 1.05rem);
   font-weight: 600;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--ink-soft);
 }
 .speech-name { font-size: 1.2em; font-weight: 700; color: var(--ink); }
@@ -233,10 +240,9 @@ code {
 /* ===== Projects ===== */
 .section-block { grid-column: 1 / -1; }
 .block-heading {
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.02em;
-  margin-bottom: 16px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 14px;
   color: var(--accent-deep);
 }
 
@@ -276,8 +282,8 @@ code {
 .project-card[data-project]:focus-visible { outline: 2px dashed var(--accent); outline-offset: 2px; }
 .project-more {
   margin-top: 14px;
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--accent-deep);
 }
 
@@ -308,8 +314,9 @@ code {
   border: none;
   background: transparent;
   color: var(--ink-soft);
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.6rem;
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 600;
   padding: 6px 10px;
   cursor: pointer;
   transition: background 0.1s ease, color 0.1s ease;
@@ -324,8 +331,9 @@ code {
   background: var(--card);
   border: 2px solid var(--border);
   padding: 8px 14px;
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.6rem;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
   color: var(--ink-soft);
   cursor: pointer;
 }
@@ -372,8 +380,8 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.6rem;
+  font-weight: 600;
+  font-size: 0.85rem;
   color: var(--rail-ink);
   margin-top: 16px;
 }
@@ -439,7 +447,7 @@ code {
   background: var(--accent-soft);
 }
 .modal-head > div { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; min-width: 0; }
-.modal-head h3 { font-family: "MitmiFont", sans-serif; font-size: 1.12rem; font-weight: 700; word-break: break-word; }
+.modal-head h3 { font-size: 1.12rem; font-weight: 700; word-break: break-word; }
 .modal-tagline { color: var(--accent-deep); font-weight: 500; margin: 12px 0 16px; }
 
 .modal-meta {
@@ -455,10 +463,10 @@ code {
 .modal-meta-row dd { color: var(--ink-soft); }
 
 .modal-body h4 {
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.68rem;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--ink);
-  margin: 22px 0 11px;
+  margin: 20px 0 9px;
 }
 .modal-body > p { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.7; }
 .modal-list { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-top: 4px; }
@@ -497,8 +505,8 @@ code {
 }
 .modal-links a:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--border); }
 .modal-links a.is-primary {
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.6rem;
+  font-family: inherit;
+  font-weight: 600;
   color: #fff;
   background: var(--accent);
   border-color: var(--border);
