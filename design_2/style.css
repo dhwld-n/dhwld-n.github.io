@@ -241,6 +241,38 @@ code {
 .speech-bubble {
   position: relative;
   display: inline-block;
+  transform-origin: left center;
+  animation: bubble-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes bubble-pop {
+  0% { opacity: 0; transform: scale(0.3); }
+  60% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.spark {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  background: var(--accent-deep);
+  pointer-events: none;
+  animation: spark-burst 0.55s ease-out both;
+}
+@keyframes spark-burst {
+  0% { opacity: 1; transform: translate(0, 0) rotate(45deg) scale(1); }
+  100% { opacity: 0; transform: translate(var(--sx), var(--sy)) rotate(45deg) scale(0.2); }
+}
+.spark-1 { --sx: 44px; --sy: -10px; }
+.spark-2 { --sx: 28px; --sy: -36px; }
+.spark-3 { --sx: -8px; --sy: -42px; }
+.spark-4 { --sx: -34px; --sy: -18px; }
+.spark-5 { --sx: -28px; --sy: 28px; }
+.spark-6 { --sx: 18px; --sy: 36px; }
+@media (prefers-reduced-motion: reduce) {
+  .speech-bubble { animation: none; }
+  .spark { display: none; }
 }
 .speech-body {
   background: var(--card);
