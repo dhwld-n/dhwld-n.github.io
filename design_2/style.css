@@ -98,6 +98,47 @@ body {
   -webkit-font-smoothing: antialiased;
   padding: clamp(0px, 3vw, 32px);
   image-rendering: pixelated;
+  position: relative;
+}
+
+body::before, body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+body::before {
+  background-image:
+    radial-gradient(1.6px 1.6px at 40px 50px, #ffffff, transparent),
+    radial-gradient(1.2px 1.2px at 130px 20px, #ff6ba8, transparent),
+    radial-gradient(1.6px 1.6px at 220px 130px, #6ee7ff, transparent),
+    radial-gradient(1.2px 1.2px at 60px 180px, #ffd23f, transparent);
+  background-size: 260px 260px;
+  animation: twinkle-a 3.4s ease-in-out infinite;
+}
+body::after {
+  background-image:
+    radial-gradient(1.2px 1.2px at 170px 90px, #9dff5c, transparent),
+    radial-gradient(1.6px 1.6px at 20px 110px, #ffffff, transparent),
+    radial-gradient(1.2px 1.2px at 240px 200px, #ff6ba8, transparent);
+  background-size: 260px 260px;
+  animation: twinkle-b 4.6s ease-in-out infinite 1.1s;
+}
+
+@keyframes twinkle-a {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+@keyframes twinkle-b {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after { animation: none; }
 }
 
 h1, h2, h3, .brand, .hello-kicker {
@@ -227,7 +268,22 @@ code {
   color: var(--ink-soft);
 }
 .speech-name { font-size: 1.2em; font-weight: 700; color: var(--ink); }
-.topbar-avatar { flex-shrink: 0; height: 145px; width: auto; image-rendering: pixelated; }
+.topbar-avatar {
+  flex-shrink: 0;
+  height: 145px;
+  width: auto;
+  image-rendering: pixelated;
+  animation: avatar-float 3s ease-in-out infinite;
+}
+
+@keyframes avatar-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar-avatar { animation: none; }
+}
 .avatar-dark { display: none; }
 :root[data-theme="dark"] .avatar-light { display: none; }
 :root[data-theme="dark"] .avatar-dark { display: block; }
