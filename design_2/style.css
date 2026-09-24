@@ -188,9 +188,9 @@ code {
   color: var(--ink);
 }
 .brand-mark {
-  width: 14px; height: 14px;
-  background: var(--accent);
-  border: 2px solid var(--border);
+  width: 24px; height: 24px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
 }
 
 .nav { display: flex; flex-direction: column; gap: 4px; }
