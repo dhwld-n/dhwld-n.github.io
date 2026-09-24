@@ -123,8 +123,8 @@ code {
   display: grid;
   grid-template-columns: 224px 1fr 296px;
   background: var(--surface);
-  border: 3px solid var(--border);
-  clip-path: polygon(8px 0,calc(100% - 8px) 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% 8px,100% calc(100% - 8px),100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,calc(100% - 8px) 100%,8px 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px),0 calc(100% - 8px),0 8px,4px 8px,4px 4px,8px 4px);
+  border: 4px solid var(--border);
+  clip-path: polygon(12px 0,calc(100% - 12px) 0,calc(100% - 6px) 0,calc(100% - 6px) 6px,100% 6px,100% 12px,100% calc(100% - 12px),100% calc(100% - 6px),calc(100% - 6px) calc(100% - 6px),calc(100% - 6px) 100%,calc(100% - 12px) 100%,12px 100%,6px 100%,6px calc(100% - 6px),0 calc(100% - 6px),0 calc(100% - 12px),0 12px,6px 12px,6px 6px,12px 6px);
   filter: drop-shadow(5px 5px 0 var(--border));
 }
 
@@ -135,7 +135,7 @@ code {
   display: flex;
   flex-direction: column;
   gap: 26px;
-  border-right: 3px solid var(--border);
+  border-right: 4px solid var(--border);
 }
 
 .brand {
@@ -179,7 +179,7 @@ code {
   background: var(--accent);
   color: #fff;
   border-color: var(--border);
-  clip-path: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% 4px,100% calc(100% - 4px),100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,calc(100% - 4px) 100%,4px 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px),0 calc(100% - 4px),0 4px,2px 4px,2px 2px,4px 2px);
+  clip-path: polygon(6px 0,calc(100% - 6px) 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% 6px,100% calc(100% - 6px),100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,calc(100% - 6px) 100%,6px 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px);
   filter: drop-shadow(3px 3px 0 var(--border));
 }
 .nav-item.is-active .dot { opacity: 1; }
@@ -192,7 +192,7 @@ code {
 .speech-bubble {
   position: relative;
   background: var(--card);
-  border: 3px solid var(--border);
+  border: 4px solid var(--border);
   padding: 12px 16px;
   box-shadow: var(--shadow-sm);
 }
@@ -222,9 +222,9 @@ code {
 .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
 .card {
   background: var(--card);
-  border: 3px solid var(--border);
+  border: 4px solid var(--border);
   padding: 22px;
-  clip-path: polygon(8px 0,calc(100% - 8px) 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% 8px,100% calc(100% - 8px),100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,calc(100% - 8px) 100%,8px 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px),0 calc(100% - 8px),0 8px,4px 8px,4px 4px,8px 4px);
+  clip-path: polygon(12px 0,calc(100% - 12px) 0,calc(100% - 6px) 0,calc(100% - 6px) 6px,100% 6px,100% 12px,100% calc(100% - 12px),100% calc(100% - 6px),calc(100% - 6px) calc(100% - 6px),calc(100% - 6px) 100%,calc(100% - 12px) 100%,12px 100%,6px 100%,6px calc(100% - 6px),0 calc(100% - 6px),0 calc(100% - 12px),0 12px,6px 12px,6px 6px,12px 6px);
   filter: drop-shadow(3px 3px 0 var(--border));
 }
 .card p { color: var(--ink-soft); font-size: 0.92rem; }
@@ -233,11 +233,11 @@ code {
 .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
 .chips li {
   background: var(--card-tint);
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   padding: 7px 13px;
   font-size: 0.82rem;
   color: var(--ink-soft);
-  clip-path: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% 4px,100% calc(100% - 4px),100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,calc(100% - 4px) 100%,4px 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px),0 calc(100% - 4px),0 4px,2px 4px,2px 2px,4px 2px);
+  clip-path: polygon(6px 0,calc(100% - 6px) 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% 6px,100% calc(100% - 6px),100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,calc(100% - 6px) 100%,6px 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px);
 }
 
 /* ===== Projects ===== */
@@ -252,9 +252,9 @@ code {
 .projects-section {
   max-width: 920px;
   background: var(--card);
-  border: 3px solid var(--border);
+  border: 4px solid var(--border);
   padding: 22px;
-  clip-path: polygon(8px 0,calc(100% - 8px) 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% 8px,100% calc(100% - 8px),100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,calc(100% - 8px) 100%,8px 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px),0 calc(100% - 8px),0 8px,4px 8px,4px 4px,8px 4px);
+  clip-path: polygon(12px 0,calc(100% - 12px) 0,calc(100% - 6px) 0,calc(100% - 6px) 6px,100% 6px,100% 12px,100% calc(100% - 12px),100% calc(100% - 6px),calc(100% - 6px) calc(100% - 6px),calc(100% - 6px) 100%,calc(100% - 12px) 100%,12px 100%,6px 100%,6px calc(100% - 6px),0 calc(100% - 6px),0 calc(100% - 12px),0 12px,6px 12px,6px 6px,12px 6px);
   filter: drop-shadow(3px 3px 0 var(--border));
 }
 .projects-grid {
@@ -266,9 +266,9 @@ code {
 }
 .project-card {
   background: var(--card-tint);
-  border: 3px solid var(--border);
+  border: 4px solid var(--border);
   padding: 20px;
-  clip-path: polygon(8px 0,calc(100% - 8px) 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% 8px,100% calc(100% - 8px),100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,calc(100% - 8px) 100%,8px 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px),0 calc(100% - 8px),0 8px,4px 8px,4px 4px,8px 4px);
+  clip-path: polygon(12px 0,calc(100% - 12px) 0,calc(100% - 6px) 0,calc(100% - 6px) 6px,100% 6px,100% 12px,100% calc(100% - 12px),100% calc(100% - 6px),calc(100% - 6px) calc(100% - 6px),calc(100% - 6px) 100%,calc(100% - 12px) 100%,12px 100%,6px 100%,6px calc(100% - 6px),0 calc(100% - 6px),0 calc(100% - 12px),0 12px,6px 12px,6px 6px,12px 6px);
   filter: drop-shadow(3px 3px 0 var(--border));
   display: flex;
   flex-direction: column;
@@ -297,12 +297,12 @@ code {
 .contact-links a {
   background: var(--accent-soft);
   color: var(--accent-deep);
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   padding: 9px 15px;
   font-size: 0.85rem;
   font-weight: 600;
   transition: transform 0.1s ease;
-  clip-path: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% 4px,100% calc(100% - 4px),100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,calc(100% - 4px) 100%,4px 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px),0 calc(100% - 4px),0 4px,2px 4px,2px 2px,4px 2px);
+  clip-path: polygon(6px 0,calc(100% - 6px) 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% 6px,100% calc(100% - 6px),100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,calc(100% - 6px) 100%,6px 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px);
 }
 .contact-links a:hover { transform: translate(-2px, -2px); filter: drop-shadow(3px 3px 0 var(--border)); }
 .contact-key { font-size: 0.85rem; font-weight: 600; opacity: 0.7; }
@@ -313,9 +313,9 @@ code {
 .lang-switch {
   display: inline-flex;
   background: var(--card);
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   padding: 3px;
-  clip-path: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% 4px,100% calc(100% - 4px),100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,calc(100% - 4px) 100%,4px 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px),0 calc(100% - 4px),0 4px,2px 4px,2px 2px,4px 2px);
+  clip-path: polygon(6px 0,calc(100% - 6px) 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% 6px,100% calc(100% - 6px),100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,calc(100% - 6px) 100%,6px 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px);
 }
 .lang-opt {
   border: none;
@@ -336,7 +336,7 @@ code {
   align-items: center;
   gap: 6px;
   background: var(--card);
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   padding: 8px 14px;
   font-family: inherit;
   font-size: 0.8rem;
@@ -352,17 +352,17 @@ code {
 .rail-panel {
   background: linear-gradient(180deg, var(--rail-from), var(--rail-to));
   color: var(--rail-ink);
-  border: 3px solid var(--border);
+  border: 4px solid var(--border);
   padding: 24px 22px;
-  clip-path: polygon(8px 0,calc(100% - 8px) 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% 8px,100% calc(100% - 8px),100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,calc(100% - 8px) 100%,8px 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px),0 calc(100% - 8px),0 8px,4px 8px,4px 4px,8px 4px);
+  clip-path: polygon(12px 0,calc(100% - 12px) 0,calc(100% - 6px) 0,calc(100% - 6px) 6px,100% 6px,100% 12px,100% calc(100% - 12px),100% calc(100% - 6px),calc(100% - 6px) calc(100% - 6px),calc(100% - 6px) 100%,calc(100% - 12px) 100%,12px 100%,6px 100%,6px calc(100% - 6px),0 calc(100% - 6px),0 calc(100% - 12px),0 12px,6px 12px,6px 6px,12px 6px);
   filter: drop-shadow(5px 5px 0 var(--border));
 }
 .rail-panel h2 { font-size: 0.78rem; margin-bottom: 18px; }
 .rail-card {
   background: var(--card);
-  border: 3px solid var(--border);
+  border: 4px solid var(--border);
   padding: 20px;
-  clip-path: polygon(8px 0,calc(100% - 8px) 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% 8px,100% calc(100% - 8px),100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,calc(100% - 8px) 100%,8px 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px),0 calc(100% - 8px),0 8px,4px 8px,4px 4px,8px 4px);
+  clip-path: polygon(12px 0,calc(100% - 12px) 0,calc(100% - 6px) 0,calc(100% - 6px) 6px,100% 6px,100% 12px,100% calc(100% - 12px),100% calc(100% - 6px),calc(100% - 6px) calc(100% - 6px),calc(100% - 6px) 100%,calc(100% - 12px) 100%,12px 100%,6px 100%,6px calc(100% - 6px),0 calc(100% - 6px),0 calc(100% - 12px),0 12px,6px 12px,6px 6px,12px 6px);
   filter: drop-shadow(3px 3px 0 var(--border));
 }
 .rail-card h3 { font-size: 0.7rem; margin-bottom: 14px; }
@@ -425,9 +425,9 @@ code {
   max-height: 88vh;
   overflow-y: auto;
   background: var(--surface);
-  border: 3px solid var(--border);
+  border: 4px solid var(--border);
   padding: clamp(22px, 4vw, 34px);
-  clip-path: polygon(8px 0,calc(100% - 8px) 0,calc(100% - 4px) 0,calc(100% - 4px) 4px,100% 4px,100% 8px,100% calc(100% - 8px),100% calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) 100%,calc(100% - 8px) 100%,8px 100%,4px 100%,4px calc(100% - 4px),0 calc(100% - 4px),0 calc(100% - 8px),0 8px,4px 8px,4px 4px,8px 4px);
+  clip-path: polygon(12px 0,calc(100% - 12px) 0,calc(100% - 6px) 0,calc(100% - 6px) 6px,100% 6px,100% 12px,100% calc(100% - 12px),100% calc(100% - 6px),calc(100% - 6px) calc(100% - 6px),calc(100% - 6px) 100%,calc(100% - 12px) 100%,12px 100%,6px 100%,6px calc(100% - 6px),0 calc(100% - 6px),0 calc(100% - 12px),0 12px,6px 12px,6px 6px,12px 6px);
   filter: drop-shadow(6px 6px 0 var(--border));
   animation: modal-rise 0.14s steps(4);
 }
@@ -437,14 +437,14 @@ code {
   right: 16px;
   width: 34px;
   height: 34px;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   background: var(--card-tint);
   color: var(--ink-soft);
   font-size: 1.3rem;
   line-height: 1;
   cursor: pointer;
   transition: background 0.1s ease, color 0.1s ease;
-  clip-path: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% 4px,100% calc(100% - 4px),100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,calc(100% - 4px) 100%,4px 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px),0 calc(100% - 4px),0 4px,2px 4px,2px 2px,4px 2px);
+  clip-path: polygon(6px 0,calc(100% - 6px) 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% 6px,100% calc(100% - 6px),100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,calc(100% - 6px) 100%,6px 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px);
 }
 .modal-close:hover { background: var(--accent-soft); color: var(--accent-deep); }
 
@@ -454,9 +454,9 @@ code {
   flex-shrink: 0;
   display: grid; place-items: center;
   font-size: 1.4rem;
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   background: var(--accent-soft);
-  clip-path: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% 4px,100% calc(100% - 4px),100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,calc(100% - 4px) 100%,4px 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px),0 calc(100% - 4px),0 4px,2px 4px,2px 2px,4px 2px);
+  clip-path: polygon(6px 0,calc(100% - 6px) 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% 6px,100% calc(100% - 6px),100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,calc(100% - 6px) 100%,6px 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px);
 }
 .modal-head > div { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; min-width: 0; }
 .modal-head h3 { font-size: 1.12rem; font-weight: 700; word-break: break-word; }
@@ -467,9 +467,9 @@ code {
   gap: 8px;
   padding: 14px 16px;
   background: var(--card-tint);
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   margin-bottom: 20px;
-  clip-path: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% 4px,100% calc(100% - 4px),100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,calc(100% - 4px) 100%,4px 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px),0 calc(100% - 4px),0 4px,2px 4px,2px 2px,4px 2px);
+  clip-path: polygon(6px 0,calc(100% - 6px) 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% 6px,100% calc(100% - 6px),100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,calc(100% - 6px) 100%,6px 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px);
 }
 .modal-meta-row { display: flex; gap: 12px; font-size: 0.86rem; }
 .modal-meta-row dt { flex-shrink: 0; width: 80px; color: var(--ink-mute); font-weight: 600; }
@@ -492,13 +492,13 @@ code {
   background: var(--accent);
 }
 .modal-figure { margin: 18px 0 4px; }
-.modal-figure img { width: 100%; border: 2px solid var(--border); background: #fff; display: block; clip-path: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% 4px,100% calc(100% - 4px),100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,calc(100% - 4px) 100%,4px 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px),0 calc(100% - 4px),0 4px,2px 4px,2px 2px,4px 2px); }
+.modal-figure img { width: 100%; border: 3px solid var(--border); background: #fff; display: block; clip-path: polygon(6px 0,calc(100% - 6px) 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% 6px,100% calc(100% - 6px),100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,calc(100% - 6px) 100%,6px 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px); }
 .modal-figure figcaption { margin-top: 8px; font-size: 0.78rem; color: var(--ink-mute); line-height: 1.5; }
 
 .modal-links {
   margin-top: 22px;
   padding-top: 18px;
-  border-top: 3px solid var(--border);
+  border-top: 4px solid var(--border);
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -512,10 +512,10 @@ code {
   font-weight: 500;
   color: var(--accent-deep);
   background: var(--accent-soft);
-  border: 2px solid var(--border);
+  border: 3px solid var(--border);
   padding: 8px 13px;
   transition: transform 0.1s ease;
-  clip-path: polygon(4px 0,calc(100% - 4px) 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% 4px,100% calc(100% - 4px),100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,calc(100% - 4px) 100%,4px 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px),0 calc(100% - 4px),0 4px,2px 4px,2px 2px,4px 2px);
+  clip-path: polygon(6px 0,calc(100% - 6px) 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% 6px,100% calc(100% - 6px),100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,calc(100% - 6px) 100%,6px 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 calc(100% - 6px),0 6px,3px 6px,3px 3px,6px 3px);
 }
 .modal-links a:hover { transform: translate(-2px, -2px); filter: drop-shadow(3px 3px 0 var(--border)); }
 .modal-links a.is-primary {
@@ -553,7 +553,7 @@ code {
     align-items: center;
     gap: 12px 18px;
     border-right: none;
-    border-bottom: 3px solid var(--border);
+    border-bottom: 4px solid var(--border);
     padding: 16px;
   }
   .nav { flex-direction: row; flex-wrap: wrap; gap: 4px; }
