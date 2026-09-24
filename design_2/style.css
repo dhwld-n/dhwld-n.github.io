@@ -7,26 +7,26 @@
 }
 
 :root {
-  /* light — retro handheld daylight */
-  --page: #dbe4c6;
-  --surface: #f2f5e4;
-  --sidebar: #e5ecd2;
-  --card: #fbfced;
-  --card-tint: #e9edd6;
-  --ink: #24291c;
-  --ink-soft: #4d5640;
-  --ink-mute: #7c866a;
-  --border: #24291c;
-  --accent: #e6533c;
-  --accent-deep: #b93a26;
-  --accent-soft: #f6d4c8;
-  --rail-from: #4d6b4d;
-  --rail-to: #34492f;
-  --rail-ink: #f2f5e4;
-  --rail-ink-soft: #cfd8bd;
-  --seg-1: #e6533c;
-  --seg-2: #3f9d6e;
-  --seg-3: #3e6bd0;
+  /* light — dawn nebula (still space, just a touch warmer) */
+  --page: #0b0a1a;
+  --surface: #100e22;
+  --sidebar: #14112a;
+  --card: #171331;
+  --card-tint: #1e1940;
+  --ink: #f3f1ff;
+  --ink-soft: #bcb4e6;
+  --ink-mute: #857cb8;
+  --border: #d9d2ff;
+  --accent: #ff8a5c;
+  --accent-deep: #ffab85;
+  --accent-soft: #3a2440;
+  --rail-from: #3a2a66;
+  --rail-to: #1c1440;
+  --rail-ink: #f3f1ff;
+  --rail-ink-soft: #cabdf5;
+  --seg-1: #ff8a5c;
+  --seg-2: #3fd0c9;
+  --seg-3: #c68cff;
   --shadow-sm: 3px 3px 0 var(--border);
   --shadow-md: 5px 5px 0 var(--border);
   --shadow-rail: 5px 5px 0 var(--border);
@@ -36,23 +36,24 @@
 }
 
 :root[data-theme="dark"] {
-  --page: #0d0221;
-  --surface: #16102b;
-  --sidebar: #190f33;
-  --card: #1e1440;
-  --card-tint: #251a4d;
-  --ink: #ece6ff;
-  --ink-soft: #b6a9e8;
-  --ink-mute: #8577bb;
-  --border: #ece6ff;
-  --accent: #ff2e63;
-  --accent-deep: #ff5c86;
-  --accent-soft: #3a1233;
-  --rail-from: #24135a;
-  --rail-to: #150a3a;
-  --rail-ink: #ece6ff;
-  --rail-ink-soft: #c6baf2;
-  --seg-1: #ff2e63;
+  /* dark — deep space void */
+  --page: #030209;
+  --surface: #0a0815;
+  --sidebar: #0d0b1c;
+  --card: #100d20;
+  --card-tint: #171029;
+  --ink: #f2f0ff;
+  --ink-soft: #a89fdb;
+  --ink-mute: #6c63a0;
+  --border: #6f5fd6;
+  --accent: #ff2e8a;
+  --accent-deep: #ff6ba8;
+  --accent-soft: #241033;
+  --rail-from: #1c1240;
+  --rail-to: #08061a;
+  --rail-ink: #f2f0ff;
+  --rail-ink-soft: #b6acef;
+  --seg-1: #ff2e8a;
   --seg-2: #08d9d6;
   --seg-3: #ffd23f;
   --shadow-sm: 3px 3px 0 #000;
@@ -64,7 +65,26 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--page);
+  background-color: var(--page);
+  background-image:
+    radial-gradient(1.6px 1.6px at 14px 22px, #ff6ba8, transparent),
+    radial-gradient(1.6px 1.6px at 58px 74px, #6ee7ff, transparent),
+    radial-gradient(1.2px 1.2px at 96px 18px, #ffd23f, transparent),
+    radial-gradient(1.6px 1.6px at 132px 96px, #c68cff, transparent),
+    radial-gradient(1.2px 1.2px at 168px 40px, #ffffff, transparent),
+    radial-gradient(1.6px 1.6px at 204px 112px, #6ee7ff, transparent),
+    radial-gradient(1.2px 1.2px at 238px 64px, #ff6ba8, transparent),
+    radial-gradient(1.2px 1.2px at 30px 130px, #ffffff, transparent),
+    radial-gradient(1.6px 1.6px at 78px 150px, #ffd23f, transparent),
+    radial-gradient(1.2px 1.2px at 150px 20px, #c68cff, transparent),
+    radial-gradient(1.6px 1.6px at 190px 170px, #ffffff, transparent),
+    radial-gradient(1.2px 1.2px at 230px 150px, #6ee7ff, transparent),
+    radial-gradient(1.2px 1.2px at 10px 190px, #ff6ba8, transparent),
+    radial-gradient(1.6px 1.6px at 110px 200px, #ffffff, transparent),
+    radial-gradient(1.2px 1.2px at 250px 210px, #ffd23f, transparent);
+  background-size: 260px 260px;
+  background-repeat: repeat;
+  background-attachment: fixed;
   color: var(--ink);
   font-family: "MitmiFont", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   line-height: 1.7;
