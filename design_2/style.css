@@ -7,26 +7,26 @@
 }
 
 :root {
-  /* light — dawn nebula (still space, just a touch warmer) */
-  --page: #0b0a1a;
-  --surface: #100e22;
-  --sidebar: #14112a;
-  --card: #171331;
-  --card-tint: #1e1940;
-  --ink: #f3f1ff;
-  --ink-soft: #bcb4e6;
-  --ink-mute: #857cb8;
-  --border: #d9d2ff;
+  /* light — black space, warm stars */
+  --page: #060606;
+  --surface: #0b0b0b;
+  --sidebar: #0e0e0e;
+  --card: #121212;
+  --card-tint: #191919;
+  --ink: #f5f5f5;
+  --ink-soft: #bababa;
+  --ink-mute: #7c7c7c;
+  --border: #eaeaea;
   --accent: #ff8a5c;
   --accent-deep: #ffab85;
-  --accent-soft: #3a2440;
-  --rail-from: #3a2a66;
-  --rail-to: #1c1440;
-  --rail-ink: #f3f1ff;
-  --rail-ink-soft: #cabdf5;
+  --accent-soft: #241a14;
+  --rail-from: #1c1c1c;
+  --rail-to: #060606;
+  --rail-ink: #f5f5f5;
+  --rail-ink-soft: #cfcfcf;
   --seg-1: #ff8a5c;
   --seg-2: #3fd0c9;
-  --seg-3: #c68cff;
+  --seg-3: #ffd23f;
   --shadow-sm: 3px 3px 0 var(--border);
   --shadow-md: 5px 5px 0 var(--border);
   --shadow-rail: 5px 5px 0 var(--border);
@@ -36,23 +36,23 @@
 }
 
 :root[data-theme="dark"] {
-  /* dark — deep space void */
-  --page: #030209;
-  --surface: #0a0815;
-  --sidebar: #0d0b1c;
-  --card: #100d20;
-  --card-tint: #171029;
-  --ink: #f2f0ff;
-  --ink-soft: #a89fdb;
-  --ink-mute: #6c63a0;
-  --border: #6f5fd6;
+  /* dark — pure black void */
+  --page: #000000;
+  --surface: #050505;
+  --sidebar: #080808;
+  --card: #0d0d0d;
+  --card-tint: #141414;
+  --ink: #f5f5f5;
+  --ink-soft: #b0b0b0;
+  --ink-mute: #707070;
+  --border: #ffffff;
   --accent: #ff2e8a;
   --accent-deep: #ff6ba8;
-  --accent-soft: #241033;
-  --rail-from: #1c1240;
-  --rail-to: #08061a;
-  --rail-ink: #f2f0ff;
-  --rail-ink-soft: #b6acef;
+  --accent-soft: #1a1a1a;
+  --rail-from: #141414;
+  --rail-to: #000000;
+  --rail-ink: #f5f5f5;
+  --rail-ink-soft: #c9c9c9;
   --seg-1: #ff2e8a;
   --seg-2: #08d9d6;
   --seg-3: #ffd23f;
@@ -70,13 +70,13 @@ body {
     radial-gradient(1.6px 1.6px at 14px 22px, #ff6ba8, transparent),
     radial-gradient(1.6px 1.6px at 58px 74px, #6ee7ff, transparent),
     radial-gradient(1.2px 1.2px at 96px 18px, #ffd23f, transparent),
-    radial-gradient(1.6px 1.6px at 132px 96px, #c68cff, transparent),
+    radial-gradient(1.6px 1.6px at 132px 96px, #9dff5c, transparent),
     radial-gradient(1.2px 1.2px at 168px 40px, #ffffff, transparent),
     radial-gradient(1.6px 1.6px at 204px 112px, #6ee7ff, transparent),
     radial-gradient(1.2px 1.2px at 238px 64px, #ff6ba8, transparent),
     radial-gradient(1.2px 1.2px at 30px 130px, #ffffff, transparent),
     radial-gradient(1.6px 1.6px at 78px 150px, #ffd23f, transparent),
-    radial-gradient(1.2px 1.2px at 150px 20px, #c68cff, transparent),
+    radial-gradient(1.2px 1.2px at 150px 20px, #9dff5c, transparent),
     radial-gradient(1.6px 1.6px at 190px 170px, #ffffff, transparent),
     radial-gradient(1.2px 1.2px at 230px 150px, #6ee7ff, transparent),
     radial-gradient(1.2px 1.2px at 10px 190px, #ff6ba8, transparent),
