@@ -249,6 +249,22 @@ code {
   55% { opacity: 1; transform: scale(1.14); }
   100% { opacity: 1; transform: scale(1); }
 }
+.pop-burst {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  width: 84px;
+  height: 84px;
+  margin: -42px 0 0 -42px;
+  image-rendering: pixelated;
+  pointer-events: none;
+  animation: pop-burst-flash 0.4s ease-out both;
+}
+@keyframes pop-burst-flash {
+  0% { opacity: 0; transform: scale(0.2); }
+  35% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
 .spark {
   position: absolute;
   top: 50%;
@@ -287,7 +303,7 @@ code {
 .spark-12 { --sx: 50px;  --sy: 29px; }
 @media (prefers-reduced-motion: reduce) {
   .speech-bubble { animation: none; }
-  .spark { display: none; }
+  .spark, .pop-burst { display: none; }
 }
 .speech-body {
   background: var(--card);
