@@ -203,8 +203,8 @@ code {
 .speech-tail {
   position: relative;
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   margin-left: 24px;
   margin-top: -4px;
   background: var(--card);
@@ -213,10 +213,10 @@ code {
 .speech-tail::after {
   content: "";
   position: absolute;
-  top: 6px;
-  left: -10px;
-  width: 10px;
-  height: 10px;
+  top: 10px;
+  left: -8px;
+  width: 8px;
+  height: 8px;
   background: var(--card);
   border: 4px solid var(--border);
 }
