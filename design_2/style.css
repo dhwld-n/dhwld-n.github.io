@@ -242,7 +242,7 @@ code {
   position: relative;
   display: inline-block;
   transform-origin: left center;
-  animation: bubble-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+  animation: bubble-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s both;
 }
 @keyframes bubble-pop {
   0% { opacity: 0; transform: scale(0.3); }
@@ -252,7 +252,7 @@ code {
 .pop-smoke {
   position: absolute;
   top: 50%;
-  left: 8%;
+  left: 50%;
   width: 100px;
   height: 100px;
   margin: -50px 0 0 -50px;
@@ -269,14 +269,14 @@ code {
 .pop-burst {
   position: absolute;
   top: 50%;
-  left: 8%;
+  left: 50%;
   width: 84px;
   height: 84px;
   margin: -42px 0 0 -42px;
   image-rendering: pixelated;
   pointer-events: none;
   z-index: 2;
-  animation: pop-burst-flash 0.4s ease-out 0.28s both;
+  animation: pop-burst-flash 0.4s ease-out 0.43s both;
 }
 @keyframes pop-burst-flash {
   0% { opacity: 0; transform: scale(0.2); }
@@ -286,10 +286,10 @@ code {
 .spark {
   position: absolute;
   top: 50%;
-  left: 8%;
+  left: 50%;
   pointer-events: none;
   z-index: 2;
-  animation: spark-burst 0.7s ease-out 0.3s both;
+  animation: spark-burst 0.7s ease-out 0.45s both;
 }
 @keyframes spark-burst {
   0% { opacity: 0; transform: translate(0, 0) rotate(0deg) scale(1); }
