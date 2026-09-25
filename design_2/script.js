@@ -504,7 +504,7 @@
 
   // ===== 아바타 클릭 시 말풍선 팝 이펙트 재생 =====
   const popEls = document.querySelectorAll(
-    ".speech-visual, .pop-smoke, .pop-burst, .spark"
+    ".speech-visual, .pop-burst, .spark"
   );
   function replayBubblePop() {
     popEls.forEach((el) => {
