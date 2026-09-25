@@ -263,7 +263,7 @@ code {
   image-rendering: pixelated;
   pointer-events: none;
   z-index: 2;
-  animation: pop-burst-flash 0.45s ease-out both;
+  opacity: 0;
 }
 @keyframes pop-burst-flash {
   0% { opacity: 0; transform: scale(0.2); }
@@ -276,7 +276,7 @@ code {
   left: 50%;
   pointer-events: none;
   z-index: 2;
-  animation: spark-burst 0.8s ease-out both;
+  opacity: 0;
 }
 @keyframes spark-burst {
   0% { opacity: 0; transform: translate(0, 0) rotate(0deg) scale(1); }

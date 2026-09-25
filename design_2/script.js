@@ -503,16 +503,22 @@
   }
 
   // ===== 아바타 클릭 시 말풍선 팝 이펙트 재생 =====
-  const popEls = document.querySelectorAll(
-    ".speech-visual, .pop-burst, .spark"
-  );
+  // 페이지 로드 시엔 말풍선만 차분하게 등장하고, 별 폭발+스파크는
+  // 아바타를 클릭했을 때만 재생되는 이스터에그로 남겨둔다.
+  const visualEl = document.querySelector(".speech-visual");
+  const burstEl = document.querySelector(".pop-burst");
+  const sparkEls = document.querySelectorAll(".spark");
   function replayBubblePop() {
-    popEls.forEach((el) => {
+    if (visualEl) visualEl.style.animation = "none";
+    burstEl.style.animation = "none";
+    sparkEls.forEach((el) => {
       el.style.animation = "none";
     });
     void document.body.offsetWidth; // reflow로 애니메이션 리셋
-    popEls.forEach((el) => {
-      el.style.animation = "";
+    if (visualEl) visualEl.style.animation = "";
+    burstEl.style.animation = "pop-burst-flash 0.45s ease-out both";
+    sparkEls.forEach((el) => {
+      el.style.animation = "spark-burst 0.8s ease-out both";
     });
   }
   document.querySelectorAll(".topbar-avatar").forEach((avatar) => {
