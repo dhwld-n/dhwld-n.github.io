@@ -5,6 +5,10 @@ Archived reference for the experimental design that was compared against `design
 design decisions in case any of it is worth reusing later. The live folder at
 `/design_2/` is left in place as a working demo of everything described below.
 
+**Figma reference:** https://www.figma.com/design/mn7CJrWY7j2i2ntchvLpys — a static
+visual mockup (site layout, color/type tokens, speech-bubble + burst detail, pixel
+corner samples) built from this record, for browsing without spinning up the site.
+
 ## Concept
 
 Same structural layout as `design_1` (sidebar / main grid / right rail), restyled as:
