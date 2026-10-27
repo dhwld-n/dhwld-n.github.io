@@ -126,34 +126,62 @@ code {
   color: var(--ink);
 }
 .brand-mark {
+  position: relative;
   width: 18px; height: 18px;
   flex-shrink: 0;
   border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
   background: linear-gradient(135deg, var(--accent), var(--seg-3), var(--accent));
   background-size: 200% 200%;
   animation:
-    liquid-morph 3.2s cubic-bezier(0.45, 0, 0.25, 1) infinite,
-    liquid-flow 2.4s ease-in-out infinite,
-    liquid-glow 1.6s ease-in-out infinite;
+    liquid-morph 2.2s cubic-bezier(0.68, -0.4, 0.32, 1.4) infinite,
+    liquid-flow 1.4s ease-in-out infinite,
+    liquid-glow 1.1s ease-in-out infinite,
+    liquid-hue 3s ease-in-out infinite;
+}
+/* satellite droplet orbiting the main blob */
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 25%;
+  border-radius: 50%;
+  background: inherit;
+  animation: liquid-orbit 1.3s cubic-bezier(0.5, 0, 0.5, 1) infinite;
 }
 @keyframes liquid-morph {
   0%   { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(0deg) scale(1, 1); }
-  20%  { border-radius: 72% 28% 35% 65% / 30% 70% 30% 70%; transform: rotate(80deg) scale(1.22, 0.82); }
-  40%  { border-radius: 30% 70% 68% 32% / 66% 28% 72% 34%; transform: rotate(150deg) scale(0.86, 1.18); }
-  60%  { border-radius: 65% 35% 28% 72% / 38% 64% 36% 62%; transform: rotate(220deg) scale(1.15, 0.9); }
-  80%  { border-radius: 34% 66% 58% 42% / 70% 32% 68% 30%; transform: rotate(300deg) scale(0.92, 1.12); }
+  20%  { border-radius: 80% 20% 28% 72% / 24% 76% 24% 76%; transform: rotate(90deg) scale(1.38, 0.72); }
+  40%  { border-radius: 22% 78% 75% 25% / 72% 22% 78% 28%; transform: rotate(160deg) scale(0.74, 1.34); }
+  60%  { border-radius: 74% 26% 20% 80% / 30% 72% 28% 70%; transform: rotate(235deg) scale(1.3, 0.8); }
+  80%  { border-radius: 26% 74% 66% 34% / 78% 24% 76% 22%; transform: rotate(305deg) scale(0.82, 1.26); }
   100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(360deg) scale(1, 1); }
+}
+@keyframes liquid-orbit {
+  0%   { transform: rotate(0deg) translateX(12px) scale(0.9); }
+  50%  { transform: rotate(-180deg) translateX(15px) scale(0.5); }
+  100% { transform: rotate(-360deg) translateX(12px) scale(0.9); }
 }
 @keyframes liquid-flow {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
 @keyframes liquid-glow {
-  0%, 100% { box-shadow: 0 0 0 0 transparent; }
-  50% { box-shadow: 0 0 10px 1px var(--accent); }
+  0%, 100% {
+    box-shadow:
+      0 0 6px 1px color-mix(in srgb, var(--accent) 70%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 16px 5px var(--accent),
+      0 0 30px 10px color-mix(in srgb, var(--seg-3) 55%, transparent);
+  }
+}
+@keyframes liquid-hue {
+  0%, 100% { filter: hue-rotate(0deg) saturate(1.1); }
+  50% { filter: hue-rotate(-50deg) saturate(1.5); }
 }
 @media (prefers-reduced-motion: reduce) {
   .brand-mark { animation: none; }
+  .brand-mark::before { display: none; }
 }
 
 .profile { display: flex; align-items: center; gap: 12px; }
