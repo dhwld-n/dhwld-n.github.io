@@ -133,6 +133,8 @@ code {
   overflow: visible;
   animation: liquid-glow 2.4s ease-in-out infinite;
 }
+/* WebGL raymarched chrome metaball, swapped in by script.js when supported */
+.brand-mark-gl { width: 38px; height: 38px; }
 .liquid-stop-a { stop-color: var(--accent); }
 .liquid-stop-b { stop-color: var(--seg-3); }
 .brand-mark .drop,

@@ -550,4 +550,149 @@
   if (deep && PROJECTS[decodeURIComponent(deep[1])]) {
     openModal(decodeURIComponent(deep[1]));
   }
+
+  // ===== 브랜드 로고: 레이마칭 메타볼 (무지갯빛 크롬) =====
+  // WebGL이 안 되면 기존 SVG 물방울 로고를 그대로 둔다.
+  (function liquidChromeLogo() {
+    const svg = document.querySelector(".brand svg.brand-mark");
+    if (!svg) return;
+    const canvas = document.createElement("canvas");
+    canvas.className = "brand-mark brand-mark-gl";
+    canvas.setAttribute("aria-hidden", "true");
+    const gl = canvas.getContext("webgl", { alpha: true, premultipliedAlpha: true, antialias: false });
+    if (!gl) return;
+
+    const VERT = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+    const FRAG = `
+      precision highp float;
+      uniform vec2 uRes;
+      uniform float uTime;
+
+      float smin(float a, float b, float k) {
+        float h = clamp(0.5 + 0.5 * (b - a) / k, 0.0, 1.0);
+        return mix(b, a, h) - k * h * (1.0 - h);
+      }
+
+      float map(vec3 p) {
+        float t = uTime;
+        float d = 1e5;
+        for (int i = 0; i < 5; i++) {
+          float fi = float(i);
+          vec3 c = vec3(
+            sin(t * 0.70 + fi * 1.7) * 0.55,
+            cos(t * 0.60 + fi * 2.3) * 0.50,
+            sin(t * 0.50 + fi * 1.1) * 0.35
+          );
+          float r = 0.34 + 0.08 * sin(t * 0.9 + fi * 1.9);
+          d = smin(d, length(p - c) - r, 0.42);
+        }
+        return d;
+      }
+
+      vec3 calcNormal(vec3 p) {
+        vec2 e = vec2(0.0015, 0.0);
+        return normalize(vec3(
+          map(p + e.xyy) - map(p - e.xyy),
+          map(p + e.yxy) - map(p - e.yxy),
+          map(p + e.yyx) - map(p - e.yyx)
+        ));
+      }
+
+      // procedural studio environment for the chrome reflection
+      vec3 env(vec3 r) {
+        vec3 col = mix(vec3(0.02, 0.02, 0.06), vec3(0.92, 0.94, 1.0), smoothstep(-0.35, 0.9, r.y));
+        col *= 0.3 + 0.7 * smoothstep(0.0, 0.18, abs(r.y + 0.05));        // dark horizon line
+        col += 1.3 * smoothstep(0.90, 0.99, abs(dot(r, normalize(vec3(0.8, 0.6, 0.0))))); // light strip
+        col += 0.9 * smoothstep(0.93, 1.0, dot(r, normalize(vec3(-0.6, 0.3, 0.7))));       // softbox
+        return col;
+      }
+
+      vec3 shade(vec3 p, vec3 rd) {
+        vec3 n = calcNormal(p);
+        vec3 v = -rd;
+        vec3 r = reflect(rd, n);
+        float ndv = max(dot(n, v), 0.0);
+        float fres = pow(1.0 - ndv, 3.0);
+        // thin-film style rainbow tint that shifts with view angle
+        vec3 irid = 0.5 + 0.5 * cos(6.2831 * (ndv * 1.3 + r.y * 0.35 + uTime * 0.06 + vec3(0.0, 0.33, 0.67)));
+        vec3 col = env(r) * mix(vec3(1.0), irid * 1.35, 0.7);
+        col += fres * irid * 0.9;
+        col += 1.6 * pow(max(dot(r, normalize(vec3(-0.5, 0.8, 0.6))), 0.0), 60.0);
+        return clamp(col, 0.0, 1.0);
+      }
+
+      void main() {
+        vec2 uv = (gl_FragCoord.xy * 2.0 - uRes) / min(uRes.x, uRes.y);
+        vec3 ro = vec3(0.0, 0.0, 3.2);
+        vec3 rd = normalize(vec3(uv * 0.48, -1.0)); // fov chosen so the blob never clips the frame
+        float t = 0.0, minD = 1e5, tMin = 0.0;
+        bool hit = false;
+        for (int i = 0; i < 80; i++) {
+          float d = map(ro + rd * t);
+          if (d < minD) { minD = d; tMin = t; }
+          if (d < 0.001) { hit = true; break; }
+          t += d;
+          if (t > 6.0) break;
+        }
+        float px = 2.0 / min(uRes.x, uRes.y) * 0.48 * 3.2;
+        float alpha = hit ? 1.0 : 1.0 - smoothstep(0.0, px, minD);
+        if (alpha <= 0.0) { gl_FragColor = vec4(0.0); return; }
+        vec3 col = shade(ro + rd * (hit ? t : tMin), rd);
+        gl_FragColor = vec4(col * alpha, alpha);
+      }`;
+
+    function compile(type, src) {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      return gl.getShaderParameter(s, gl.COMPILE_STATUS) ? s : null;
+    }
+    const vs = compile(gl.VERTEX_SHADER, VERT);
+    const fs = compile(gl.FRAGMENT_SHADER, FRAG);
+    if (!vs || !fs) return;
+    const prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
+    gl.useProgram(prog);
+
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, "p");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const uRes = gl.getUniformLocation(prog, "uRes");
+    const uTime = gl.getUniformLocation(prog, "uTime");
+
+    svg.replaceWith(canvas);
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const size = Math.round(canvas.getBoundingClientRect().width * dpr) || 64;
+    canvas.width = canvas.height = size;
+    gl.viewport(0, 0, size, size);
+    gl.uniform2f(uRes, size, size);
+
+    let raf = 0;
+    canvas.addEventListener("webglcontextlost", (e) => {
+      e.preventDefault();
+      cancelAnimationFrame(raf);
+      canvas.replaceWith(svg);
+    });
+
+    const draw = (sec) => {
+      gl.uniform1f(uTime, sec);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    };
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      draw(2.0);
+      return;
+    }
+    const SPEED = 0.45; // 천천히 일렁이도록
+    const loop = (ms) => {
+      draw(ms * 0.001 * SPEED);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+  })();
 })();
