@@ -567,6 +567,9 @@
       precision highp float;
       uniform vec2 uRes;
       uniform float uTime;
+      uniform vec3 uColA; // --accent
+      uniform vec3 uColB; // --seg-3
+      uniform vec3 uBg;   // --sidebar (what sits behind the logo)
 
       float smin(float a, float b, float k) {
         float h = clamp(0.5 + 0.5 * (b - a) / k, 0.0, 1.0);
@@ -598,12 +601,14 @@
         ));
       }
 
-      // procedural studio environment for the chrome reflection
+      // studio environment for the chrome reflection, built from the site palette
       vec3 env(vec3 r) {
-        vec3 col = mix(vec3(0.02, 0.02, 0.06), vec3(0.92, 0.94, 1.0), smoothstep(-0.35, 0.9, r.y));
+        vec3 deep  = mix(uBg * 0.35, uColA * 0.25, 0.5);
+        vec3 light = mix(vec3(1.0), uColA, 0.15);
+        vec3 col = mix(deep, light, smoothstep(-0.35, 0.9, r.y));
         col *= 0.3 + 0.7 * smoothstep(0.0, 0.18, abs(r.y + 0.05));        // dark horizon line
-        col += 1.3 * smoothstep(0.90, 0.99, abs(dot(r, normalize(vec3(0.8, 0.6, 0.0))))); // light strip
-        col += 0.9 * smoothstep(0.93, 1.0, dot(r, normalize(vec3(-0.6, 0.3, 0.7))));       // softbox
+        col += 1.2 * light * smoothstep(0.90, 0.99, abs(dot(r, normalize(vec3(0.8, 0.6, 0.0))))); // light strip
+        col += 0.8 * light * smoothstep(0.93, 1.0, dot(r, normalize(vec3(-0.6, 0.3, 0.7))));       // softbox
         return col;
       }
 
@@ -613,11 +618,12 @@
         vec3 r = reflect(rd, n);
         float ndv = max(dot(n, v), 0.0);
         float fres = pow(1.0 - ndv, 3.0);
-        // thin-film style rainbow tint that shifts with view angle
-        vec3 irid = 0.5 + 0.5 * cos(6.2831 * (ndv * 1.3 + r.y * 0.35 + uTime * 0.06 + vec3(0.0, 0.33, 0.67)));
-        vec3 col = env(r) * mix(vec3(1.0), irid * 1.35, 0.7);
-        col += fres * irid * 0.9;
-        col += 1.6 * pow(max(dot(r, normalize(vec3(-0.5, 0.8, 0.6))), 0.0), 60.0);
+        // iridescent sheen that flows between the two brand colors with view angle
+        float k = 0.5 + 0.5 * cos(6.2831 * (ndv * 1.3 + r.y * 0.35 + uTime * 0.06));
+        vec3 tint = mix(uColA, uColB, k);
+        vec3 col = env(r) * mix(vec3(1.0), tint * 1.3, 0.65);
+        col += fres * tint * 0.85;
+        col += 1.4 * pow(max(dot(r, normalize(vec3(-0.5, 0.8, 0.6))), 0.0), 60.0);
         return clamp(col, 0.0, 1.0);
       }
 
@@ -665,6 +671,20 @@
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
     const uRes = gl.getUniformLocation(prog, "uRes");
     const uTime = gl.getUniformLocation(prog, "uTime");
+    const uColA = gl.getUniformLocation(prog, "uColA");
+    const uColB = gl.getUniformLocation(prog, "uColB");
+    const uBg = gl.getUniformLocation(prog, "uBg");
+
+    const cssColor = (name) => {
+      const hex = getComputedStyle(document.documentElement).getPropertyValue(name).trim().replace("#", "");
+      return [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+    };
+    const applyPalette = () => {
+      gl.uniform3fv(uColA, cssColor("--accent"));
+      gl.uniform3fv(uColB, cssColor("--seg-3"));
+      gl.uniform3fv(uBg, cssColor("--sidebar"));
+    };
+    applyPalette();
 
     svg.replaceWith(canvas);
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -684,7 +704,13 @@
       gl.uniform1f(uTime, sec);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // follow the light/dark theme toggle
+    new MutationObserver(() => {
+      applyPalette();
+      if (reduced) draw(2.0);
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    if (reduced) {
       draw(2.0);
       return;
     }
