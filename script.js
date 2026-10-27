@@ -93,6 +93,14 @@
       "Bdan 공식 대학생 서포터즈. 부팀장으로 에너지·탄소 금융 아이디어 제안, 비단앱 사용성 리서치, 블록체인·디지털 자산 카드뉴스 기획을 담당.",
       "Official student supporters for Bdan. As deputy team lead I proposed an energy / carbon-finance idea, ran usability research on the Bdan app, and planned blockchain / digital-asset card-news content."
     ),
+    card_e2_title: L(
+      "[산업통상부·KIAT]<br />2026 공학페스티벌 서포터즈 E² 메이트",
+      "[MOTIE · KIAT]<br />2026 Engineering Festival Supporters · E² Mate"
+    ),
+    card_e2_desc: L(
+      "공학페스티벌 공식 대학생 서포터즈. SNS 홍보 콘텐츠 업로드와 11월 19일 서울 SETEC 현장 방문 후기 콘텐츠를 제작.",
+      "Official student supporters for the Engineering Festival. Uploading promotional SNS content and a review of the Nov 19 on-site event at SETEC, Seoul."
+    ),
     card_more: L("자세히 보기 →", "View details →"),
 
     rail_theme: L("테마", "Theme"),
@@ -376,6 +384,47 @@
         L("사용자 리서치", "User research"),
         L("블록체인 · 디지털 자산", "Blockchain · Digital assets"),
         L("홍보 마케팅", "Marketing & promotion"),
+      ],
+    },
+
+    e2_mate: {
+      icon: "📣",
+      title: L(
+        "[산업통상부·KIAT] 2026 공학페스티벌 서포터즈 E² 메이트",
+        "[MOTIE · KIAT] 2026 Engineering Festival Supporters · E² Mate"
+      ),
+      meta: [
+        [L("활동 기간", "Period"), L("2026.10.28 ~ 2026.11.30", "Oct 28 – Nov 30, 2026")],
+        [
+          L("주최 · 주관", "Host"),
+          L(
+            "산업통상부 · 한국산업기술진흥원(KIAT) · 공학교육혁신협의회",
+            "Ministry of Trade, Industry and Energy · KIAT · Engineering Education Innovation Council"
+          ),
+        ],
+        [L("분야", "Field"), L("서포터즈 · 콘텐츠 마케팅", "Supporters · content marketing")],
+      ],
+      overviewLabel: L("활동 개요", "Overview"),
+      overview: L(
+        "전국 대학의 공학도들이 아이디어와 기술을 공유하는 축제인 '공학페스티벌(E² FESTA)'을 더 많은 사람에게 알리는 공식 대학생 서포터즈입니다. 축제 전에는 내 SNS 채널로 공학페스티벌 소식을 알리고, 축제 당일에는 현장을 직접 둘러보며 생생한 후기를 전합니다.",
+        "The official student supporters who promote the Engineering Festival (E² FESTA), where engineering students from universities nationwide share ideas and technology. Before the festival we spread the news on our own social channels, and on the day we tour the venue and share a first-hand review."
+      ),
+      workLabel: L("주요 활동", "Key activities"),
+      work: [
+        L(
+          "공학페스티벌 홍보 콘텐츠 업로드 (2회 이상) — 인스타그램 · 블로그 · 유튜브 중 선택한 채널에 카드뉴스, 릴스, 블로그 포스팅 등으로 제작.",
+          "Promotional content (2+ posts) — card news, reels or blog posts on Instagram, a blog or YouTube."
+        ),
+        L(
+          "공학페스티벌 현장 방문 + 후기 콘텐츠 업로드 (1회) — 11월 19일(목) 11:00 ~ 16:00, 서울 SETEC.",
+          "On-site visit + review content (1 post) — Nov 19 (Thu), 11:00–16:00, SETEC, Seoul."
+        ),
+      ],
+      stackLabel: L("키워드", "Keywords"),
+      stack: [
+        L("SNS 콘텐츠 제작", "SNS content creation"),
+        L("홍보 마케팅", "Marketing & promotion"),
+        L("공학 · 기술 행사", "Engineering events"),
       ],
     },
   };
