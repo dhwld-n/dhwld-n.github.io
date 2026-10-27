@@ -125,63 +125,56 @@ code {
   font-weight: 700;
   color: var(--ink);
 }
+/* Liquid brand mark: droplets inside an SVG goo filter (blur + alpha
+   threshold) stretch, pinch off and merge back like real liquid. */
 .brand-mark {
-  position: relative;
-  width: 18px; height: 18px;
+  width: 28px; height: 28px;
   flex-shrink: 0;
-  border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
-  background: linear-gradient(135deg, var(--accent), var(--seg-3), var(--accent));
-  background-size: 200% 200%;
-  animation:
-    liquid-morph 2.2s cubic-bezier(0.68, -0.4, 0.32, 1.4) infinite,
-    liquid-flow 1.4s ease-in-out infinite,
-    liquid-glow 1.1s ease-in-out infinite,
-    liquid-hue 3s ease-in-out infinite;
+  overflow: visible;
+  animation: liquid-glow 2.4s ease-in-out infinite;
 }
-/* satellite droplet orbiting the main blob */
-.brand-mark::before {
-  content: "";
-  position: absolute;
-  inset: 25%;
-  border-radius: 50%;
-  background: inherit;
-  animation: liquid-orbit 1.3s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+.liquid-stop-a { stop-color: var(--accent); }
+.liquid-stop-b { stop-color: var(--seg-3); }
+.brand-mark .drop,
+.brand-mark .drop-shine { transform-box: view-box; transform-origin: 20px 20px; }
+.brand-mark .drop-main  { animation: liquid-wobble 2.2s ease-in-out infinite; }
+.brand-mark .drop-a     { animation: liquid-drip-a 2.6s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+.brand-mark .drop-b     { animation: liquid-drip-b 3.3s cubic-bezier(0.45, 0, 0.55, 1) infinite 0.4s; }
+.brand-mark .drop-c     { animation: liquid-drip-c 2.1s cubic-bezier(0.45, 0, 0.55, 1) infinite 0.9s; }
+.brand-mark .drop-shine { fill: #fff; opacity: 0.6; animation: liquid-wobble 2.2s ease-in-out infinite; }
+
+@keyframes liquid-wobble {
+  0%, 100% { transform: scale(1, 1); }
+  25% { transform: scale(1.09, 0.92); }
+  50% { transform: scale(0.94, 1.07); }
+  75% { transform: scale(1.04, 0.97); }
 }
-@keyframes liquid-morph {
-  0%   { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(0deg) scale(1, 1); }
-  20%  { border-radius: 80% 20% 28% 72% / 24% 76% 24% 76%; transform: rotate(90deg) scale(1.38, 0.72); }
-  40%  { border-radius: 22% 78% 75% 25% / 72% 22% 78% 28%; transform: rotate(160deg) scale(0.74, 1.34); }
-  60%  { border-radius: 74% 26% 20% 80% / 30% 72% 28% 70%; transform: rotate(235deg) scale(1.3, 0.8); }
-  80%  { border-radius: 26% 74% 66% 34% / 78% 24% 76% 22%; transform: rotate(305deg) scale(0.82, 1.26); }
-  100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(360deg) scale(1, 1); }
+@keyframes liquid-drip-a {
+  0%, 100% { transform: translate(0, 0); }
+  45%, 55% { transform: translate(13px, -9px); }
 }
-@keyframes liquid-orbit {
-  0%   { transform: rotate(0deg) translateX(12px) scale(0.9); }
-  50%  { transform: rotate(-180deg) translateX(15px) scale(0.5); }
-  100% { transform: rotate(-360deg) translateX(12px) scale(0.9); }
+@keyframes liquid-drip-b {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-12px, 11px); }
 }
-@keyframes liquid-flow {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+@keyframes liquid-drip-c {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(6px, 14px); }
 }
 @keyframes liquid-glow {
   0%, 100% {
-    box-shadow:
-      0 0 6px 1px color-mix(in srgb, var(--accent) 70%, transparent);
+    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--accent) 55%, transparent))
+            drop-shadow(0 0 4px color-mix(in srgb, var(--seg-3) 0%, transparent));
   }
   50% {
-    box-shadow:
-      0 0 16px 5px var(--accent),
-      0 0 30px 10px color-mix(in srgb, var(--seg-3) 55%, transparent);
+    filter: drop-shadow(0 0 7px color-mix(in srgb, var(--accent) 100%, transparent))
+            drop-shadow(0 0 12px color-mix(in srgb, var(--seg-3) 45%, transparent));
   }
 }
-@keyframes liquid-hue {
-  0%, 100% { filter: hue-rotate(0deg) saturate(1.1); }
-  50% { filter: hue-rotate(-50deg) saturate(1.5); }
-}
 @media (prefers-reduced-motion: reduce) {
-  .brand-mark { animation: none; }
-  .brand-mark::before { display: none; }
+  .brand-mark,
+  .brand-mark .drop,
+  .brand-mark .drop-shine { animation: none; }
 }
 
 .profile { display: flex; align-items: center; gap: 12px; }
