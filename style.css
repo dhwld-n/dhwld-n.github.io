@@ -126,10 +126,25 @@ code {
   color: var(--ink);
 }
 .brand-mark {
-  width: 16px; height: 16px;
-  border-radius: 6px;
-  background: linear-gradient(135deg, var(--accent), var(--seg-3));
-  transform: rotate(45deg);
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
+  background: linear-gradient(135deg, var(--accent), var(--seg-3), var(--accent));
+  background-size: 200% 200%;
+  animation: liquid-morph 7s ease-in-out infinite, liquid-flow 5s ease-in-out infinite;
+}
+@keyframes liquid-morph {
+  0%   { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(0deg); }
+  33%  { border-radius: 63% 37% 45% 55% / 55% 62% 38% 45%; transform: rotate(120deg); }
+  66%  { border-radius: 38% 62% 56% 44% / 63% 37% 63% 37%; transform: rotate(240deg); }
+  100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(360deg); }
+}
+@keyframes liquid-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-mark { animation: none; }
 }
 
 .profile { display: flex; align-items: center; gap: 12px; }
