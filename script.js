@@ -620,10 +620,11 @@
         float fres = pow(1.0 - ndv, 3.0);
         // iridescent sheen that flows between the two brand colors with view angle
         float k = 0.5 + 0.5 * cos(6.2831 * (ndv * 1.3 + r.y * 0.35 + uTime * 0.06));
-        vec3 tint = mix(uColA, uColB, k);
-        vec3 col = env(r) * mix(vec3(1.0), tint * 1.3, 0.65);
-        col += fres * tint * 0.85;
+        vec3 tint = mix(mix(uColA, uColB, k), vec3(1.0), 0.2); // slightly pastel tint
+        vec3 col = env(r) * mix(vec3(1.0), tint * 1.25, 0.55);
+        col += fres * tint * 0.7;
         col += 1.4 * pow(max(dot(r, normalize(vec3(-0.5, 0.8, 0.6))), 0.0), 60.0);
+        col = mix(vec3(dot(col, vec3(0.299, 0.587, 0.114))), col, 0.85); // ease off saturation a touch
         return clamp(col, 0.0, 1.0);
       }
 
