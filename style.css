@@ -131,17 +131,26 @@ code {
   border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
   background: linear-gradient(135deg, var(--accent), var(--seg-3), var(--accent));
   background-size: 200% 200%;
-  animation: liquid-morph 7s ease-in-out infinite, liquid-flow 5s ease-in-out infinite;
+  animation:
+    liquid-morph 3.2s cubic-bezier(0.45, 0, 0.25, 1) infinite,
+    liquid-flow 2.4s ease-in-out infinite,
+    liquid-glow 1.6s ease-in-out infinite;
 }
 @keyframes liquid-morph {
-  0%   { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(0deg); }
-  33%  { border-radius: 63% 37% 45% 55% / 55% 62% 38% 45%; transform: rotate(120deg); }
-  66%  { border-radius: 38% 62% 56% 44% / 63% 37% 63% 37%; transform: rotate(240deg); }
-  100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(360deg); }
+  0%   { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(0deg) scale(1, 1); }
+  20%  { border-radius: 72% 28% 35% 65% / 30% 70% 30% 70%; transform: rotate(80deg) scale(1.22, 0.82); }
+  40%  { border-radius: 30% 70% 68% 32% / 66% 28% 72% 34%; transform: rotate(150deg) scale(0.86, 1.18); }
+  60%  { border-radius: 65% 35% 28% 72% / 38% 64% 36% 62%; transform: rotate(220deg) scale(1.15, 0.9); }
+  80%  { border-radius: 34% 66% 58% 42% / 70% 32% 68% 30%; transform: rotate(300deg) scale(0.92, 1.12); }
+  100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; transform: rotate(360deg) scale(1, 1); }
 }
 @keyframes liquid-flow {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
+@keyframes liquid-glow {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  50% { box-shadow: 0 0 10px 1px var(--accent); }
 }
 @media (prefers-reduced-motion: reduce) {
   .brand-mark { animation: none; }
