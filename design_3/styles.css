@@ -48,11 +48,11 @@ h1, .about p { text-wrap: balance; }
 /* nav */
 .nav {
   position: fixed; z-index: 10; top: 16px; left: 50%; transform: translateX(-50%);
-  width: min(calc(100% - 32px), 560px);
+  width: min(calc(100% - 32px), 720px);
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 8px 10px 8px 22px; border-radius: 999px;
 }
-.nav nav a { padding: 10px 6px; }
+.nav nav a { padding: 10px 6px; white-space: nowrap; }
 .nav-logo { font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
 .nav nav { display: flex; gap: 20px; font-size: 15px; color: var(--muted); }
 .nav nav a:hover { color: var(--text); }
@@ -156,7 +156,15 @@ h1, .about p { text-wrap: balance; }
 }
 [data-reveal].is-visible > * { opacity: 1; transform: none; }
 
-@media (max-width: 480px) { .nav nav { gap: 10px; font-size: 13px; } .nav { padding-left: 16px; } .nav-logo { font-size: 15px; } }
+/* 메뉴는 메인 사이트와 같은 영어 이름. 좁으면 "Ambassador"만, 폰에서는 메뉴를 둘째 줄로 */
+@media (max-width: 700px) { .nav-long { display: none; } }
+@media (max-width: 480px) {
+  .nav { flex-wrap: wrap; row-gap: 0; padding: 8px 10px 4px 18px; border-radius: 24px; }
+  .nav nav { order: 3; width: 100%; justify-content: space-between; gap: 0; font-size: 13px; }
+  .nav nav a { padding: 8px 2px; }
+  .section { scroll-margin-top: 24px; }
+  .works + .works { scroll-margin-top: 120px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
