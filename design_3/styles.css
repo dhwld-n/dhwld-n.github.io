@@ -106,7 +106,7 @@ h1, .about p { text-wrap: balance; }
 .section { max-width: 1120px; margin: 0 auto; padding: 96px 24px; }
 .section-head { margin-bottom: 32px; }
 .section h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 600; }
-.works + .works { padding-top: 0; scroll-margin-top: 96px; }
+.stack + .stack { padding-top: 0; scroll-margin-top: 96px; }
 
 /* grid: scroll-reveal은 .card, 기울기는 안쪽 .tilt */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 28px; }
@@ -140,7 +140,10 @@ h1, .about p { text-wrap: balance; }
   -webkit-mask-image: linear-gradient(#000 82%, transparent); mask-image: linear-gradient(#000 82%, transparent);
 }
 [data-theme="dark"] .avatar-light, [data-theme="light"] .avatar-dark { display: none; }
-.edu { margin: 32px 0 0; font-size: 15px; }
+.edu-card { padding: 32px 32px 28px; border-radius: 28px; }
+.edu-card h3 { font-size: 19px; line-height: 1.5; margin: 0 0 6px; }
+.edu-card p { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+.edu-period { color: var(--accent); font-weight: 700; font-size: 15px; }
 .contact { text-align: center; }
 .contact-lead { color: var(--muted); margin: 16px 0 8px; }
 .gh { color: var(--muted); border-bottom: 1px solid currentColor; }
@@ -163,7 +166,7 @@ h1, .about p { text-wrap: balance; }
   .nav nav { order: 3; width: 100%; justify-content: space-between; gap: 0; font-size: 13px; }
   .nav nav a { padding: 8px 2px; }
   .section { scroll-margin-top: 24px; }
-  .works + .works { scroll-margin-top: 120px; }
+  .stack + .stack { scroll-margin-top: 120px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

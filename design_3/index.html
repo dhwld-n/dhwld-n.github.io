@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/gh/projectnoonnu/2508-2@1.0/OkDanDan-Bold.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../omyu-pretty-subset.woff2?v=2026102701">
-<link rel="stylesheet" href="styles.css?v=2026110109">
+<link rel="stylesheet" href="styles.css?v=2026110110">
 </head>
 <body>
 
@@ -47,7 +47,7 @@
     </div>
   </section>
 
-  <section id="about" class="section">
+  <section id="about" class="section stack">
     <div data-reveal class="about">
       <h2 style="--i:0">Introduction</h2>
       <p style="--i:1">안녕하세요, 저는 부산대학교에서 인공지능을 전공하고 있는 오지우입니다. 단순히 전공에만 국한되지 않고, 관심 있는 분야에는 직접 부딪혀보며 배우는 걸 좋아합니다. LLM을 기반으로 다양한 프로덕트를 만드는 것에 관심이 많습니다.</p>
@@ -59,12 +59,24 @@
         <li class="clay">웹 (Flask)</li>
         <li class="clay">CI 자동화</li>
       </ul>
-      <p class="edu" style="--i:3">부산대학교 정보컴퓨터공학부 인공지능전공 재학 (2025.3 ~)</p>
+    </div>
+  </section>
+
+  <section id="education" class="section stack">
+    <div data-reveal class="section-head"><h2 style="--i:0">Education</h2></div>
+    <div class="grid" data-reveal>
+      <article class="card">
+        <div class="edu-card clay">
+          <h3>부산대학교</h3>
+          <p>정보컴퓨터공학부 인공지능전공 재학</p>
+          <span class="edu-period">2025.3 ~</span>
+        </div>
+      </article>
     </div>
   </section>
 
   <!-- 카드를 누르면 메인 사이트의 상세 모달(#project/id)로 이동. 문구는 메인 사이트 카드와 같다 -->
-  <section id="projects" class="section works">
+  <section id="projects" class="section stack">
     <div data-reveal class="section-head"><h2 style="--i:0">Projects</h2></div>
     <div class="grid" data-reveal>
       <article class="card">
@@ -84,7 +96,7 @@
     </div>
   </section>
 
-  <section id="ambassador" class="section works">
+  <section id="ambassador" class="section stack">
     <div data-reveal class="section-head"><h2 style="--i:0">Brand Ambassador Program</h2></div>
     <div class="grid" data-reveal>
       <article class="card">
