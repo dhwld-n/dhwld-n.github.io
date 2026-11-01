@@ -146,9 +146,17 @@ h1, .about p { text-wrap: balance; }
 .edu-period { color: var(--accent); font-weight: 700; font-size: 15px; }
 .contact { text-align: center; }
 .contact-lead { color: var(--muted); margin: 16px 0 8px; }
-.gh { font-size: 19px; color: var(--muted); border-bottom: 1px solid currentColor; }
-.gh:hover { color: var(--text); }
-.mail { font-size: 20px; font-weight: 600; color: var(--accent); border-bottom: 1px solid currentColor; }
+/* 메인 사이트처럼 "E-mail : [링크]" 줄. 링크 시작점이 맞도록 2열 그리드 */
+.contact-links { display: inline-grid; grid-template-columns: auto auto; gap: 14px 12px; align-items: center; margin-top: 16px; text-align: left; }
+.contact-key { font-weight: 700; color: var(--muted); }
+.contact-link {
+  justify-self: start; padding: 12px 22px; border-radius: 16px; font-size: 17px;
+  background: rgb(var(--tint) / .14); color: var(--accent);
+  transition: background .2s ease, scale .3s cubic-bezier(.34,1.56,.64,1);
+}
+.contact-link:hover { background: rgb(var(--tint) / .24); }
+.contact-link:active { scale: .96; }
+@media (max-width: 380px) { .contact-link { padding: 10px 14px; font-size: 15px; } }
 .foot { padding: 40px 24px; text-align: center; color: var(--muted); font-size: 14px; }
 
 /* scroll-reveal */
