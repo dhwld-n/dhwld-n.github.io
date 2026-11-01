@@ -140,9 +140,12 @@ h1, .about p { text-wrap: balance; }
   -webkit-mask-image: linear-gradient(#000 82%, transparent); mask-image: linear-gradient(#000 82%, transparent);
 }
 [data-theme="dark"] .avatar-light, [data-theme="light"] .avatar-dark { display: none; }
-.edu-card { padding: 32px 32px 28px; border-radius: 28px; }
-.edu-card h3 { font-size: 19px; line-height: 1.5; margin: 0 0 6px; }
-.edu-card p { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+/* 학력은 Introduction 안의 작은 묶음 */
+.about-edu { max-width: 520px; margin-top: 48px; }
+.about-edu > h3 { font-size: 22px; margin: 0 0 16px; }
+.edu-card { padding: 28px 32px 24px; border-radius: 28px; }
+.edu-card h4 { font-family: "OkDandan", "Quicksand", "Noto Sans KR", sans-serif; font-size: 19px; line-height: 1.5; margin: 0 0 6px; }
+.about .edu-card p { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
 .edu-period { color: var(--accent); font-weight: 700; font-size: 15px; }
 .contact { text-align: center; }
 .contact-lead { color: var(--muted); margin: 16px 0 8px; }
