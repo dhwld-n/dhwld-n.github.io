@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>포트폴리오 · 작업 모음</title>
+<meta name="description" content="움직이고 만져지는 작업들을 모은 포트폴리오">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<noscript><style>[data-reveal]>*{opacity:1!important;transform:none!important}.kinetic .unit>span{transform:none!important}</style></noscript>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav clay" aria-label="주 메뉴">
+  <a class="nav-logo" href="#top">Folio</a>
+  <nav>
+    <a href="#works">작업</a>
+    <a href="#about">소개</a>
+    <a href="#contact">연락</a>
+  </nav>
+  <button class="theme-toggle" id="theme" type="button" aria-label="밝은 테마로 전환">
+    <span aria-hidden="true">◐</span>
+  </button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <canvas id="hero-3d" aria-hidden="true"></canvas>
+    <div class="hero-copy">
+      <p class="eyebrow">SELECTED WORKS · 2024—2026</p>
+      <!-- 이름/소개 문구로 교체 -->
+      <h1 class="kinetic">움직이고, 만져지는 작업들을 모았습니다</h1>
+      <p class="lede">웹, 브랜딩, 모션 작업을 한곳에 모았어요. 카드를 눌러 하나씩 살펴보세요.</p>
+      <a class="cushion" data-cushion href="#works">프로젝트 보기</a>
+    </div>
+  </section>
+
+  <section id="works" class="section">
+    <div data-reveal class="section-head">
+      <h2 style="--i:0">작업</h2>
+      <div class="tabs clay" role="group" aria-label="분류" style="--i:1">
+        <button type="button" aria-pressed="true" data-filter="all">전체</button>
+        <button type="button" aria-pressed="false" data-filter="web">웹</button>
+        <button type="button" aria-pressed="false" data-filter="brand">브랜딩</button>
+        <button type="button" aria-pressed="false" data-filter="motion">모션</button>
+      </div>
+    </div>
+
+    <!-- 각 .thumb 안에 실제 작품 이미지(16:10)를 <img>로 넣기. 지금은 자리표시 그라데이션 -->
+    <div class="grid" data-reveal>
+      <article class="card" data-cat="web">
+        <a href="#" class="tilt clay">
+          <div class="thumb t1"><span aria-hidden="true">01</span></div>
+          <h3>프로젝트 이름 01</h3>
+          <p>웹사이트 · 2026</p>
+        </a>
+      </article>
+      <article class="card" data-cat="brand">
+        <a href="#" class="tilt clay">
+          <div class="thumb t2"><span aria-hidden="true">02</span></div>
+          <h3>프로젝트 이름 02</h3>
+          <p>브랜딩 · 2026</p>
+        </a>
+      </article>
+      <article class="card" data-cat="motion">
+        <a href="#" class="tilt clay">
+          <div class="thumb t3"><span aria-hidden="true">03</span></div>
+          <h3>프로젝트 이름 03</h3>
+          <p>모션 · 2025</p>
+        </a>
+      </article>
+      <article class="card" data-cat="web">
+        <a href="#" class="tilt clay">
+          <div class="thumb t4"><span aria-hidden="true">04</span></div>
+          <h3>프로젝트 이름 04</h3>
+          <p>웹앱 · 2025</p>
+        </a>
+      </article>
+      <article class="card" data-cat="brand">
+        <a href="#" class="tilt clay">
+          <div class="thumb t5"><span aria-hidden="true">05</span></div>
+          <h3>프로젝트 이름 05</h3>
+          <p>브랜딩 · 2025</p>
+        </a>
+      </article>
+      <article class="card" data-cat="motion">
+        <a href="#" class="tilt clay">
+          <div class="thumb t6"><span aria-hidden="true">06</span></div>
+          <h3>프로젝트 이름 06</h3>
+          <p>모션 · 2024</p>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div data-reveal class="about">
+      <h2 style="--i:0">소개</h2>
+      <p style="--i:1">여기에 자기소개를 적어 주세요. 어떤 일을 하는지, 어떤 방식으로 작업하는지 두세 문장이면 충분해요.</p>
+      <ul class="skills" style="--i:2">
+        <li class="clay">디자인</li>
+        <li class="clay">프론트엔드</li>
+        <li class="clay">모션</li>
+        <li class="clay">3D</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <div data-reveal>
+      <h2 style="--i:0">같이 만들어요</h2>
+      <p style="--i:1"><a class="mail" href="mailto:hello@example.com">hello@example.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">© 2026 Folio</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

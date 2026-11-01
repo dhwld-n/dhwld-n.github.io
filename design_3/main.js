@@ -1,0 +1,154 @@
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const root = document.documentElement;
+
+/* 테마 A(dark) / B(light) */
+{
+  const btn = document.getElementById('theme');
+  const set = (t) => {
+    root.dataset.theme = t;
+    btn.setAttribute('aria-label', t === 'light' ? '어두운 테마로 전환' : '밝은 테마로 전환');
+    try { localStorage.setItem('theme', t); } catch {}
+  };
+  let saved; try { saved = localStorage.getItem('theme'); } catch {}
+  if (saved === 'light' || saved === 'dark') set(saved);
+  btn.addEventListener('click', () => set(root.dataset.theme === 'dark' ? 'light' : 'dark'));
+}
+
+/* kinetic-headline: 단어 단위 */
+document.querySelectorAll('.kinetic').forEach((el) => {
+  const text = el.textContent;
+  el.setAttribute('aria-label', text);
+  el.innerHTML = '';
+  let i = 0;
+  for (const p of text.split(/(\s+)/)) {
+    if (/^\s+$/.test(p)) { el.append(p); continue; }
+    const unit = document.createElement('span');
+    unit.className = 'unit';
+    unit.setAttribute('aria-hidden', 'true');
+    const inner = document.createElement('span');
+    inner.textContent = p;
+    inner.style.setProperty('--i', i++);
+    unit.append(inner);
+    el.append(unit);
+  }
+});
+
+/* scroll-reveal (카드는 줄마다 0~2 순서) */
+document.querySelectorAll('.grid > .card').forEach((c, i) => c.style.setProperty('--i', i % 3));
+{
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+  }, { threshold: 0.15 });
+  document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+}
+
+/* 분류 탭 */
+{
+  const tabs = document.querySelectorAll('.tabs button');
+  const cards = document.querySelectorAll('.card');
+  tabs.forEach((t) => t.addEventListener('click', () => {
+    tabs.forEach((x) => x.setAttribute('aria-pressed', x === t));
+    cards.forEach((c) => { c.hidden = t.dataset.filter !== 'all' && c.dataset.cat !== t.dataset.filter; });
+  }));
+}
+
+/* 스크롤 원근 기울기: 화면 아래쪽에 있을수록 눕고, 가운데에 오면 펴진다 */
+if (!reduce) {
+  const tilts = [...document.querySelectorAll('.tilt')];
+  let ticking = false;
+  const update = () => {
+    const vh = innerHeight;
+    for (const el of tilts) {
+      const r = el.getBoundingClientRect();
+      const t = Math.min(Math.max((r.top + r.height / 2 - vh * 0.5) / (vh * 0.5), 0), 1);
+      el.style.setProperty('--rx', `${t * 22}deg`);
+    }
+    ticking = false;
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', update);
+  update();
+}
+
+/* cushion-button */
+document.querySelectorAll('[data-cushion]').forEach((el) => {
+  el.addEventListener('pointerdown', () => el.classList.add('is-pressed'));
+  ['pointerup', 'pointerleave', 'blur'].forEach((t) => el.addEventListener(t, () => el.classList.remove('is-pressed')));
+  if (reduce) return;
+  const lean = 0.12, k = 0.18, damping = 0.7;
+  let s = 1, vs = 0, ts = 1, x = 0, vx = 0, tx = 0, y = 0, vy = 0, ty = 0, raf = 0;
+  const tick = () => {
+    vs = (vs + (ts - s) * k) * damping; s += vs;
+    vx = (vx + (tx - x) * k) * damping; x += vx;
+    vy = (vy + (ty - y) * k) * damping; y += vy;
+    el.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
+    const rest = Math.abs(ts - s) + Math.abs(vs) + Math.abs(tx - x) + Math.abs(ty - y) + Math.abs(vx) + Math.abs(vy);
+    raf = rest > 0.001 ? requestAnimationFrame(tick) : 0;
+  };
+  const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
+  el.addEventListener('pointermove', (e) => {
+    const r = el.getBoundingClientRect();
+    tx = (e.clientX - r.left - r.width / 2) * lean;
+    ty = (e.clientY - r.top - r.height / 2) * lean;
+    if (!el.classList.contains('is-pressed')) ts = 1.06;
+    kick();
+  });
+  el.addEventListener('pointerdown', () => { ts = 0.92; kick(); });
+  el.addEventListener('pointerup', () => { ts = 1.06; vs += 0.04; kick(); });
+  el.addEventListener('pointerleave', () => { ts = 1; tx = 0; ty = 0; kick(); });
+});
+
+/* 히어로 3D: 파랑~보라 오브젝트 3개. 히어로가 보일 때만 렌더, 모션 줄이기면 한 프레임만 */
+if (window.THREE) {
+  const canvas = document.getElementById('hero-3d');
+  const hero = canvas.parentElement;
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 50);
+  camera.position.z = 9;
+
+  scene.add(new THREE.AmbientLight(0xaab4ff, 0.7));
+  const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(3, 4, 5); scene.add(key);
+  const rim = new THREE.PointLight(0x8a6cff, 2, 20); rim.position.set(-4, -2, 3); scene.add(rim);
+
+  const mat = (c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.38, metalness: 0.15 });
+  const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(0.9, 0.32, 128, 16), mat(0x6f8bff));
+  const ico = new THREE.Mesh(new THREE.IcosahedronGeometry(0.9, 1), mat(0x7c5cff));
+  const orb = new THREE.Mesh(new THREE.SphereGeometry(0.55, 48, 32), mat(0x4a63f0));
+  scene.add(knot, ico, orb);
+
+  let orbY = 0;
+  const place = () => {
+    const w = hero.clientWidth, h = hero.clientHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+    const half = Math.tan(camera.fov * Math.PI / 360) * camera.position.z * camera.aspect;
+    const wide = w > 700;
+    knot.position.set(wide ? half * 0.72 : half * 0.6, wide ? 0.6 : 1.9, 0);
+    ico.position.set(wide ? -half * 0.74 : -half * 0.6, wide ? -0.8 : -2.2, 0);
+    orbY = wide ? 2.4 : -2.5;
+    orb.position.set(wide ? -half * 0.42 : half * 0.5, orbY, -1);
+    [knot, ico, orb].forEach((m) => m.scale.setScalar(wide ? 1 : 0.7));
+    renderer.render(scene, camera); // setSize가 캔버스를 비우므로 바로 다시 그린다
+  };
+  place(); addEventListener('resize', place);
+
+  let mx = 0, my = 0, visible = true, raf = 0;
+  if (!reduce) addEventListener('pointermove', (e) => { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; }, { passive: true });
+  const frame = (t) => {
+    const s = t / 1000;
+    knot.rotation.set(s * 0.3 + my * 0.5, s * 0.4 + mx * 0.5, 0);
+    ico.rotation.set(s * 0.25 - my * 0.5, s * 0.35 - mx * 0.5, 0);
+    orb.position.y = orbY + Math.sin(s * 1.2) * 0.25;
+    renderer.render(scene, camera);
+    raf = visible && !reduce ? requestAnimationFrame(frame) : 0;
+  };
+  raf = requestAnimationFrame(frame);
+  if (!reduce) {
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible && !raf) raf = requestAnimationFrame(frame);
+    }).observe(hero);
+  }
+}
