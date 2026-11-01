@@ -88,6 +88,58 @@ document.querySelectorAll('[data-cushion]').forEach((el) => {
   el.addEventListener('pointerleave', () => { ts = 1; tx = 0; ty = 0; kick(); });
 });
 
+/* 프로젝트 상세: 데이터는 메인 사이트와 같이 쓰는 ../projects.js. 주소 #project/id 로 바로 열 수도 있다 */
+if (window.PROJECTS) {
+  const P = window.PROJECTS;
+  const dlg = document.getElementById('project-modal');
+  const body = document.getElementById('modal-body');
+  const ko = (v) => (v && typeof v === 'object' && 'ko' in v ? v.ko : v);
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const fromRoot = (u) => (/^(https?:|mailto:|\/|#)/.test(u) ? u : '../' + u); // projects.js의 경로는 사이트 루트 기준
+  const render = (p) => {
+    const meta = p.meta.map(([k, v]) => `<div><dt>${esc(ko(k))}</dt><dd>${esc(ko(v))}</dd></div>`).join('');
+    const work = (p.work || []).map((w) => {
+      const obj = w && typeof w === 'object' && 'text' in w;
+      const f = obj && w.figure;
+      const cap = f && f.caption ? esc(ko(f.caption)) : '';
+      const fig = f ? `<figure><img src="${esc(fromRoot(f.src))}" alt="${cap}" loading="lazy">${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>` : '';
+      return `<li>${esc(ko(obj ? w.text : w))}${fig}</li>`;
+    }).join('');
+    const stack = (p.stack || []).map((s) => `<li>${esc(ko(s))}</li>`).join('');
+    const links = (p.links || []).map((l) => {
+      const ext = /^https?:/.test(l.href);
+      return `<a href="${esc(fromRoot(l.href))}"${ext ? ' target="_blank" rel="noopener noreferrer"' : ''}${l.primary ? ' class="is-primary"' : ''}>${esc(ko(l.label))}${ext ? ' ↗' : ''}</a>`;
+    }).join('');
+    body.innerHTML =
+      `<h3 id="modal-title"><span aria-hidden="true">${esc(p.icon || '•')}</span> ${esc(ko(p.title))}</h3>` +
+      `<dl class="modal-meta">${meta}</dl>` +
+      (p.overview ? `<h4>${esc(ko(p.overviewLabel) || '프로젝트 개요')}</h4><p>${esc(ko(p.overview))}</p>` : '') +
+      (work ? `<h4>${esc(ko(p.workLabel) || '수행 내용')}</h4><ul class="modal-list">${work}</ul>` : '') +
+      (stack ? `<h4>${esc(ko(p.stackLabel) || '기술 스택')}</h4><ul class="modal-chips">${stack}</ul>` : '') +
+      (links ? `<div class="modal-links">${links}</div>` : '');
+  };
+  const open = (id) => {
+    if (!P[id]) return false;
+    render(P[id]);
+    if (!dlg.open) dlg.showModal();
+    dlg.scrollTop = 0;
+    history.replaceState(null, '', '#project/' + id);
+    return true;
+  };
+  document.querySelectorAll('[data-project]').forEach((a) => a.addEventListener('click', (e) => {
+    if (open(a.dataset.project)) e.preventDefault();
+  }));
+  const clearHash = () => {
+    if (location.hash.startsWith('#project/')) history.replaceState(null, '', location.pathname + location.search);
+  };
+  const close = () => { dlg.close(); clearHash(); };
+  dlg.querySelector('.modal-close').addEventListener('click', close);
+  dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); }); // 창 바깥(배경) 클릭
+  dlg.addEventListener('close', clearHash); // Esc로 닫을 때
+  const deep = location.hash.match(/^#project\/(.+)$/);
+  if (deep) open(decodeURIComponent(deep[1]));
+}
+
 /* 히어로 3D: 파랑~보라 오브젝트 3개. 히어로가 보일 때만 렌더, 모션 줄이기면 한 프레임만 */
 if (window.THREE) {
   const canvas = document.getElementById('hero-3d');

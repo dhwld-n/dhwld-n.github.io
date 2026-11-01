@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/gh/projectnoonnu/2508-2@1.0/OkDanDan-Bold.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../omyu-pretty-subset.woff2?v=2026102701">
-<link rel="stylesheet" href="styles.css?v=2026110112">
+<link rel="stylesheet" href="styles.css?v=2026110114">
 </head>
 <body>
 
@@ -75,19 +75,19 @@
     </div>
   </section>
 
-  <!-- 카드를 누르면 메인 사이트의 상세 모달(#project/id)로 이동. 문구는 메인 사이트 카드와 같다 -->
+  <!-- 카드를 누르면 이 페이지에서 상세 창이 열린다(데이터: ../projects.js, 메인 사이트와 공유). JS가 없으면 href대로 메인 사이트 상세로 간다 -->
   <section id="projects" class="section stack">
     <div data-reveal class="section-head"><h2 style="--i:0">Projects</h2></div>
     <div class="grid" data-reveal>
       <article class="card">
-        <a href="../#project/agent_with_gpt" class="tilt clay">
+        <a href="../#project/agent_with_gpt" class="tilt clay" data-project="agent_with_gpt">
           <h3>LLM 기반<br>타겟 보드 테스트 자동화 파이프라인</h3>
           <p><code>git push</code> 한 번으로 보드 선택·배포·실행·회귀 판정·기록까지 이어지는 CI 파이프라인.<br>감바랩스 인턴십 프로젝트.</p>
           <span class="more">자세히 보기 →</span>
         </a>
       </article>
       <article class="card">
-        <a href="../#project/tinker" class="tilt clay">
+        <a href="../#project/tinker" class="tilt clay" data-project="tinker">
           <h3>Tinker — 심심할 때 켜는 AI 웹 도구 모음</h3>
           <p>사주 · 타로부터 얼굴 피부 분석, &lsquo;나와 닮은 공룡&rsquo;까지.<br>계산 · 이미지 처리는 브라우저, 텍스트는 Gemini 스트리밍.</p>
           <span class="more">자세히 보기 →</span>
@@ -100,14 +100,14 @@
     <div data-reveal class="section-head"><h2 style="--i:0">Brand Ambassador Program</h2></div>
     <div class="grid" data-reveal>
       <article class="card">
-        <a href="../#project/beyond_busan" class="tilt clay">
+        <a href="../#project/beyond_busan" class="tilt clay" data-project="beyond_busan">
           <h3>[부산디지털자산거래소]<br>대학생 서포터즈 BEYOND BUSAN 3기</h3>
           <p>Bdan 공식 대학생 서포터즈. 부팀장으로 에너지·탄소 금융 아이디어 제안, 비단앱 사용성 리서치, 블록체인·디지털 자산 카드뉴스 기획을 담당.</p>
           <span class="more">자세히 보기 →</span>
         </a>
       </article>
       <article class="card">
-        <a href="../#project/e2_mate" class="tilt clay">
+        <a href="../#project/e2_mate" class="tilt clay" data-project="e2_mate">
           <h3>[산업통상부·KIAT]<br>2026 공학페스티벌 서포터즈 E² 메이트</h3>
           <p>공학페스티벌 공식 대학생 서포터즈. SNS 홍보 콘텐츠 업로드와 11월 19일 서울 SETEC 현장 방문 후기 콘텐츠를 제작.</p>
           <span class="more">자세히 보기 →</span>
@@ -130,9 +130,15 @@
   </section>
 </main>
 
+<dialog class="modal" id="project-modal" aria-labelledby="modal-title">
+  <button class="modal-close" type="button" aria-label="닫기">×</button>
+  <div class="modal-body" id="modal-body"></div>
+</dialog>
+
 <footer class="foot">© 2026 오지우. Built with GitHub Pages.</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="main.js?v=2026110113"></script>
+<script src="../projects.js?v=2026110101"></script>
+<script src="main.js?v=2026110115"></script>
 </body>
 </html>
