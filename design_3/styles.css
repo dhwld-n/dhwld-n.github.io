@@ -17,10 +17,14 @@
 }
 
 * { box-sizing: border-box; }
+/* 메인 사이트와 같은 폰트: 본문 MitmiFont, 제목·메뉴 OkDandan */
+@font-face { font-family: "OkDandan"; src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2508-2@1.0/OkDanDan-Bold.woff2") format("woff2"); font-display: swap; }
+@font-face { font-family: "MitmiFont"; src: url("../omyu-pretty-subset.woff2?v=2026102701") format("woff2"); font-display: swap; }
+
 html { scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--bg); color: var(--text);
-  font: 400 17px/1.7 "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  font: 400 17px/1.7 "MitmiFont", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   word-break: keep-all;
   transition: background .4s ease, color .4s ease;
   overflow-x: hidden;
@@ -28,6 +32,7 @@ body {
 a { color: inherit; text-decoration: none; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 h1, h2, h3 { margin: 0; letter-spacing: -.03em; line-height: 1.15; }
+h1, h2, h3, .nav-logo, .nav nav a { font-family: "OkDandan", "Quicksand", "Inter", "Noto Sans KR", sans-serif; }
 h1, .lede, .about p { text-wrap: balance; }
 
 /* clay-surface */
