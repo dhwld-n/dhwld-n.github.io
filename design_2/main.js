@@ -14,23 +14,34 @@ const root = document.documentElement;
   btn.addEventListener('click', () => set(root.dataset.theme === 'dark' ? 'light' : 'dark'));
 }
 
-/* kinetic-headline: 단어 단위 */
-document.querySelectorAll('.kinetic').forEach((el) => {
-  const text = el.textContent;
+/* 타자기 헤드라인: 글자를 하나씩 탁탁 쳐 나간다. 간격을 조금씩 흔들어 사람 손 느낌을 낸다.
+   안 친 글자도 자리를 미리 잡아 둬서 줄바꿈이 흔들리지 않는다. 모션 줄이기면 처음부터 다 보인다 */
+document.querySelectorAll('.typed').forEach((el) => {
+  const text = el.textContent.trim();
   el.setAttribute('aria-label', text);
-  el.innerHTML = '';
+  el.textContent = '';
+  const chars = [...text].map((c) => {
+    const s = document.createElement('span');
+    s.textContent = c;
+    s.setAttribute('aria-hidden', 'true');
+    el.append(s);
+    return s;
+  });
+  if (reduce) return;
+  chars.forEach((s) => s.classList.add('untyped'));
+  const caret = document.createElement('span');
+  caret.className = 'caret';
+  caret.setAttribute('aria-hidden', 'true');
+  el.prepend(caret);
   let i = 0;
-  for (const p of text.split(/(\s+)/)) {
-    if (/^\s+$/.test(p)) { el.append(p); continue; }
-    const unit = document.createElement('span');
-    unit.className = 'unit';
-    unit.setAttribute('aria-hidden', 'true');
-    const inner = document.createElement('span');
-    inner.textContent = p;
-    inner.style.setProperty('--i', i++);
-    unit.append(inner);
-    el.append(unit);
-  }
+  const type = () => {
+    const s = chars[i++];
+    s.classList.remove('untyped');
+    s.after(caret);
+    if (i < chars.length) setTimeout(type, s.textContent === ' ' ? 150 : 55 + Math.random() * 80);
+    else el.classList.add('is-done');
+  };
+  setTimeout(type, 450);
 });
 
 /* scroll-reveal (카드는 줄마다 0~1 순서) */
