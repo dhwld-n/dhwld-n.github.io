@@ -81,8 +81,8 @@ h1, .about p { text-wrap: balance; }
   display: inline-block; height: .9em; vertical-align: -.06em;
   border-left: .07em solid var(--accent); margin-right: -.07em;
 }
-.typed.is-done .caret { animation: caret-blink 1.05s steps(1) infinite; }
-@keyframes caret-blink { 50% { opacity: 0; } }
+.typed.is-done .caret { animation: caret-out .3s .4s forwards; } /* 다 치면 잠깐 뒤 사라진다 */
+@keyframes caret-out { to { opacity: 0; } }
 
 /* cushion-button */
 .cushion {
