@@ -33,7 +33,7 @@ a { color: inherit; text-decoration: none; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 h1, h2, h3 { margin: 0; letter-spacing: -.03em; line-height: 1.15; }
 h1, h2, h3, .nav-logo, .nav nav a { font-family: "OkDandan", "Quicksand", "Inter", "Noto Sans KR", sans-serif; }
-h1, .lede, .about p { text-wrap: balance; }
+h1, .about p { text-wrap: balance; }
 
 /* clay-surface */
 .clay {
@@ -74,7 +74,7 @@ h1, .lede, .about p { text-wrap: balance; }
 .hero-copy { position: relative; max-width: 820px; }
 .eyebrow { margin: 0 0 20px; font: 500 12px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: .14em; color: var(--muted); }
 .kinetic { font-size: clamp(36px, 7vw, 76px); font-weight: 600; letter-spacing: -.05em; }
-.lede { margin: 24px auto 36px; max-width: 520px; color: var(--muted); }
+.hero-copy .cushion { margin-top: 40px; }
 
 /* kinetic-headline */
 .kinetic .unit { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .08em; }
