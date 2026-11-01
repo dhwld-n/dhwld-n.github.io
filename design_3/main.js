@@ -33,23 +33,13 @@ document.querySelectorAll('.kinetic').forEach((el) => {
   }
 });
 
-/* scroll-reveal (카드는 줄마다 0~2 순서) */
-document.querySelectorAll('.grid > .card').forEach((c, i) => c.style.setProperty('--i', i % 3));
+/* scroll-reveal (카드는 줄마다 0~1 순서) */
+document.querySelectorAll('.grid > .card').forEach((c, i) => c.style.setProperty('--i', i % 2));
 {
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
   }, { threshold: 0.15 });
   document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
-}
-
-/* 분류 탭 */
-{
-  const tabs = document.querySelectorAll('.tabs button');
-  const cards = document.querySelectorAll('.card');
-  tabs.forEach((t) => t.addEventListener('click', () => {
-    tabs.forEach((x) => x.setAttribute('aria-pressed', x === t));
-    cards.forEach((c) => { c.hidden = t.dataset.filter !== 'all' && c.dataset.cat !== t.dataset.filter; });
-  }));
 }
 
 /* 스크롤 원근 기울기: 화면 아래쪽에 있을수록 눕고, 가운데에 오면 펴진다 */

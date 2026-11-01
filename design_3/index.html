@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/gh/projectnoonnu/2508-2@1.0/OkDanDan-Bold.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../omyu-pretty-subset.woff2?v=2026102701">
-<link rel="stylesheet" href="styles.css?v=2026110104">
+<link rel="stylesheet" href="styles.css?v=2026110106">
 </head>
 <body>
 
@@ -25,7 +25,8 @@
   <a class="nav-logo" href="#top">Jiwoo Oh</a>
   <nav>
     <a href="#about">소개</a>
-    <a href="#works">작업</a>
+    <a href="#projects">프로젝트</a>
+    <a href="#ambassador">대외활동</a>
     <a href="#contact">연락</a>
   </nav>
   <button class="theme-toggle" id="theme" type="button" aria-label="밝은 테마로 전환">
@@ -43,7 +44,7 @@
         <img class="avatar avatar-light" src="../avatar.png" alt="오지우 캐릭터 프로필" width="468" height="700">
       </span>
       <h1 class="kinetic">Welcome to 오지우's Archive :)</h1>
-      <a class="cushion" data-cushion href="#works">작업 보기</a>
+      <a class="cushion" data-cushion href="#projects">작업 보기</a>
     </div>
   </section>
 
@@ -63,44 +64,42 @@
     </div>
   </section>
 
-  <section id="works" class="section">
-    <div data-reveal class="section-head">
-      <h2 style="--i:0">작업</h2>
-      <div class="tabs clay" role="group" aria-label="분류" style="--i:1">
-        <button type="button" aria-pressed="true" data-filter="all">전체</button>
-        <button type="button" aria-pressed="false" data-filter="project">프로젝트</button>
-        <button type="button" aria-pressed="false" data-filter="ambassador">서포터즈</button>
-      </div>
-    </div>
-
-    <!-- 카드를 누르면 메인 사이트의 상세 모달(#project/id)로 이동. 썸네일 이미지가 없는 카드는 자리표시 그라데이션 -->
+  <!-- 카드를 누르면 메인 사이트의 상세 모달(#project/id)로 이동. 문구는 메인 사이트 카드와 같다 -->
+  <section id="projects" class="section works">
+    <div data-reveal class="section-head"><h2 style="--i:0">프로젝트</h2></div>
     <div class="grid" data-reveal>
-      <article class="card" data-cat="project">
+      <article class="card">
         <a href="../#project/agent_with_gpt" class="tilt clay">
-          <div class="thumb t1"><span aria-hidden="true">01</span></div>
-          <h3>LLM 기반 타겟 보드 테스트 자동화 파이프라인</h3>
-          <p>감바랩스 인턴십 · 2026</p>
+          <h3>LLM 기반<br>타겟 보드 테스트 자동화 파이프라인</h3>
+          <p><code>git push</code> 한 번으로 보드 선택·배포·실행·회귀 판정·기록까지 이어지는 CI 파이프라인.<br>감바랩스 인턴십 프로젝트.</p>
+          <span class="more">자세히 보기 →</span>
         </a>
       </article>
-      <article class="card" data-cat="project">
+      <article class="card">
         <a href="../#project/tinker" class="tilt clay">
-          <div class="thumb t2"><span aria-hidden="true">02</span></div>
           <h3>Tinker — 심심할 때 켜는 AI 웹 도구 모음</h3>
-          <p>개인 프로젝트 · 2026 ~</p>
+          <p>사주 · 타로부터 얼굴 피부 분석, &lsquo;나와 닮은 공룡&rsquo;까지.<br>계산 · 이미지 처리는 브라우저, 텍스트는 Gemini 스트리밍.</p>
+          <span class="more">자세히 보기 →</span>
         </a>
       </article>
-      <article class="card" data-cat="ambassador">
+    </div>
+  </section>
+
+  <section id="ambassador" class="section works">
+    <div data-reveal class="section-head"><h2 style="--i:0">대외활동</h2></div>
+    <div class="grid" data-reveal>
+      <article class="card">
         <a href="../#project/beyond_busan" class="tilt clay">
-          <div class="thumb t3"><img src="../beyond-busan-diagram.jpg" alt="" loading="lazy"></div>
-          <h3>부산디지털자산거래소 대학생 서포터즈 BEYOND BUSAN 3기</h3>
-          <p>서포터즈 · 2026 ~</p>
+          <h3>[부산디지털자산거래소]<br>대학생 서포터즈 BEYOND BUSAN 3기</h3>
+          <p>Bdan 공식 대학생 서포터즈. 부팀장으로 에너지·탄소 금융 아이디어 제안, 비단앱 사용성 리서치, 블록체인·디지털 자산 카드뉴스 기획을 담당.</p>
+          <span class="more">자세히 보기 →</span>
         </a>
       </article>
-      <article class="card" data-cat="ambassador">
+      <article class="card">
         <a href="../#project/e2_mate" class="tilt clay">
-          <div class="thumb t4"><span aria-hidden="true">04</span></div>
-          <h3>2026 공학페스티벌 서포터즈 E² 메이트</h3>
-          <p>산업통상부·KIAT · 2026</p>
+          <h3>[산업통상부·KIAT]<br>2026 공학페스티벌 서포터즈 E² 메이트</h3>
+          <p>공학페스티벌 공식 대학생 서포터즈. SNS 홍보 콘텐츠 업로드와 11월 19일 서울 SETEC 현장 방문 후기 콘텐츠를 제작.</p>
+          <span class="more">자세히 보기 →</span>
         </a>
       </article>
     </div>
@@ -118,6 +117,6 @@
 <footer class="foot">© 2026 오지우. Built with GitHub Pages.</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="main.js"></script>
+<script src="main.js?v=2026110105"></script>
 </body>
 </html>
