@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="../favicon.png">
+<title>Jiwoo Oh — Design 3</title>
+<meta name="description" content="LLM을 기반으로 다양한 분야에 도전하는 개발자, 오지우의 포트폴리오">
+<meta property="og:title" content="Jiwoo Oh">
+<meta property="og:description" content="LLM을 기반으로 다양한 분야에 도전하는 개발자">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex">
+<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<noscript><style>[data-reveal]>*{opacity:1!important;transform:none!important}.kinetic .unit>span{transform:none!important}</style></noscript>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav clay" aria-label="주 메뉴">
+  <a class="nav-logo" href="#top">Jiwoo Oh</a>
+  <nav>
+    <a href="#works">작업</a>
+    <a href="#about">소개</a>
+    <a href="#contact">연락</a>
+  </nav>
+  <button class="theme-toggle" id="theme" type="button" aria-label="밝은 테마로 전환">
+    <span aria-hidden="true">◐</span>
+  </button>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <canvas id="hero-3d" aria-hidden="true"></canvas>
+    <div class="hero-copy">
+      <p class="eyebrow">JIWOO OH · PORTFOLIO</p>
+      <h1 class="kinetic">Welcome to 오지우's Archive :)</h1>
+      <p class="lede">LLM을 기반으로 다양한 프로덕트를 만드는 것에 관심이 많은, 부산대학교 인공지능전공 오지우입니다.</p>
+      <a class="cushion" data-cushion href="#works">작업 보기</a>
+    </div>
+  </section>
+
+  <section id="works" class="section">
+    <div data-reveal class="section-head">
+      <h2 style="--i:0">작업</h2>
+      <div class="tabs clay" role="group" aria-label="분류" style="--i:1">
+        <button type="button" aria-pressed="true" data-filter="all">전체</button>
+        <button type="button" aria-pressed="false" data-filter="project">프로젝트</button>
+        <button type="button" aria-pressed="false" data-filter="ambassador">서포터즈</button>
+      </div>
+    </div>
+
+    <!-- 카드를 누르면 메인 사이트의 상세 모달(#project/id)로 이동. 썸네일 이미지가 없는 카드는 자리표시 그라데이션 -->
+    <div class="grid" data-reveal>
+      <article class="card" data-cat="project">
+        <a href="../#project/agent_with_gpt" class="tilt clay">
+          <div class="thumb t1"><span aria-hidden="true">01</span></div>
+          <h3>LLM 기반 타겟 보드 테스트 자동화 파이프라인</h3>
+          <p>감바랩스 인턴십 · 2026</p>
+        </a>
+      </article>
+      <article class="card" data-cat="project">
+        <a href="../#project/tinker" class="tilt clay">
+          <div class="thumb t2"><span aria-hidden="true">02</span></div>
+          <h3>Tinker — 심심할 때 켜는 AI 웹 도구 모음</h3>
+          <p>개인 프로젝트 · 2026 ~</p>
+        </a>
+      </article>
+      <article class="card" data-cat="ambassador">
+        <a href="../#project/beyond_busan" class="tilt clay">
+          <div class="thumb t3"><img src="../beyond-busan-diagram.jpg" alt="" loading="lazy"></div>
+          <h3>부산디지털자산거래소 대학생 서포터즈 BEYOND BUSAN 3기</h3>
+          <p>서포터즈 · 2026 ~</p>
+        </a>
+      </article>
+      <article class="card" data-cat="ambassador">
+        <a href="../#project/e2_mate" class="tilt clay">
+          <div class="thumb t4"><span aria-hidden="true">04</span></div>
+          <h3>2026 공학페스티벌 서포터즈 E² 메이트</h3>
+          <p>산업통상부·KIAT · 2026</p>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div data-reveal class="about">
+      <img class="avatar avatar-dark" src="../avatar-dark.png" alt="오지우 캐릭터 프로필" style="--i:0">
+      <img class="avatar avatar-light" src="../avatar.png" alt="오지우 캐릭터 프로필" style="--i:0">
+      <h2 style="--i:0">소개</h2>
+      <p style="--i:1">안녕하세요, 저는 부산대학교에서 인공지능을 전공하고 있는 오지우입니다. 단순히 전공에만 국한되지 않고, 관심 있는 분야에는 직접 부딪혀보며 배우는 걸 좋아합니다. LLM을 기반으로 다양한 프로덕트를 만드는 것에 관심이 많습니다.</p>
+      <ul class="skills" style="--i:2">
+        <li class="clay">Python</li>
+        <li class="clay">C</li>
+        <li class="clay">LLM · 에이전트</li>
+        <li class="clay">머신러닝</li>
+        <li class="clay">웹 (Flask)</li>
+        <li class="clay">CI 자동화</li>
+      </ul>
+      <p class="edu" style="--i:3">부산대학교 정보컴퓨터공학부 인공지능전공 재학 (2025.3 ~)</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <div data-reveal>
+      <h2 style="--i:0">제안이나 협업 문의는 여기로</h2>
+      <p style="--i:1"><a class="mail" href="mailto:ohjiwoo2025@pusan.ac.kr">ohjiwoo2025@pusan.ac.kr</a></p>
+      <p style="--i:2"><a class="gh" href="https://github.com/dhwld-n">github.com/dhwld-n ↗</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">© 2026 오지우. Built with GitHub Pages.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
