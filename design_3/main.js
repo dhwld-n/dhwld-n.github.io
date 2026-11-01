@@ -98,15 +98,15 @@ if (window.THREE) {
   const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 50);
   camera.position.z = 9;
 
-  scene.add(new THREE.AmbientLight(0xaab4ff, 0.7));
+  scene.add(new THREE.AmbientLight(0xaab4ff, 0.9));
   const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(3, 4, 5); scene.add(key);
-  const rim = new THREE.PointLight(0x8a6cff, 2, 20); rim.position.set(-4, -2, 3); scene.add(rim);
+  const rim = new THREE.PointLight(0x8a6cff, 1.2, 20); rim.position.set(-4, -2, 3); scene.add(rim);
 
-  const mat = (c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.38, metalness: 0.15 });
-  const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(0.9, 0.32, 128, 16), mat(0x6f8bff));
-  const ico = new THREE.Mesh(new THREE.IcosahedronGeometry(0.9, 1), mat(0x7c5cff));
+  const mat = (c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.75, metalness: 0 });
+  const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(0.9, 0.32, 160, 32), mat(0x6f8bff));
+  const donut = new THREE.Mesh(new THREE.TorusGeometry(0.72, 0.34, 48, 96), mat(0x7c5cff));
   const orb = new THREE.Mesh(new THREE.SphereGeometry(0.55, 48, 32), mat(0x4a63f0));
-  scene.add(knot, ico, orb);
+  scene.add(knot, donut, orb);
 
   let orbY = 0;
   const place = () => {
@@ -116,10 +116,10 @@ if (window.THREE) {
     const half = Math.tan(camera.fov * Math.PI / 360) * camera.position.z * camera.aspect;
     const wide = w > 700;
     knot.position.set(wide ? half * 0.72 : half * 0.6, wide ? 0.6 : 2.6, 0);
-    ico.position.set(wide ? -half * 0.74 : -half * 0.6, wide ? -0.8 : -2.2, 0);
+    donut.position.set(wide ? -half * 0.74 : -half * 0.6, wide ? -0.8 : -2.2, 0);
     orbY = wide ? 2.4 : -2.5;
     orb.position.set(wide ? -half * 0.42 : half * 0.5, orbY, -1);
-    [knot, ico, orb].forEach((m) => m.scale.setScalar(wide ? 1 : 0.7));
+    [knot, donut, orb].forEach((m) => m.scale.setScalar(wide ? 1 : 0.7));
     renderer.render(scene, camera); // setSize가 캔버스를 비우므로 바로 다시 그린다
   };
   place(); addEventListener('resize', place);
@@ -129,7 +129,7 @@ if (window.THREE) {
   const frame = (t) => {
     const s = t / 1000;
     knot.rotation.set(s * 0.3 + my * 0.5, s * 0.4 + mx * 0.5, 0);
-    ico.rotation.set(s * 0.25 - my * 0.5, s * 0.35 - mx * 0.5, 0);
+    donut.rotation.set(s * 0.25 - my * 0.5, s * 0.35 - mx * 0.5, 0);
     orb.position.y = orbY + Math.sin(s * 1.2) * 0.25;
     renderer.render(scene, camera);
     raf = visible && !reduce ? requestAnimationFrame(frame) : 0;
