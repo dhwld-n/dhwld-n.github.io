@@ -186,7 +186,7 @@
   })();
 
   // ===== 프로젝트 상세 =====
-  // 데이터는 projects.js 에 있다 (design_3도 같이 씀). 새 프로젝트는 그쪽에 추가하세요.
+  // 데이터는 projects.js 에 있다 (design_2도 같이 씀). 새 프로젝트는 그쪽에 추가하세요.
   const PROJECTS = window.PROJECTS;
 
   // ===== 모달 =====
