@@ -1,15 +1,15 @@
 /* 테마 A(dark, 딥 인디고 나이트) / B(light, 페리윙클 데이). 색은 토큰으로만 쓴다 */
 :root, [data-theme="dark"] {
-  --bg: #0a0b1c; --surface: #14162d; --text: #e8eaf8; --muted: #a0a6d0;
-  --accent: #6f8bff; --on-accent: #0a0b1c; --border: #262a4d;
+  --bg: #0a0b1c; --surface: #262b5c; --text: #e8eaf8; --muted: #a0a6d0;
+  --accent: #6f8bff; --on-accent: #0a0b1c; --border: #3a4180;
   --tint: 60 70 230;                 /* 그림자를 물들이는 색 */
   --in-bottom: rgb(4 5 30 / .7);     /* 안쪽 아래 그늘 */
   --in-top: rgb(150 170 255 / .22);  /* 안쪽 위 하이라이트 */
   --glow: rgb(111 139 255 / .22);
 }
 [data-theme="light"] {
-  --bg: #eef0ff; --surface: #ffffff; --text: #1b1f4b; --muted: #4a5088;
-  --accent: #3d4ee0; --on-accent: #ffffff; --border: #cfd3f5;
+  --bg: #eef0ff; --surface: #d6dcff; --text: #1b1f4b; --muted: #4a5088;
+  --accent: #3d4ee0; --on-accent: #ffffff; --border: #b8bff0;
   --tint: 99 102 241;
   --in-bottom: rgb(99 102 241 / .28);
   --in-top: rgb(255 255 255 / .95);
