@@ -19,8 +19,8 @@
 
 ## 수정할 곳
 
-- `index.html`
-  - `#about` 섹션의 자기소개 문단
-  - `agent_with_gpt` 카드 설명, 새 프로젝트 카드 추가
-  - `skill-list` 항목
-- `style.css` — `--accent` 색상 등 테마 값
+- `index.html` — 페이지 내용 (소개, 프로젝트 카드, 연락처)
+- `projects.js` — 카드를 눌렀을 때 뜨는 프로젝트 상세 내용. 새 카드는 `data-project="id"` 와 같은 id 로 여기에 추가
+- `styles.css` — 색 토큰(`--surface`, `--accent` 등)과 레이아웃
+- `main.js` — 테마 전환, 스크롤 효과, 상세 창, 히어로 3D
+- `style.css` — `agent_with_gpt.html` 데모 페이지 전용

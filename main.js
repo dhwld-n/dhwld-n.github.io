@@ -99,27 +99,26 @@ document.querySelectorAll('[data-cushion]').forEach((el) => {
   el.addEventListener('pointerleave', () => { ts = 1; tx = 0; ty = 0; kick(); });
 });
 
-/* 프로젝트 상세: 데이터는 메인 사이트와 같이 쓰는 ../projects.js. 주소 #project/id 로 바로 열 수도 있다 */
+/* 프로젝트 상세: 데이터는 메인 사이트와 projects.js. 주소 #project/id 로 바로 열 수도 있다 */
 if (window.PROJECTS) {
   const P = window.PROJECTS;
   const dlg = document.getElementById('project-modal');
   const body = document.getElementById('modal-body');
   const ko = (v) => (v && typeof v === 'object' && 'ko' in v ? v.ko : v);
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const fromRoot = (u) => (/^(https?:|mailto:|\/|#)/.test(u) ? u : '../' + u); // projects.js의 경로는 사이트 루트 기준
   const render = (p) => {
     const meta = p.meta.map(([k, v]) => `<div><dt>${esc(ko(k))}</dt><dd>${esc(ko(v))}</dd></div>`).join('');
     const work = (p.work || []).map((w) => {
       const obj = w && typeof w === 'object' && 'text' in w;
       const f = obj && w.figure;
       const cap = f && f.caption ? esc(ko(f.caption)) : '';
-      const fig = f ? `<figure><img src="${esc(fromRoot(f.src))}" alt="${cap}" loading="lazy">${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>` : '';
+      const fig = f ? `<figure><img src="${esc(f.src)}" alt="${cap}" loading="lazy">${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>` : '';
       return `<li>${esc(ko(obj ? w.text : w))}${fig}</li>`;
     }).join('');
     const stack = (p.stack || []).map((s) => `<li>${esc(ko(s))}</li>`).join('');
     const links = (p.links || []).map((l) => {
       const ext = /^https?:/.test(l.href);
-      return `<a href="${esc(fromRoot(l.href))}"${ext ? ' target="_blank" rel="noopener noreferrer"' : ''}${l.primary ? ' class="is-primary"' : ''}>${esc(ko(l.label))}${ext ? ' ↗' : ''}</a>`;
+      return `<a href="${esc(l.href)}"${ext ? ' target="_blank" rel="noopener noreferrer"' : ''}${l.primary ? ' class="is-primary"' : ''}>${esc(ko(l.label))}${ext ? ' ↗' : ''}</a>`;
     }).join('');
     body.innerHTML =
       `<h3 id="modal-title"><span aria-hidden="true">${esc(p.icon || '•')}</span> ${esc(ko(p.title))}</h3>` +
