@@ -177,10 +177,10 @@ if (window.THREE) {
     camera.aspect = w / h; camera.updateProjectionMatrix();
     const half = Math.tan(camera.fov * Math.PI / 360) * camera.position.z * camera.aspect;
     const wide = w > h; // 가로 화면은 좌우에, 세로 화면(폰·태블릿)은 위아래에 배치
-    knot.position.set(wide ? half * 0.76 : half * 0.6, wide ? 0.4 : 2.6, 0);
-    donut.position.set(wide ? -half * 0.78 : -half * 0.66, wide ? -1 : -2.2, 0);
-    orbY = wide ? 2.3 : -2.5;
-    orb.position.set(wide ? -half * 0.4 : half * 0.62, orbY, -1);
+    knot.position.set(wide ? half * 0.66 : half * 0.5, wide ? 0.4 : 2.6, 0);
+    donut.position.set(wide ? -half * 0.64 : -half * 0.56, wide ? -0.9 : -2.2, 0);
+    orbY = wide ? 1.9 : -2.5;
+    orb.position.set(wide ? -half * 0.32 : half * 0.56, orbY, -1);
     [knot, donut, orb].forEach((m) => m.scale.setScalar(wide ? 1.4 : Math.min(1.2, half * 0.63)));
     renderer.render(scene, camera); // setSize가 캔버스를 비우므로 바로 다시 그린다
   };
