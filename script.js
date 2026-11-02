@@ -85,6 +85,14 @@
       "사주 · 타로부터 얼굴 피부 분석, &lsquo;나와 닮은 공룡&rsquo;까지.<br />계산 · 이미지 처리는 브라우저, 텍스트는 Gemini 스트리밍.",
       "From saju and tarot to facial skin analysis and &lsquo;the dinosaur that looks like you&rsquo;.<br />Calculation and image processing run in the browser; text is streamed from Gemini."
     ),
+    card_webcraft_title: L(
+      "webcraft — 웹 디자인용 Claude Code 플러그인",
+      "webcraft — a Claude Code plugin for web design"
+    ),
+    card_webcraft_desc: L(
+      "팔레트 · 글꼴 · 모션을 고르고, 검수 에이전트가 시각 · 모션 · 사용성을 100점으로 채점해 고칠 목록을 주는 디자인 플러그인.",
+      "Picks the palette, fonts and motion, then reviewer agents score visuals, motion and usability out of 100 and hand back a fix list."
+    ),
     card_bb_title: L(
       "[부산디지털자산거래소]<br />대학생 서포터즈 BEYOND BUSAN 3기",
       "[Busan Digital Asset Exchange]<br />Student Supporters · BEYOND BUSAN, Cohort 3"

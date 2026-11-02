@@ -138,6 +138,41 @@ window.PROJECTS = (function () {
       ],
     },
 
+    webcraft: {
+      icon: "🎨",
+      title: L("webcraft — 웹 디자인용 Claude Code 플러그인", "webcraft — a Claude Code plugin for web design"),
+      meta: [
+        [L("개발 기간", "Duration"), L("진행 중 (개인 프로젝트)", "In progress (personal project)")],
+        [
+          L("형태", "Format"),
+          L("Claude Code 플러그인 (스킬 + 서브에이전트)", "Claude Code plugin (skill + subagents)"),
+        ],
+      ],
+      overview: L(
+        "웹사이트 · 랜딩 페이지 · 포트폴리오를 새로 디자인하거나 전체를 다시 디자인할 때 쓰는 Claude Code 플러그인입니다. 디자인 재료를 먼저 정하고, 만든 페이지를 검수 에이전트들이 점수로 채점해 고칠 목록을 돌려주는 흐름으로 결과물의 완성도를 끌어올립니다. 버튼 색이나 오타 같은 작은 수정에는 쓰지 않도록 범위를 좁혔습니다.",
+        "A Claude Code plugin for designing a website, landing page or portfolio from scratch, or redesigning one end to end. It settles the design materials first, then has reviewer agents score the built page and hand back a fix list, pushing the result toward a finished quality. It is deliberately scoped away from small edits like a button color or a typo."
+      ),
+      work: [
+        L(
+          "web-design 스킬 — 전체 흐름을 이끄는 진입점. 재료 선정 → 페이지 제작 → 검수 → 수정을 차례로 실행.",
+          "web-design skill — the entry point that drives the whole flow: pick materials → build the page → review → fix."
+        ),
+        L(
+          "디자인 재료 담당(system-designer) — 팔레트, 글꼴 조합, 모션 레시피를 한 번에 골라 페이지 전체가 같은 방향을 따르게 함.",
+          "Design-materials agent (system-designer) — picks the palette, font pairing and motion recipe in one go so the whole page follows one direction."
+        ),
+        L(
+          "기본 검수자(critic) — 시각 · 개성 · 모션 · 사용성을 한 번에 100점으로 채점하고 수정 목록을 반환.",
+          "Default reviewer (critic) — scores visuals, personality, motion and usability out of 100 in one pass and returns a fix list."
+        ),
+        L(
+          "검수 패널 — 시각 65점(방향 · 레이아웃 · 개성 · 타이포 · 색), 모션 15점(어울림 · 매끄러움 · 모션 줄이기 대체), 사용성 20점(반응형 · 접근성 · 완성도)으로 나눠 영역별로 깊게 채점.",
+          "Review panel — splits scoring into visuals 65 (direction, layout, personality, type, color), motion 15 (fit, smoothness, reduced-motion fallback) and usability 20 (responsive, accessibility, polish) for deeper per-area review."
+        ),
+      ],
+      stack: ["Claude Code Plugin", "Agent Skills", "Subagents", L("프롬프트 설계", "Prompt design")],
+    },
+
     beyond_busan: {
       icon: "🎓",
       title: L(
