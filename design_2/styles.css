@@ -9,7 +9,7 @@
   --edge: rgb(140 160 255 / .45);    /* 카드 오른쪽 아래 얇은 그림자 */
 }
 [data-theme="light"] {
-  --bg: #eef0ff; --surface: #d6dcff; --text: #1b1f4b; --muted: #4a5088;
+  --bg: #eef0ff; --surface: #ffffff; --text: #1b1f4b; --muted: #4a5088;
   --accent: #3d4ee0; --on-accent: #ffffff; --border: #b8bff0;
   --tint: 99 102 241;
   --in-bottom: rgb(99 102 241 / .28);
@@ -56,7 +56,6 @@ h1, .about p { text-wrap: balance; }
   padding: 8px 10px 8px 22px; border-radius: 999px;
 }
 .nav nav a { padding: 10px 6px; white-space: nowrap; }
-[data-theme="light"] .nav.clay { background: #fff; } /* 카드는 연보라지만 메뉴 바는 흰색으로 배경과 구분 */
 .nav-logo { font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
 .nav nav { display: flex; gap: 20px; font-size: 15px; color: var(--muted); }
 .nav nav a:hover { color: var(--text); }
