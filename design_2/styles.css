@@ -6,7 +6,7 @@
   --in-bottom: rgb(4 5 30 / .7);     /* 안쪽 아래 그늘 */
   --in-top: rgb(150 170 255 / .22);  /* 안쪽 위 하이라이트 */
   --glow: rgb(111 139 255 / .22);
-  --edge: rgb(140 160 255 / .45);    /* 카드 윤곽선 */
+  --edge: rgb(140 160 255 / .6);     /* 카드 오른쪽 아래 그림자 */
 }
 [data-theme="light"] {
   --bg: #eef0ff; --surface: #ffffff; --text: #1b1f4b; --muted: #4a5088;
@@ -15,7 +15,7 @@
   --in-bottom: rgb(99 102 241 / .28);
   --in-top: rgb(255 255 255 / .95);
   --glow: rgb(124 108 255 / .25);
-  --edge: rgb(99 102 241 / .5);
+  --edge: rgb(99 102 241 / .75);
 }
 
 * { box-sizing: border-box; }
@@ -41,7 +41,7 @@ h1, .about p { text-wrap: balance; }
 .clay {
   background: var(--surface);
   box-shadow:
-    0 0 0 3px var(--edge),
+    6px 6px 14px var(--edge),
     0 24px 48px -12px rgb(var(--tint) / .45),
     inset 0 -8px 16px var(--in-bottom),
     inset 0 10px 24px var(--in-top);
