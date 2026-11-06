@@ -149,8 +149,8 @@ window.PROJECTS = (function () {
         ],
       ],
       overview: L(
-        "웹사이트 · 랜딩 페이지 · 포트폴리오를 새로 디자인하거나 전체를 다시 디자인할 때 쓰는 Claude Code 플러그인입니다. 디자인 재료를 먼저 정하고, 만든 페이지를 검수 에이전트들이 점수로 채점해 고칠 목록을 돌려주는 흐름으로 결과물의 완성도를 끌어올립니다. 버튼 색이나 오타 같은 작은 수정에는 쓰지 않도록 범위를 좁혔습니다.",
-        "A Claude Code plugin for designing a website, landing page or portfolio from scratch, or redesigning one end to end. It settles the design materials first, then has reviewer agents score the built page and hand back a fix list, pushing the result toward a finished quality. It is deliberately scoped away from small edits like a button color or a typo."
+        "디자인이나 애니메이션 효과를 제대로 얻으려면 꽤 자세한 프롬프트를 써야 한다는 점이 아쉬워 만든 Claude Code 플러그인입니다. 처음부터 프롬프트를 공들여 쓰지 않아도 짧은 요청만으로 시드 결과물을 먼저 만들어 주고, 사용자는 그것을 보면서 원하는 부분만 고치면 됩니다. 스타일 카드 · 레퍼런스 느낌 노트 · 모션 레시피에서 재료를 고르고, 만든 페이지를 검수 에이전트들이 채점해 고치는 흐름으로 시드의 완성도를 끌어올립니다. 웹사이트를 새로 디자인하거나 전체를 다시 디자인할 때 쓰며, 버튼 색이나 오타 같은 작은 수정에는 쓰지 않도록 범위를 좁혔습니다.",
+        "I built this Claude Code plugin because getting good design or animation out of AI usually takes a very detailed prompt. Instead of writing that prompt up front, you make a short request and get a seed result first, then change only the parts you want. It picks materials from style cards, reference notes and motion recipes, and reviewer agents score the built page and fix it, so the seed starts out in good shape. It is meant for designing a site from scratch or redesigning one end to end, and is deliberately scoped away from small edits like a button color or a typo."
       ),
       work: [
         L(
