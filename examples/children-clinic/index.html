@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>튼튼소아과</title>
+<meta name="description" content="튼튼소아과 진료 시간, 진료 과목, 예방접종 안내, 오시는 길, 전화 예약">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Figtree:wght@600;800&display=swap">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=chubbo@700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tel" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 2.8c.7-.5 1.7-.3 2.2.4l1.9 2.8c.4.6.4 1.4-.1 2l-1.3 1.5c.9 2 2.6 3.8 4.8 4.9l1.6-1.3c.6-.5 1.4-.5 2-.1l2.8 1.9c.7.5.9 1.5.4 2.2l-1.2 1.8c-.6.9-1.7 1.4-2.8 1.2C9.700 18.900 4.800 14 3.600 6.800c-.2-1.100.3-2.200 1.200-2.800z"/></symbol>
+</svg>
+
+<div class="plan-b">
+  <main>
+    <header class="b-hero bwrap">
+      <h1>튼튼<br class="b-br">소아과</h1>
+      <p class="b-tag">쑥쑥 크는 동안, 곁에서 봐 드릴게요.</p>
+      <div class="b-hero-row">
+        <div class="b-side">
+          <div class="b-status" data-status>
+            <p class="b-status-title" data-status-title>진료 시간</p>
+            <p class="b-status-detail" data-status-detail>아래에서 확인해 주세요</p>
+          </div>
+          <a class="b-call b-call--hero" href="tel:02-000-0000">
+            <svg aria-hidden="true"><use href="#i-tel"/></svg>
+            <span>전화 예약<small>02-000-0000</small></span>
+          </a>
+        </div>
+        <nav class="b-index" aria-label="바로가기">
+          <a href="#b-hours">진료 시간</a>
+          <a href="#b-subjects">진료 과목</a>
+          <a href="#b-vaccine">예방접종 안내</a>
+          <a href="#b-map">오시는 길</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="b-hours" class="b-hours bwrap" data-sec="hours" data-reveal>
+      <h2>진료 시간</h2>
+      <div class="b-hours-grid">
+        <ul class="b-times">
+          <li data-days="1 2 3 4 5"><span>평일</span><b>09:00–18:30</b></li>
+          <li data-days="6"><span>토요일</span><b>09:00–13:00</b></li>
+          <li data-days="0"><span>일요일·공휴일</span><b>쉬어요</b></li>
+          <li><span>평일 점심</span><b>13:00–14:00</b></li>
+        </ul>
+        <div class="b-chart" aria-hidden="true">
+          <div class="b-chart-times"><i style="--s:1">09</i><i style="--s:9">13</i><i style="--s:11">14</i><i style="--s:20">18:30</i></div>
+          <div class="b-col" data-days="1"><u>월</u><em style="--a:1;--b:9"></em><em style="--a:11;--b:20"></em></div>
+          <div class="b-col" data-days="2"><u>화</u><em style="--a:1;--b:9"></em><em style="--a:11;--b:20"></em></div>
+          <div class="b-col" data-days="3"><u>수</u><em style="--a:1;--b:9"></em><em style="--a:11;--b:20"></em></div>
+          <div class="b-col" data-days="4"><u>목</u><em style="--a:1;--b:9"></em><em style="--a:11;--b:20"></em></div>
+          <div class="b-col" data-days="5"><u>금</u><em style="--a:1;--b:9"></em><em style="--a:11;--b:20"></em></div>
+          <div class="b-col" data-days="6"><u>토</u><em style="--a:1;--b:9"></em></div>
+          <div class="b-col b-col--off" data-days="0"><u>일</u></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="b-subjects" class="b-subjects bwrap" data-sec="subjects" data-reveal>
+      <h2>진료 과목</h2>
+      <ul class="b-stickers">
+        <li>감기·독감</li>
+        <li>고열</li>
+        <li>배앓이·장염</li>
+        <li>중이염</li>
+        <li>비염·천식</li>
+        <li>아토피·피부</li>
+        <li>영유아 검진</li>
+        <li>성장·발달</li>
+      </ul>
+    </section>
+
+    <section id="b-vaccine" class="b-vaccine bwrap" data-sec="vaccine" data-reveal>
+      <h2>예방접종 안내</h2>
+      <ol class="b-rows">
+        <li><b>출생~1개월</b><span>BCG, B형간염</span></li>
+        <li><b>2·4·6개월</b><span>DTaP, 소아마비, Hib, 폐렴구균, 로타, B형간염</span></li>
+        <li><b>12~23개월</b><span>MMR, 수두, A형간염, 일본뇌염, DTaP, Hib, 폐렴구균</span></li>
+        <li><b>만 4~6세</b><span>DTaP, 소아마비, MMR, 일본뇌염</span></li>
+        <li><b>만 11~12세</b><span>Tdap, HPV</span></li>
+        <li><b>매년 가을</b><span>독감</span></li>
+      </ol>
+      <p class="b-note">차례가 헷갈리면 전화 주세요. <a href="https://nip.kdca.go.kr" target="_blank" rel="noopener">예방접종 도우미에서 기록 보기</a></p>
+    </section>
+
+    <section id="b-map" class="b-map bwrap" data-sec="map" data-reveal>
+      <h2>오시는 길</h2>
+      <p class="b-addr">OO시 OO구 OO로 00, 0층</p>
+      <div class="b-map-grid">
+        <div class="b-map-ph"><span>지도 자리표시: 병원 위치</span></div>
+        <div class="b-map-info">
+          <dl>
+            <div><dt>지하철</dt><dd>OO역 0번 출구, 도보 0분</dd></div>
+            <div><dt>버스</dt><dd>OO 정류장 하차</dd></div>
+            <div><dt>주차</dt><dd>건물 주차장 이용</dd></div>
+          </dl>
+          <a class="b-way" href="https://map.naver.com/p/search/%ED%8A%BC%ED%8A%BC%EC%86%8C%EC%95%84%EA%B3%BC" target="_blank" rel="noopener">지도 앱으로 길찾기</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="b-call b-call--bar" href="tel:02-000-0000">
+    <svg aria-hidden="true"><use href="#i-tel"/></svg>
+    <span>전화 예약<small>02-000-0000</small></span>
+  </a>
+
+  <nav class="tape" aria-label="바로가기">
+    <div class="tape-case" aria-hidden="true"><b data-cm>0</b><small>cm</small></div>
+    <div class="tape-track">
+      <div class="tape-band" aria-hidden="true">
+        <i style="--y:.1">10</i><i style="--y:.3">30</i><i style="--y:.5">50</i><i style="--y:.7">70</i><i style="--y:.9">90</i>
+      </div>
+      <div class="tape-hook" aria-hidden="true"></div>
+      <a class="tape-tab" style="--y:.2" href="#b-hours" data-tab="hours"><span class="lg">진료 </span>시간</a>
+      <a class="tape-tab" style="--y:.4" href="#b-subjects" data-tab="subjects"><span class="lg">진료 </span>과목</a>
+      <a class="tape-tab" style="--y:.6" href="#b-vaccine" data-tab="vaccine"><span class="lg">예방</span>접종</a>
+      <a class="tape-tab" style="--y:.8" href="#b-map" data-tab="map"><span class="lg">오시는 </span>길</a>
+    </div>
+  </nav>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

@@ -141,6 +141,16 @@ window.PROJECTS = (function () {
     webcraft: {
       icon: "🎨",
       title: L("webcraft — 웹 디자인용 Claude Code 플러그인", "webcraft — a Claude Code plugin for web design"),
+      demo: {
+        src: "examples/children-clinic/index.html",
+        name: L("튼튼소아과 (가상의 병원)", "Teunteun Pediatrics (fictional clinic)"),
+        label: L("webcraft로 만든 예시 사이트.", "An example site made with webcraft."),
+        hint: L(
+          "아래 화면 안에서 스크롤해 보세요. 오른쪽 줄자가 따라서 늘어납니다.",
+          "Scroll inside the frame below and the tape measure on the right pulls out with you."
+        ),
+        open: L("새 창에서 열기", "Open in a new tab"),
+      },
       meta: [
         [L("개발 기간", "Duration"), L("진행 중 (개인 프로젝트)", "In progress (personal project)")],
         [

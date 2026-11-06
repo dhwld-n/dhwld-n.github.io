@@ -21,7 +21,7 @@
 * { box-sizing: border-box; }
 /* 메인 사이트와 같은 폰트: 본문 MitmiFont, 제목·메뉴 OkDandan */
 @font-face { font-family: "OkDandan"; src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2508-2@1.0/OkDanDan-Bold.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "MitmiFont"; src: url("omyu-pretty-subset.woff2?v=2026110601") format("woff2"); font-display: swap; }
+@font-face { font-family: "MitmiFont"; src: url("omyu-pretty-subset.woff2?v=2026110602") format("woff2"); font-display: swap; }
 
 html { scroll-behavior: smooth; }
 body {
@@ -221,6 +221,22 @@ html:has(.modal[open]) { overflow: hidden; }
 .modal-links a { padding: 12px 20px; border-radius: 16px; background: rgb(var(--tint) / .14); color: var(--accent); font-weight: 700; font-size: 15px; }
 .modal-links a:hover { background: rgb(var(--tint) / .26); }
 .modal-links a.is-primary { background: var(--accent); color: var(--on-accent); }
+/* 예시 사이트를 창 안에서 바로 스크롤해 보는 미리보기. 넓은 창에서는 설명 오른쪽에 둔다 */
+.modal:has(.modal-demo) { width: min(calc(100% - 32px), 1000px); }
+.modal .modal-demo { float: right; width: 400px; margin: 0 0 20px 32px; }
+.modal-demo figcaption { margin: 0 0 12px; font-size: 15px; color: var(--muted); }
+.modal-demo strong { color: var(--accent); }
+.demo-frame { border-radius: 18px; overflow: hidden; box-shadow: 0 0 0 2px rgb(var(--tint) / .45), 0 18px 36px -14px rgb(var(--tint) / .5); }
+.demo-bar { display: flex; justify-content: space-between; gap: 12px; padding: 10px 16px; background: rgb(var(--tint) / .16); font-size: 14px; font-weight: 700; }
+.demo-bar a { color: var(--accent); }
+.modal-demo iframe { display: block; width: 100%; height: min(58svh, 500px); border: 0; background: #fff; }
+/* 좁은 창에서는 개요를 먼저 읽고 그 아래에서 미리보기를 본다 */
+@media (max-width: 860px) {
+  .modal-body:has(.modal-demo) { display: flex; flex-direction: column; }
+  .modal-body:has(.modal-demo) > * { order: 2; }
+  .modal-body:has(.modal-demo) > :is(h3, .modal-meta, h4:first-of-type, p) { order: 0; }
+  .modal .modal-demo { order: 1; float: none; width: 100%; margin: 24px 0 0; }
+}
 @media (max-width: 480px) {
   .modal-body { padding: 32px 22px 26px; }
   .modal-meta div { grid-template-columns: 1fr; gap: 0; }

@@ -120,8 +120,15 @@ if (window.PROJECTS) {
       const ext = /^https?:/.test(l.href);
       return `<a href="${esc(l.href)}"${ext ? ' target="_blank" rel="noopener noreferrer"' : ''}${l.primary ? ' class="is-primary"' : ''}>${esc(ko(l.label))}${ext ? ' ↗' : ''}</a>`;
     }).join('');
+    const d = p.demo;
+    const demo = d
+      ? `<figure class="modal-demo"><figcaption><strong>${esc(ko(d.label))}</strong> ${esc(ko(d.hint))}</figcaption>` +
+        `<div class="demo-frame"><div class="demo-bar"><span>${esc(ko(d.name))}</span><a href="${esc(d.src)}" target="_blank" rel="noopener">${esc(ko(d.open))} ↗</a></div>` +
+        `<iframe src="${esc(d.src)}" title="${esc(ko(d.name))}"></iframe></div></figure>`
+      : '';
     body.innerHTML =
       `<h3 id="modal-title"><span aria-hidden="true">${esc(p.icon || '•')}</span> ${esc(ko(p.title))}</h3>` +
+      demo +
       `<dl class="modal-meta">${meta}</dl>` +
       (p.overview ? `<h4>${esc(ko(p.overviewLabel) || '프로젝트 개요')}</h4><p>${esc(ko(p.overview))}</p>` : '') +
       (work ? `<h4>${esc(ko(p.workLabel) || '수행 내용')}</h4><ul class="modal-list">${work}</ul>` : '') +
