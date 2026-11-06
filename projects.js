@@ -141,7 +141,7 @@ window.PROJECTS = (function () {
     webcraft: {
       icon: "🎨",
       title: L("webcraft — 웹 디자인용 Claude Code 플러그인", "webcraft — a Claude Code plugin for web design"),
-      demo: {
+      demo: [{
         src: "examples/children-clinic/index.html",
         name: L("튼튼소아과 (가상의 병원)", "Teunteun Pediatrics (fictional clinic)"),
         label: L("webcraft로 만든 예시 사이트.", "An example site made with webcraft."),
@@ -150,7 +150,16 @@ window.PROJECTS = (function () {
           "Scroll inside the frame below and the tape measure on the right pulls out with you."
         ),
         open: L("새 창에서 열기", "Open in a new tab"),
-      },
+      }, {
+        src: "examples/matcha-cafe/index.html",
+        name: L("우지네 카페 (가상의 카페)", "Uji's Cafe (fictional cafe)"),
+        label: L("두 번째 예시.", "A second example."),
+        hint: L(
+          "스크롤하면 말차 컵이 글자를 뚫고 솟아오르고, 장마다 배경색이 바뀝니다.",
+          "Scroll and the matcha cup rises through the headline while each chapter shifts the background colour."
+        ),
+        open: L("새 창에서 열기", "Open in a new tab"),
+      }],
       meta: [
         [L("개발 기간", "Duration"), L("진행 중 (개인 프로젝트)", "In progress (personal project)")],
         [
