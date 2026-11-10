@@ -220,10 +220,16 @@ window.PROJECTS = (function () {
       ),
       workLabel: L("주요 기능", "Key features"),
       work: [
-        L(
-          "할 일 — 카테고리별로 할 일을 적고, 끌어서 순서를 바꾸거나 다른 카테고리로 옮길 수 있습니다. 매주 같은 요일이나 정해 둔 날짜마다 다시 생기는 반복 할 일, 할 일마다 붙이는 메모와 알림, 친구에게 숨기는 비공개 설정을 지원합니다. 날짜를 아직 못 정한 일은 보관함에 넣어 두었다가 원하는 날로 꺼낼 수 있습니다.",
-          "To-dos — write to-dos by category and drag them to reorder or move between categories. Repeating to-dos come back on set weekdays or dates, each to-do can carry a memo and a reminder, and any to-do can be hidden from friends. Things without a date yet wait in the archive until you pull them onto a day."
-        ),
+        {
+          text: L(
+            "할 일 — 카테고리별로 할 일을 적고, 끌어서 순서를 바꾸거나 다른 카테고리로 옮길 수 있습니다. 매주 같은 요일이나 정해 둔 날짜마다 다시 생기는 반복 할 일, 할 일마다 붙이는 메모와 알림, 친구에게 숨기는 비공개 설정을 지원합니다. 날짜를 아직 못 정한 일은 보관함에 넣어 두었다가 원하는 날로 꺼낼 수 있습니다.",
+            "To-dos — write to-dos by category and drag them to reorder or move between categories. Repeating to-dos come back on set weekdays or dates, each to-do can carry a memo and a reminder, and any to-do can be hidden from friends. Things without a date yet wait in the archive until you pull them onto a day."
+          ),
+          figure: {
+            src: "todo-on-home.webp",
+            caption: L("홈 화면 — 왼쪽은 Windows, 오른쪽은 Android", "Home screen — Windows on the left, Android on the right"),
+          },
+        },
         L(
           "캘린더 · 디데이 — 달력에서 날짜를 누르면 그날의 할 일이 보이고, 공휴일과 일기를 쓴 날도 함께 표시됩니다. 디데이는 여러 개 등록할 수 있고, 일주일 안으로 다가오면 빨간색, 날짜가 지나면 초록색으로 바뀝니다.",
           "Calendar · D-days — tap a date to see its to-dos; public holidays and diary days are marked too. Several D-days can be set; they turn red within a week and green once passed."
@@ -232,18 +238,30 @@ window.PROJECTS = (function () {
           "습관 — 매일 지킬 습관을 등록하고 체크하면 연속 달성일과 1년 치 활동 지도에 기록이 쌓입니다.",
           "Habits — check off daily habits and they build up a streak and a year-long activity map."
         ),
-        L(
-          "일기 · 교환일기 — 나만 보는 날짜별 일기와, 친구들과 그룹을 만들어 한 편을 이어 쓰는 교환일기가 있습니다. 교환일기는 누가 어느 부분을 썼는지 나눠서 저장합니다.",
-          "Diary · exchange diary — a private diary by date, and an exchange diary where a group of friends writes one entry together, stored with who wrote which part."
-        ),
+        {
+          text: L(
+            "일기 · 교환일기 — 나만 보는 날짜별 일기와, 친구들과 그룹을 만들어 한 편을 이어 쓰는 교환일기가 있습니다. 교환일기는 누가 어느 부분을 썼는지 나눠서 저장합니다.",
+            "Diary · exchange diary — a private diary by date, and an exchange diary where a group of friends writes one entry together, stored with who wrote which part."
+          ),
+          figure: {
+            src: "todo-on-diary.webp",
+            caption: L("교환일기 — 달력에 일기를 쓴 날이 표시되고, 위에서 그룹을 고름", "Exchange diary — diary days are marked on the calendar; pick a group at the top"),
+          },
+        },
         L(
           "친구 — 아이디 · 닉네임으로 검색하거나 친구 코드를 주고받아 친구를 추가합니다. 친구의 프로필과 할 일을 볼 수 있고, 비공개로 설정한 카테고리와 할 일은 보이지 않습니다.",
           "Friends — add friends by ID / nickname search or by swapping friend codes. You can see a friend's profile and to-dos, except categories and to-dos marked private."
         ),
-        L(
-          "채팅 — 친구와 1:1 또는 그룹으로 대화합니다. 사진 보내기, 답장, 메시지 수정 · 삭제, 읽음 표시를 지원하고, 최근에 대화한 방이 위로 올라옵니다.",
-          "Chat — 1:1 and group chats with friends, with photos, replies, editing and deleting messages, and read receipts; the most recent chats rise to the top."
-        ),
+        {
+          text: L(
+            "채팅 — 친구와 1:1 또는 그룹으로 대화합니다. 사진 보내기, 답장, 메시지 수정 · 삭제, 읽음 표시를 지원하고, 최근에 대화한 방이 위로 올라옵니다.",
+            "Chat — 1:1 and group chats with friends, with photos, replies, editing and deleting messages, and read receipts; the most recent chats rise to the top."
+          ),
+          figure: {
+            src: "todo-on-chat.webp",
+            caption: L("채팅 목록 — 친구 이름과 프로필은 가렸습니다", "Chat list — friends' names and photos are blurred"),
+          },
+        },
         L(
           "설정 · 자동 업데이트 — 라이트 · 다크 테마와 글자 크기를 바꾸면 바로 앱 전체에 반영됩니다. 앱을 켤 때 GitHub의 최신 릴리스와 버전을 비교해, 새 버전이 있으면 앱 안에서 내려받아 설치합니다(Windows 설치 파일, Android APK).",
           "Settings · auto-update — light / dark theme and font size apply across the app as you change them. On launch the app compares its version with the latest GitHub release and downloads and installs a newer one in-app (Windows installer, Android APK)."
