@@ -295,6 +295,9 @@ window.PROJECTS = (function () {
         L("홍보 마케팅", "Marketing & promotion"),
         L("공학 · 기술 행사", "Engineering events"),
       ],
+      links: [
+        { label: L("▶ 홍보 포스팅 보기", "▶ Read the promo post"), href: "https://blog.naver.com/dhwldn06/224463598085", primary: true },
+      ],
     },
   };
 })();
