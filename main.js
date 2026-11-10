@@ -110,9 +110,10 @@ if (window.PROJECTS) {
     const meta = p.meta.map(([k, v]) => `<div><dt>${esc(ko(k))}</dt><dd>${esc(ko(v))}</dd></div>`).join('');
     const items = (list) => (list || []).map((w) => {
       const obj = w && typeof w === 'object' && 'text' in w;
-      const f = obj && w.figure;
-      const cap = f && f.caption ? esc(ko(f.caption)) : '';
-      const fig = f ? `<figure><img src="${esc(f.src)}" alt="${cap}" loading="lazy">${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>` : '';
+      const fig = (obj ? [].concat(w.figure || []) : []).map((f) => {
+        const cap = f.caption ? esc(ko(f.caption)) : '';
+        return `<figure${f.phone ? ' class="is-phone"' : ''}><img src="${esc(f.src)}" alt="${cap}" loading="lazy">${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>`;
+      }).join('');
       return `<li>${esc(ko(obj ? w.text : w))}${fig}</li>`;
     }).join('');
     const work = items(p.work);

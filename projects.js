@@ -225,10 +225,10 @@ window.PROJECTS = (function () {
             "할 일 — 카테고리별로 할 일을 적고, 끌어서 순서를 바꾸거나 다른 카테고리로 옮길 수 있습니다. 매주 같은 요일이나 정해 둔 날짜마다 다시 생기는 반복 할 일, 할 일마다 붙이는 메모와 알림, 친구에게 숨기는 비공개 설정을 지원합니다. 날짜를 아직 못 정한 일은 보관함에 넣어 두었다가 원하는 날로 꺼낼 수 있습니다.",
             "To-dos — write to-dos by category and drag them to reorder or move between categories. Repeating to-dos come back on set weekdays or dates, each to-do can carry a memo and a reminder, and any to-do can be hidden from friends. Things without a date yet wait in the archive until you pull them onto a day."
           ),
-          figure: {
-            src: "todo-on-home.webp",
-            caption: L("홈 화면 — 왼쪽은 Windows, 오른쪽은 Android", "Home screen — Windows on the left, Android on the right"),
-          },
+          figure: [
+            { src: "todo-on-home.webp", caption: L("Windows 홈 화면", "Home screen on Windows") },
+            { src: "todo-on-android.webp", caption: L("Android 홈 화면", "Home screen on Android"), phone: true },
+          ],
         },
         L(
           "캘린더 · 디데이 — 달력에서 날짜를 누르면 그날의 할 일이 보이고, 공휴일과 일기를 쓴 날도 함께 표시됩니다. 디데이는 여러 개 등록할 수 있고, 일주일 안으로 다가오면 빨간색, 날짜가 지나면 초록색으로 바뀝니다.",

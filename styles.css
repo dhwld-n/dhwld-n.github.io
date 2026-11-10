@@ -215,6 +215,7 @@ html:has(.modal[open]) { overflow: hidden; }
 .modal figure { margin: 14px 0 4px; }
 .modal figure img { display: block; width: 100%; height: auto; border-radius: 14px; }
 .modal figcaption { margin-top: 8px; font-size: 13px; }
+.modal figure.is-phone { max-width: 260px; }
 .modal-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
 .modal-chips li { padding: 6px 14px; border-radius: 999px; background: rgb(var(--tint) / .14); font-size: 14px; }
 .modal-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
