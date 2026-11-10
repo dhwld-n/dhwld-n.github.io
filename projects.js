@@ -192,6 +192,76 @@ window.PROJECTS = (function () {
       stack: ["Claude Code Plugin", "Agent Skills", "Subagents", L("프롬프트 설계", "Prompt design")],
     },
 
+    todo_on: {
+      icon: "✅",
+      title: L("TODO on — 친구와 함께 쓰는 할 일 관리 앱", "TODO on — a to-do app you share with friends"),
+      meta: [
+        [L("개발 기간", "Duration"), L("2026.09 ~ 진행 중 (개인 프로젝트)", "Sep 2026 – present (personal project)")],
+        [
+          L("인원 구성", "Team"),
+          L(
+            "1인 개발 — 기획 · 디자인 · 검증은 직접, 구현은 AI 코딩 도구(Claude Code)와 협업",
+            "Solo — planning, design and verification myself; implementation together with an AI coding tool (Claude Code)"
+          ),
+        ],
+        [L("형태", "Format"), L("Flutter 앱 · Windows / Android", "Flutter app · Windows / Android")],
+        [
+          L("결과 및 성과", "Outcome"),
+          L(
+            "릴리스 127회(v1.6.98) · 커밋 183개 · 자동 테스트 160여 개, 다운로드 사이트 운영 중",
+            "127 releases (v1.6.98) · 183 commits · ~160 automated tests, download site live"
+          ),
+        ],
+      ],
+      overview: L(
+        "할 일, 캘린더, 습관, 일기, 채팅을 한곳에 모은 Windows · Android 앱입니다. 친구를 추가하면 서로의 할 일을 볼 수 있고(비공개 제외), 교환일기와 채팅으로 함께 쓸 수 있습니다. 기획부터 디자인, 배포와 운영까지 혼자 진행하고 있습니다.",
+        "A Windows and Android app that brings to-dos, a calendar, habits, a diary and chat into one place. Add a friend and you can see each other's to-dos (except private ones), and share an exchange diary and chats. I run it alone, from planning and design through release and operation."
+      ),
+      workLabel: L("주요 기능", "Key features"),
+      work: [
+        L(
+          "할 일 — 카테고리별 관리, 요일 · 날짜 반복, 끌어서 순서와 카테고리 변경, 보관함, 디데이, 알림.",
+          "To-dos — categories, weekday / date repeats, drag to reorder or move between categories, archive, D-day, reminders."
+        ),
+        L(
+          "캘린더 · 습관 · 일기 — 공휴일 표시, 습관 연속 달성일과 활동 지도, 개인 일기와 친구와 쓰는 교환일기.",
+          "Calendar · habits · diary — public holidays, habit streaks and an activity map, a personal diary and an exchange diary with friends."
+        ),
+        L(
+          "친구 · 채팅 — 아이디 · 닉네임 검색과 친구 코드로 친구 추가, 친구의 할 일 보기(비공개 제외), 1:1 · 그룹 채팅.",
+          "Friends · chat — add friends by ID / nickname search or a friend code, view friends' to-dos (private ones hidden), 1:1 and group chat."
+        ),
+        L(
+          "배포 — 앱 안에서 새 버전을 받아 설치하는 자동 업데이트(Windows 설치 파일, Android APK), 다운로드 사이트 운영.",
+          "Distribution — in-app auto-update that downloads and installs new versions (Windows installer, Android APK), plus a download site."
+        ),
+      ],
+      casesLabel: L("문제 해결 사례", "Problems solved"),
+      cases: [
+        L(
+          "Android 화면 버벅임 약 7배 개선 — 로그인 없이 홈 화면만 띄우는 측정용 빌드로 에뮬레이터에서 측정. 화면 구성 계산은 7ms인데 그리기가 558ms였고, 원인은 매 프레임 다시 계산되는 그림자 흐림 효과. 그림자를 한 번만 계산해 이미지로 저장하고 늘려 붙이는 나인패치 방식으로 바꿔 558ms → 약 80ms로 단축(에뮬레이터 기준).",
+          "Android jank cut ~7× — measured on an emulator with a profiling build that opens only the home screen, no login. Layout took 7ms but painting took 558ms; the cause was a shadow blur recomputed every frame. Rendering the shadow once to an image and stretching it as a nine-patch brought paint from 558ms to ~80ms (emulator)."
+        ),
+        L(
+          "아이디 중복 방지와 보안 규칙 — 아이디 선점을 트랜잭션으로 처리하고, Firestore 보안 규칙에서 형식 · 소유자 · 1인 1아이디를 서버 쪽에서 강제. 에뮬레이터로 규칙을 테스트하고 외부 보안 점검 요청에 대응.",
+          "Unique IDs and security rules — ID claims run in a transaction, and Firestore security rules enforce format, ownership and one ID per user on the server. Rules are tested on the emulator, and an external security report was handled."
+        ),
+        L(
+          "디자인 전면 개편(클레이모피즘) — HTML 시안을 먼저 만들어 확인한 뒤 앱에 적용. 3가지 색으로 라이트 · 다크 모드와 다운로드 사이트까지 통일하고, 사이트 폰트를 쓰이는 글자만 남겨 약 5MB → 215KB로 축소.",
+          "Full redesign (claymorphism) — built HTML mockups first, then applied them to the app. Three colors unify light and dark mode and the download site; subsetting the site font to the glyphs in use cut it from ~5MB to 215KB."
+        ),
+        L(
+          "시작 시 채팅 알림 깜빡임 — 메시지와 '마지막으로 읽은 시각'이 따로 도착하면서 생기는 순서 문제임을 재현 테스트로 확인하고 수정.",
+          "Chat badge flicker on startup — a reproduction test showed it was an ordering problem between messages and the 'last read' time arriving separately; fixed."
+        ),
+      ],
+      stack: ["Flutter (Dart)", "Riverpod", "Firebase Authentication", "Cloud Firestore", "GitHub Actions", "GitHub Pages", "Inno Setup"],
+      links: [
+        { label: L("▶ 다운로드 사이트", "▶ Download site"), href: "https://dhwld-n.github.io/todo-on/", primary: true },
+        { label: "GitHub Repository", href: "https://github.com/dhwld-n/todo-on" },
+      ],
+    },
+
     beyond_busan: {
       icon: "🎓",
       title: L(

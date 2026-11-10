@@ -108,13 +108,15 @@ if (window.PROJECTS) {
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const render = (p) => {
     const meta = p.meta.map(([k, v]) => `<div><dt>${esc(ko(k))}</dt><dd>${esc(ko(v))}</dd></div>`).join('');
-    const work = (p.work || []).map((w) => {
+    const items = (list) => (list || []).map((w) => {
       const obj = w && typeof w === 'object' && 'text' in w;
       const f = obj && w.figure;
       const cap = f && f.caption ? esc(ko(f.caption)) : '';
       const fig = f ? `<figure><img src="${esc(f.src)}" alt="${cap}" loading="lazy">${cap ? `<figcaption>${cap}</figcaption>` : ''}</figure>` : '';
       return `<li>${esc(ko(obj ? w.text : w))}${fig}</li>`;
     }).join('');
+    const work = items(p.work);
+    const cases = items(p.cases);
     const stack = (p.stack || []).map((s) => `<li>${esc(ko(s))}</li>`).join('');
     const links = (p.links || []).map((l) => {
       const ext = /^https?:/.test(l.href);
@@ -131,6 +133,7 @@ if (window.PROJECTS) {
       `<dl class="modal-meta">${meta}</dl>` +
       (p.overview ? `<h4>${esc(ko(p.overviewLabel) || '프로젝트 개요')}</h4><p>${esc(ko(p.overview))}</p>` : '') +
       (work ? `<h4>${esc(ko(p.workLabel) || '수행 내용')}</h4><ul class="modal-list">${work}</ul>` : '') +
+      (cases ? `<h4>${esc(ko(p.casesLabel) || '문제 해결')}</h4><ul class="modal-list">${cases}</ul>` : '') +
       (stack ? `<h4>${esc(ko(p.stackLabel) || '기술 스택')}</h4><ul class="modal-chips">${stack}</ul>` : '') +
       (links ? `<div class="modal-links">${links}</div>` : '');
   };
