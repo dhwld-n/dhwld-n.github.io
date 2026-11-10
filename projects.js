@@ -205,11 +205,12 @@ window.PROJECTS = (function () {
           ),
         ],
         [L("형태", "Format"), L("Flutter 앱 · Windows / Android", "Flutter app · Windows / Android")],
+        [L("규모", "Scale"), L("릴리스 127회 · 자동 테스트 160여 개", "127 releases · ~160 automated tests")],
         [
-          L("결과 및 성과", "Outcome"),
+          L("추후 계획", "Next steps"),
           L(
-            "릴리스 127회(v1.6.98) · 커밋 183개 · 자동 테스트 160여 개, 다운로드 사이트 운영 중",
-            "127 releases (v1.6.98) · 183 commits · ~160 automated tests, download site live"
+            "보안 점검과 기능 보강을 마친 뒤 Google Play · Microsoft Store 출시",
+            "Launch on Google Play and the Microsoft Store after a security review and a round of new features"
           ),
         ],
       ],
