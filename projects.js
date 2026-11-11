@@ -278,10 +278,6 @@ window.PROJECTS = (function () {
           "Unique IDs and security rules — ID claims run in a transaction, and Firestore security rules enforce format, ownership and one ID per user on the server. Rules are tested on the emulator, and an external security report was handled."
         ),
         L(
-          "디자인 전면 개편(클레이모피즘) — HTML 시안을 먼저 만들어 확인한 뒤 앱에 적용. 3가지 색으로 라이트 · 다크 모드와 다운로드 사이트까지 통일하고, 사이트 폰트를 쓰이는 글자만 남겨 약 5MB → 215KB로 축소.",
-          "Full redesign (claymorphism) — built HTML mockups first, then applied them to the app. Three colors unify light and dark mode and the download site; subsetting the site font to the glyphs in use cut it from ~5MB to 215KB."
-        ),
-        L(
           "시작 시 채팅 알림 깜빡임 — 메시지와 '마지막으로 읽은 시각'이 따로 도착하면서 생기는 순서 문제임을 재현 테스트로 확인하고 수정.",
           "Chat badge flicker on startup — a reproduction test showed it was an ordering problem between messages and the 'last read' time arriving separately; fixed."
         ),
