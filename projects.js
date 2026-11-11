@@ -305,6 +305,10 @@ window.PROJECTS = (function () {
         "여행마다 항공권 · 숙소 · 가볼 곳 후보를 모으고, 함께 가는 친구(크루)들이 하트를 눌러 고르는 여행 계획 웹앱입니다. 원하는 조건을 말로 적으면 AI가 검색 조건으로 바꿔 구글 항공권 · 호텔을 찾고, 가격 계산은 코드가, 추천 설명은 AI가 맡습니다. 고른 장소는 숙소를 중심으로 날짜별 일정과 지도 동선까지 이어집니다.",
         "A trip-planning web app where each trip collects flight, hotel and place candidates, and the friends coming along (the crew) pick them with hearts. Describe what you want in plain words and the AI turns it into search parameters for Google Flights and Hotels; code does the price math and the AI writes the recommendation. The chosen places then flow into a day-by-day itinerary around the hotel, with a route on the map."
       ),
+      why: L(
+        "친구들과 여행을 준비할 때 다 같이 시간을 맞춰 찾아보려 하면 시간이 안 맞는 경우가 더 많았습니다. 그래서 각자 시간 날 때 조금씩 찾아본 항공권 · 숙소 · 가볼 곳을 한곳에 담아 두고 나중에 함께 고를 수 있으면 좋겠다고 생각했습니다. 또 여행지에서 어디를 가야 할지 찾는 것도 늘 어려웠는데, 후기를 하나하나 읽는 대신 LLM이 후기를 분석해 좋은 곳을 판단해 주면 좋겠다는 생각으로 만들었습니다.",
+        "When planning trips with friends, finding a time when everyone could search together rarely worked out. I wanted a place where each of us could drop the flights, hotels and spots we found bit by bit in our spare time, and pick from them together later. Deciding where to go once there was always hard too, so instead of reading reviews one by one, I wanted an LLM to analyze them and judge which places are worth it."
+      ),
       workLabel: L("주요 기능", "Key features"),
       work: [
         L(

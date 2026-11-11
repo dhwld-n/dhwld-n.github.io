@@ -133,6 +133,7 @@ if (window.PROJECTS) {
       demo +
       `<dl class="modal-meta">${meta}</dl>` +
       (p.overview ? `<h4>${esc(ko(p.overviewLabel) || '프로젝트 개요')}</h4><p>${esc(ko(p.overview))}</p>` : '') +
+      (p.why ? `<h4>${esc(ko(p.whyLabel) || '만든 이유')}</h4><p>${esc(ko(p.why))}</p>` : '') +
       (work ? `<h4>${esc(ko(p.workLabel) || '수행 내용')}</h4><ul class="modal-list">${work}</ul>` : '') +
       (cases ? `<h4>${esc(ko(p.casesLabel) || '문제 해결')}</h4><ul class="modal-list">${cases}</ul>` : '') +
       (stack ? `<h4>${esc(ko(p.stackLabel) || '기술 스택')}</h4><ul class="modal-chips">${stack}</ul>` : '') +
