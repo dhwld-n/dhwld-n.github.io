@@ -300,6 +300,7 @@ window.PROJECTS = (function () {
         [L("개발 기간", "Duration"), L("2026.11.05 ~ 2026.11.11 (7일, 개인 프로젝트)", "Nov 5 – Nov 11, 2026 (7 days, personal project)")],
         [L("인원 구성", "Team"), L("1인 개발 (기획 · 구현 · 디자인 · 배포)", "Solo (planning, implementation, design, deployment)")],
         [L("형태", "Format"), L("Next.js 웹앱 · Vercel 배포 · Google 로그인", "Next.js web app · deployed on Vercel · Google sign-in")],
+        [L("결과 및 성과", "Outcome"), L("travel-planner-sable-ten.vercel.app 로 배포 중", "Deployed at travel-planner-sable-ten.vercel.app")],
       ],
       overview: L(
         "여행마다 항공권 · 숙소 · 가볼 곳 후보를 모으고, 함께 가는 친구(크루)들이 하트를 눌러 고르는 여행 계획 웹앱입니다. 원하는 조건을 말로 적으면 AI가 검색 조건으로 바꿔 구글 항공권 · 호텔을 찾고, 가격 계산은 코드가, 추천 설명은 AI가 맡습니다. 고른 장소는 숙소를 중심으로 날짜별 일정과 지도 동선까지 이어집니다.",
