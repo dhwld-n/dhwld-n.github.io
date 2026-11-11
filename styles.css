@@ -134,7 +134,8 @@ h1, .about p { text-wrap: balance; }
 /* 관심 분야: 숙련도 없는 클레이 칩 */
 .about-interests { margin-top: 48px; }
 .about-interests > h3 { font-size: 22px; margin: 0 0 16px; }
-.interests { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 14px; }
+/* ponytail: 700px 은 지금 칩 9개가 5+4 로 나뉘는 폭(첫 줄 642px). 칩을 바꾸면 다시 맞추기 */
+.interests { max-width: 700px; list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 14px; }
 .interests li { padding: 14px 26px; border-radius: 20px; font-weight: 700; }
 .skills-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; margin-bottom: 16px; }
 .skills-head h3 { font-size: 22px; }
