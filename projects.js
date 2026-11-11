@@ -366,7 +366,7 @@ window.PROJECTS = (function () {
         "Digital literacy practice — kiosk & ticketing walkthroughs"
       ),
       meta: [
-        [L("개발 기간", "Duration"), L("2026.10 ~ 진행 중 (창업 수업 프로젝트)", "Oct 2026 – present (startup course project)")],
+        [L("개발 기간", "Duration"), L("2026.10 ~ 진행 중 (팀 프로젝트)", "Oct 2026 – present (team project)")],
         [L("인원 구성", "Team"), L("4명", "4 people")],
         [
           L("본인 역할", "My role"),
