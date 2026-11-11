@@ -222,8 +222,8 @@ window.PROJECTS = (function () {
       work: [
         {
           text: L(
-            "할 일 — 카테고리별로 할 일을 적고, 끌어서 순서를 바꾸거나 다른 카테고리로 옮길 수 있습니다. 매주 같은 요일이나 정해 둔 날짜마다 다시 생기는 반복 할 일, 할 일마다 붙이는 메모와 알림, 친구에게 숨기는 비공개 설정을 지원합니다. 날짜를 아직 못 정한 일은 보관함에 넣어 두었다가 원하는 날로 꺼낼 수 있습니다.",
-            "To-dos — write to-dos by category and drag them to reorder or move between categories. Repeating to-dos come back on set weekdays or dates, each to-do can carry a memo and a reminder, and any to-do can be hidden from friends. Things without a date yet wait in the archive until you pull them onto a day."
+            "할 일 — 카테고리별로 할 일을 적고, 끌어서 순서를 바꾸거나 다른 카테고리로 옮길 수 있습니다. 매주 같은 요일이나 정해 둔 날짜마다 다시 생기는 반복 할 일, 할 일마다 붙이는 메모, 친구에게 숨기는 비공개 설정을 지원합니다. 할 일에 알림 시간을 정해 두면 그 시간에 Android 잠금 화면과 알림창에 소리 없이 리마인드가 뜨고, 반복 할 일은 날마다 다시 알려 줍니다. 날짜를 아직 못 정한 일은 보관함에 넣어 두었다가 원하는 날로 꺼낼 수 있습니다.",
+            "To-dos — write to-dos by category and drag them to reorder or move between categories. Repeating to-dos come back on set weekdays or dates, each to-do can carry a memo, and any to-do can be hidden from friends. Give a to-do a reminder time and a silent reminder shows on the Android lock screen and notification shade at that time, again on every day a repeating to-do comes back. Things without a date yet wait in the archive until you pull them onto a day."
           ),
           figure: [
             { src: "todo-on-home.webp", caption: L("Windows 홈 화면", "Home screen on Windows") },
