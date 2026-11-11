@@ -193,8 +193,8 @@ window.PROJECTS = (function () {
           "Font picking — chooses pairings that fit the site's situation (a ledger, a clinic, a cafe) from a list of 127 Korean and 206 Latin free fonts, then shows a few candidates set in the real copy on a preview page so the pick is made by eye."
         ),
         L(
-          "레퍼런스 측정 — 공개된 사이트를 브라우저에서 재어 글자 크기 · 간격 · 모션 수치를 느낌 노트로 남김. 코드 · 이미지 · 문구는 가져오지 않음.",
-          "Reference measuring — measures public sites in a browser and keeps type sizes, spacing and motion values as feel notes. No code, images or copy are taken."
+          "레퍼런스 라이브러리 — 실제 사이트 30곳(Lando Norris, A24, Arc, Zed, 서울디자인페스티벌 등)을 브라우저에서 재어 글자 크기 · 간격 · 모션 수치를 느낌 노트로 정리하고, 스타일 카드 24종 · 모션 레시피 26종과 함께 재료로 씀. 코드 · 이미지 · 문구는 가져오지 않음.",
+          "Reference library — 30 real sites (Lando Norris, A24, Arc, Zed, Seoul Design Festival and more) measured in a browser into feel notes on type sizes, spacing and motion values, used as materials alongside 24 style cards and 26 motion recipes. No code, images or copy are taken."
         ),
       ],
       stack: ["Claude Code Plugin", "Agent Skills", "Subagents", L("프롬프트 설계", "Prompt design")],
