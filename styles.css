@@ -108,6 +108,7 @@ h1, .about p { text-wrap: balance; }
 /* sections */
 .section { max-width: 1120px; margin: 0 auto; padding: 96px 24px; }
 .section-head { margin-bottom: 32px; }
+.section-head .more { display: inline-block; margin-top: 12px; }
 .section h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 600; }
 .stack + .stack { padding-top: 0; scroll-margin-top: 96px; }
 
