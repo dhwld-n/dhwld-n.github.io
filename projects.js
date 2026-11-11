@@ -359,6 +359,66 @@ window.PROJECTS = (function () {
       ],
     },
 
+    digital_literacy: {
+      icon: "🧓",
+      title: L(
+        "디지털 문맹 탈출 연습장 — 키오스크 · 예매앱 따라 하기",
+        "Digital literacy practice — kiosk & ticketing walkthroughs"
+      ),
+      meta: [
+        [L("개발 기간", "Duration"), L("2026.10 ~ 진행 중 (창업 수업 프로젝트)", "Oct 2026 – present (startup course project)")],
+        [L("인원 구성", "Team"), L("4명", "4 people")],
+        [
+          L("본인 역할", "My role"),
+          L(
+            "기차 · 고속버스 예매 연습 파트 담당 — 예매앱 · 발매기 · 날짜 변경 · 예매 취소 연습 흐름 구현",
+            "Owned the train & express-bus ticketing practice — built the app, ticket-machine, date-change and cancellation flows"
+          ),
+        ],
+        [
+          L("형태", "Format"),
+          L("모바일 웹 연습장 (HTML · JS) + FastAPI AI 힌트 서버", "Mobile web practice app (HTML · JS) + FastAPI AI hint server"),
+        ],
+      ],
+      overview: L(
+        "키오스크와 예매앱 앞에서 막히는 디지털 소외계층을 위한 연습장입니다. 실제 결제 없이 카페 키오스크 주문과 기차 · 고속버스 예매를 처음부터 끝까지 따라 해 볼 수 있습니다. '가이드와 함께' 모드는 캐릭터가 말풍선과 음성으로 한 단계씩 알려 주고 눌러야 할 버튼을 반짝여 주며, '혼자서 도전' 모드는 미션만 주고 막힐 때 도움을 요청하게 합니다.",
+        "A practice space for people left behind by kiosks and ticketing apps. With no real payment, they can walk through ordering at a cafe kiosk and booking train or express-bus tickets from start to finish. 'With a guide' mode has a character explain each step in a speech bubble and out loud, lighting up the button to press; 'On your own' mode gives only the mission and lets them ask for help when stuck."
+      ),
+      workLabel: L("주요 기능", "Key features"),
+      work: [
+        L(
+          "카페 키오스크 연습 — 매장/포장 선택 → 메뉴 고르기 → 옵션(시럽 추가 등) → 장바구니에서 옵션 변경 · 삭제 → 카드 결제 → 영수증까지. 미션(예: 오렌지 에이드를 제로 사이다로 바꿔 주문)을 따라 진행.",
+          "Cafe kiosk practice — dine-in or takeout → pick a menu → options (extra syrup, etc.) → change or remove items in the cart → card payment → receipt, following missions such as ordering an orange ade made with zero-sugar soda."
+        ),
+        L(
+          "기차 · 고속버스 예매 연습 — 예매앱 편도 · 왕복, 역 · 터미널 발매기, 미리 산 표의 날짜 변경 · 예매 취소까지 실제 흐름대로. 출발지 · 도착지 검색, 날짜 · 시간, 인원(어른 · 경로 등), 좌석 선택, 결제, 승차권 확인을 단계별로 연습.",
+          "Train & express-bus ticketing practice — one-way and round trips in an app, station and terminal ticket machines, and changing the date or cancelling a ticket bought earlier, all following the real flow: search origin and destination, date and time, passengers (adult, senior, etc.), seats, payment and checking the ticket."
+        ),
+        L(
+          "단계별 도움 — 첫 번째 [도움]은 말로 다음 행동을 알려 주고, 두 번째는 화면을 어둡게 하고 눌러야 할 버튼만 반짝이게 함. 틀린 버튼을 누르면 왜 아닌지 짧게 알려 주고 미션을 다시 보여 줌.",
+          "Stepped help — the first [Help] tells the next action in words; the second dims the screen and lights up only the button to press. Pressing the wrong button gets a short explanation of why, followed by the mission again."
+        ),
+        L(
+          "어르신 눈높이 화면 — 큰 버튼, 글자 크게 보기(가+), 한국어 음성 안내(Web Speech API)와 음소거, 언제든 처음으로 돌아가기.",
+          "Screens made for older users — big buttons, a larger-text toggle (가+), Korean voice guidance (Web Speech API) with mute, and a way back to the start at any time."
+        ),
+        L(
+          "AI 힌트 서버 — 현재 상황을 보내면 LLM이 '키오스크 강사' 역할로 1~2문장의 쉬운 힌트를 돌려주는 FastAPI 엔드포인트. 서버 주소 · 키 · 모델은 .env로 분리해 학교 서버와 Gemini를 코드 수정 없이 바꿔 쓸 수 있음.",
+          "AI hint server — a FastAPI endpoint that takes the current situation and has an LLM, acting as a kiosk instructor, return an easy one- or two-sentence hint. The server address, key and model live in .env, so it can switch between the school's server and Gemini without code changes."
+        ),
+        L(
+          "자동 점검 — 콘솔에서 selfTest()를 실행하면 기차/버스 × 발매기 · 앱 편도 · 앱 왕복 · 날짜 변경 · 취소 × 가이드/혼자 모든 경로를 정답대로 끝까지 눌러 완료 화면에 도달하는지 확인.",
+          "Self-check — running selfTest() in the console clicks every path (train/bus × machine, app one-way, app round trip, date change, cancel × guided/solo) through with the correct answers and checks that each reaches its finish screen."
+        ),
+      ],
+      stack: [
+        "HTML · CSS · JavaScript (Vanilla)",
+        L("Web Speech API (음성 안내)", "Web Speech API (voice guidance)"),
+        "Python · FastAPI",
+        L("OpenAI 호환 LLM API (학교 서버 / Gemini)", "OpenAI-compatible LLM API (school server / Gemini)"),
+      ],
+    },
+
     beyond_busan: {
       icon: "🎓",
       title: L(
