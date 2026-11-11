@@ -200,8 +200,8 @@ window.PROJECTS = (function () {
         [
           L("인원 구성", "Team"),
           L(
-            "1인 개발 — 기획 · 디자인 · 검증은 직접, 구현은 AI 코딩 도구(Claude Code)와 협업",
-            "Solo — planning, design and verification myself; implementation together with an AI coding tool (Claude Code)"
+            "1인 개발 — 기획 · 디자인 · 검증은 직접, 구현은 AI 코딩 도구(Claude Code)와 협업 (+ 아이디어 · 보안 점검 1인)",
+            "Solo — planning, design and verification myself; implementation together with an AI coding tool (Claude Code) (+ 1 person on ideas and security review)"
           ),
         ],
         [L("형태", "Format"), L("Flutter 앱 · Windows / Android", "Flutter app · Windows / Android")],
