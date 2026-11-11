@@ -297,7 +297,7 @@ window.PROJECTS = (function () {
       icon: "✈️",
       title: L("Travel Planner — 친구들과 함께 고르는 AI 여행 플래너", "Travel Planner — an AI trip planner you pick with friends"),
       meta: [
-        [L("개발 기간", "Duration"), L("2026.11 ~ 진행 중 (개인 프로젝트)", "Nov 2026 – present (personal project)")],
+        [L("개발 기간", "Duration"), L("2026.11.05 ~ 2026.11.11 (7일, 개인 프로젝트)", "Nov 5 – Nov 11, 2026 (7 days, personal project)")],
         [L("인원 구성", "Team"), L("1인 개발 (기획 · 구현 · 디자인 · 배포)", "Solo (planning, implementation, design, deployment)")],
         [L("형태", "Format"), L("Next.js 웹앱 · Vercel 배포 · Google 로그인", "Next.js web app · deployed on Vercel · Google sign-in")],
       ],
