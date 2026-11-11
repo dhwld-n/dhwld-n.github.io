@@ -185,11 +185,22 @@ window.PROJECTS = (function () {
           "Default reviewer (critic) — scores visuals, personality, motion and usability out of 100 in one pass and returns a fix list."
         ),
         L(
-          "검수 패널 — 시각 65점(방향 · 레이아웃 · 개성 · 타이포 · 색), 모션 15점(어울림 · 매끄러움 · 모션 줄이기 대체), 사용성 20점(반응형 · 접근성 · 완성도)으로 나눠 영역별로 깊게 채점.",
-          "Review panel — splits scoring into visuals 65 (direction, layout, personality, type, color), motion 15 (fit, smoothness, reduced-motion fallback) and usability 20 (responsive, accessibility, polish) for deeper per-area review."
+          "검수 패널 — 시각 55점(방향 · 레이아웃 · 개성 · 타이포 · 색), 글꼴 어울림 10점(역할 구분 · 한글과 라틴의 섞임), 모션 15점(어울림 · 매끄러움 · 모션 줄이기 대체), 사용성 20점(반응형 · 접근성 · 완성도)으로 나눠 영역별로 깊게 채점.",
+          "Review panel — splits scoring into visuals 55 (direction, layout, personality, type, color), font fit 10 (role contrast, Hangul and Latin mixing), motion 15 (fit, smoothness, reduced-motion fallback) and usability 20 (responsive, accessibility, polish) for deeper per-area review."
+        ),
+        L(
+          "글꼴 고르기 — 한글 127종 · 영문 206종의 무료 폰트 목록에서 사이트의 상황(장부, 병원, 카페 등)에 맞는 조합을 고르고, 후보 몇 개를 실제 문구로 띄운 미리보기 화면에서 눈으로 골라 정함.",
+          "Font picking — chooses pairings that fit the site's situation (a ledger, a clinic, a cafe) from a list of 127 Korean and 206 Latin free fonts, then shows a few candidates set in the real copy on a preview page so the pick is made by eye."
+        ),
+        L(
+          "레퍼런스 측정 — 공개된 사이트를 브라우저에서 재어 글자 크기 · 간격 · 모션 수치를 느낌 노트로 남김. 코드 · 이미지 · 문구는 가져오지 않음.",
+          "Reference measuring — measures public sites in a browser and keeps type sizes, spacing and motion values as feel notes. No code, images or copy are taken."
         ),
       ],
       stack: ["Claude Code Plugin", "Agent Skills", "Subagents", L("프롬프트 설계", "Prompt design")],
+      links: [
+        { label: "GitHub Repository", href: "https://github.com/dhwld-n/webcraft", primary: true },
+      ],
     },
 
     todo_on: {
