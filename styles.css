@@ -21,7 +21,7 @@
 * { box-sizing: border-box; }
 /* 메인 사이트와 같은 폰트: 본문 MitmiFont, 제목·메뉴 OkDandan */
 @font-face { font-family: "OkDandan"; src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2508-2@1.0/OkDanDan-Bold.woff2") format("woff2"); font-display: swap; }
-@font-face { font-family: "MitmiFont"; src: url("omyu-pretty-subset.woff2?v=2026111004") format("woff2"); font-display: swap; }
+@font-face { font-family: "MitmiFont"; src: url("omyu-pretty-subset.woff2?v=2026111101") format("woff2"); font-display: swap; }
 
 html { scroll-behavior: smooth; }
 body {

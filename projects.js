@@ -293,6 +293,60 @@ window.PROJECTS = (function () {
       ],
     },
 
+    travel_planner: {
+      icon: "✈️",
+      title: L("Travel Planner — 친구들과 함께 고르는 AI 여행 플래너", "Travel Planner — an AI trip planner you pick with friends"),
+      meta: [
+        [L("개발 기간", "Duration"), L("2026.11 ~ 진행 중 (개인 프로젝트)", "Nov 2026 – present (personal project)")],
+        [L("인원 구성", "Team"), L("1인 개발 (기획 · 구현 · 디자인 · 배포)", "Solo (planning, implementation, design, deployment)")],
+        [L("형태", "Format"), L("Next.js 웹앱 · Vercel 배포 · Google 로그인", "Next.js web app · deployed on Vercel · Google sign-in")],
+      ],
+      overview: L(
+        "여행마다 항공권 · 숙소 · 가볼 곳 후보를 모으고, 함께 가는 친구(크루)들이 하트를 눌러 고르는 여행 계획 웹앱입니다. 원하는 조건을 말로 적으면 AI가 검색 조건으로 바꿔 구글 항공권 · 호텔을 찾고, 가격 계산은 코드가, 추천 설명은 AI가 맡습니다. 고른 장소는 숙소를 중심으로 날짜별 일정과 지도 동선까지 이어집니다.",
+        "A trip-planning web app where each trip collects flight, hotel and place candidates, and the friends coming along (the crew) pick them with hearts. Describe what you want in plain words and the AI turns it into search parameters for Google Flights and Hotels; code does the price math and the AI writes the recommendation. The chosen places then flow into a day-by-day itinerary around the hotel, with a route on the map."
+      ),
+      workLabel: L("주요 기능", "Key features"),
+      work: [
+        L(
+          "항공 · 숙소 검색과 추천 브리핑 — 자연어 요청을 AI가 공항 코드 · 호텔 검색어로 바꾸고(자주 가는 도시는 코드 표로 먼저 확정), SerpApi로 구글 항공권 · 호텔을 함께 검색. 항공+숙소 조합의 총액 · 1인당 금액 · 예산 초과 여부는 코드가 계산하고, AI는 그 숫자로 추천 이유만 서술.",
+          "Flight & hotel search with a briefing — the AI turns a plain-language request into airport codes and a hotel query (common cities are fixed by a lookup table first), then SerpApi searches Google Flights and Hotels together. Code computes each flight+hotel combo's total, per-person cost and budget fit; the AI only explains the picks using those numbers."
+        ),
+        L(
+          "숙소 가성비 점수 — 가격 대비 평점 · 위치 평점 · 리뷰 수 · 리뷰 속 좋음/나쁨 언급을 보고 숙소마다 0~100점과 한 줄 이유를 매김. 리뷰가 적으면 신뢰도를 깎음.",
+          "Hotel value score — rates each hotel 0–100 with a one-line reason from price versus rating, location rating, review count and the good/bad mentions in reviews; few reviews lower the confidence."
+        ),
+        L(
+          "가볼 곳 추천 — 먹방 · 명소 · 신사/절 · 가챠샵 · 소품샵 등 카테고리를 고르면, 블로그 · 후기 글 본문을 읽고 여러 글에서 많이 언급된 장소 순으로 정리. 구글 지도 별점 · 주소 · 영업시간을 붙여 보여 줌.",
+          "Places to go — pick a category (food, sights, shrines, gacha shops, small shops and more) and it reads blog and review posts, ranking places by how many posts mention them, with Google Maps rating, address and opening hours attached."
+        ),
+        L(
+          "크루와 함께 고르기 — 초대 링크(모바일은 공유 시트)로 친구를 부르고, 후보함의 항공 · 숙소 · 장소에 각자 하트를 눌러 많이 받은 순으로 정렬. Supabase 행 수준 보안으로 여행 멤버만 보고 고칠 수 있음.",
+          "Choosing with the crew — invite friends with a link (the share sheet on mobile); everyone hearts flights, hotels and places in the shortlist, sorted by most hearts. Supabase row-level security keeps each trip visible and editable to its members only."
+        ),
+        L(
+          "AI 자동 일정 — 숙소에서 출발해 돌아오는 동선을 기준으로 가까운 동네끼리 묶고, 도착 · 출국 시각, 영업시간, 식사 시간대를 지켜 날짜별로 배치. '둘째 날 오전에 가챠샵'처럼 요청을 덧붙이면 그대로 반영하고, 직접 적은 일정은 건드리지 않음.",
+          "AI auto-itinerary — groups nearby places into days around the hotel and orders them in one direction, respecting arrival and departure times, opening hours and meal times. Extra requests like 'gacha shop on the morning of day 2' are honored, and entries you typed yourself are left alone."
+        ),
+        L(
+          "일정 보드 · 지도 — 일정을 끌어서(마우스 · 터치 · 키보드) 같은 날이나 다른 날로 옮기고, 장소 사이 이동 시간(도보 · 대중교통)을 표시. 하루 동선을 구글 지도로 한눈에 보고, 국내 여행은 기차 · 버스 시간표도 함께 비교.",
+          "Itinerary board & map — drag entries (mouse, touch or keyboard) within or across days, with walking or transit times between stops. Each day's route shows on Google Maps, and domestic trips compare train and bus timetables too."
+        ),
+      ],
+      stack: [
+        "Next.js 16 (App Router · Server Actions)",
+        "React 19 · TypeScript",
+        "Tailwind CSS 4",
+        L("Supabase (Auth · Postgres · RLS)", "Supabase (Auth · Postgres · RLS)"),
+        "Google Gemini API",
+        L("SerpApi (구글 항공권 · 호텔 · 검색)", "SerpApi (Google Flights · Hotels · Search)"),
+        "Google Places · Routes · Maps Embed API",
+        "Vercel",
+      ],
+      links: [
+        { label: L("▶ 사이트 열기", "▶ Open the site"), href: "https://travel-planner-sable-ten.vercel.app", primary: true },
+      ],
+    },
+
     beyond_busan: {
       icon: "🎓",
       title: L(
