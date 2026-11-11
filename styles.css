@@ -108,7 +108,6 @@ h1, .about p { text-wrap: balance; }
 /* sections */
 .section { max-width: 1120px; margin: 0 auto; padding: 96px 24px; }
 .section-head { margin-bottom: 32px; }
-.section-head .more { display: inline-block; margin-top: 12px; }
 .section h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 600; }
 .stack + .stack { padding-top: 0; scroll-margin-top: 96px; }
 
@@ -144,10 +143,14 @@ h1, .about p { text-wrap: balance; }
   -webkit-mask-image: linear-gradient(#000 82%, transparent); mask-image: linear-gradient(#000 82%, transparent);
 }
 [data-theme="dark"] .avatar-light, [data-theme="light"] .avatar-dark { display: none; }
-/* 학력은 Introduction 안의 작은 묶음 */
-.about-edu { max-width: 520px; margin-top: 48px; }
+/* 학력 · 블로그는 Introduction 안의 작은 묶음 (넓으면 나란히, 좁으면 위아래) */
+.about-more { max-width: 622px; margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 28px; }
+.about-edu { display: flex; flex-direction: column; }
 .about-edu > h3 { font-size: 22px; margin: 0 0 16px; }
-.edu-card { padding: 28px 32px 24px; border-radius: 28px; }
+.edu-card { flex: 1; display: block; padding: 28px 32px 24px; border-radius: 28px; }
+a.edu-card { transition: translate .35s cubic-bezier(.34,1.56,.64,1), scale .35s cubic-bezier(.34,1.56,.64,1); }
+a.edu-card:hover { translate: 0 -6px; }
+a.edu-card:active { scale: .97; }
 .edu-card h4 { font-family: "OkDandan", "Quicksand", "Noto Sans KR", sans-serif; font-size: 19px; line-height: 1.5; margin: 0 0 6px; }
 .about .edu-card p { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
 .edu-period { color: var(--accent); font-weight: 700; font-size: 15px; }
