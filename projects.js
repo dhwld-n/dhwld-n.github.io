@@ -227,7 +227,7 @@ window.PROJECTS = (function () {
           ),
           figure: [
             { src: "todo-on-home.webp", caption: L("Windows 홈 화면", "Home screen on Windows") },
-            { src: "todo-on-android.webp", caption: L("Android 홈 화면", "Home screen on Android"), phone: true },
+            { src: "todo-on-android.webp", caption: L("Android 홈 화면 (디자인 시안)", "Home screen on Android (design mockup)"), phone: true },
           ],
         },
         L(
@@ -245,7 +245,7 @@ window.PROJECTS = (function () {
           ),
           figure: {
             src: "todo-on-diary.webp",
-            caption: L("교환일기 — 달력에 일기를 쓴 날이 표시되고, 위에서 그룹을 고름", "Exchange diary — diary days are marked on the calendar; pick a group at the top"),
+            caption: L("일기 — 달력에 내 일기와 교환일기를 쓴 날이 표시되고, 오른쪽 위에서 둘을 전환", "Diary — the calendar marks days with a diary or exchange diary entry; switch between them at the top right"),
           },
         },
         L(
