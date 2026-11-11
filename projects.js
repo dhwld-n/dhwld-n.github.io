@@ -193,8 +193,8 @@ window.PROJECTS = (function () {
           "Font picking — chooses pairings that fit the site's situation (a ledger, a clinic, a cafe) from a list of 127 Korean and 206 Latin free fonts, then shows a few candidates set in the real copy on a preview page so the pick is made by eye."
         ),
         L(
-          "레퍼런스 라이브러리 — 실제 사이트 30곳(Lando Norris, A24, Arc, Zed, 서울디자인페스티벌 등)을 브라우저에서 재어 글자 크기 · 간격 · 모션 수치를 느낌 노트로 정리하고, 스타일 카드 24종 · 모션 레시피 26종과 함께 재료로 씀. 코드 · 이미지 · 문구는 가져오지 않음.",
-          "Reference library — 30 real sites (Lando Norris, A24, Arc, Zed, Seoul Design Festival and more) measured in a browser into feel notes on type sizes, spacing and motion values, used as materials alongside 24 style cards and 26 motion recipes. No code, images or copy are taken."
+          "레퍼런스 라이브러리 — 실제 사이트 30곳(Lando Norris, A24, Arc, Zed, 서울디자인페스티벌 등)을 브라우저에서 재어 글자 크기 · 간격 · 모션 수치를 느낌 노트로 정리. 그중 컴포넌트 라이브러리 6곳은 originkit 805개, componentry 54개처럼 디자인을 수십~수백 개씩 담고 있어, 둘러보며 80여 개를 기록하고 12개는 바로 쓸 수 있는 모션 레시피로 새로 만듦. 스타일 카드 24종 · 모션 레시피 32종과 함께 재료로 씀. 코드 · 이미지 · 문구는 가져오지 않음.",
+          "Reference library — 30 real sites (Lando Norris, A24, Arc, Zed, Seoul Design Festival and more) measured in a browser into feel notes on type sizes, spacing and motion values. Six of them are component libraries holding dozens to hundreds of designs each (805 in originkit, 54 in componentry); about 80 of those are recorded, and 12 were rewritten from scratch as ready-to-use motion recipes. All of it is used as material alongside 24 style cards and 32 motion recipes. No code, images or copy are taken."
         ),
       ],
       stack: ["Claude Code Plugin", "Agent Skills", "Subagents", L("프롬프트 설계", "Prompt design")],
