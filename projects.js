@@ -161,7 +161,7 @@ window.PROJECTS = (function () {
         open: L("새 창에서 열기", "Open in a new tab"),
       }],
       meta: [
-        [L("개발 기간", "Duration"), L("진행 중 (개인 프로젝트)", "In progress (personal project)")],
+        [L("개발 기간", "Duration"), L("2026.10.31 ~ 진행 중 (개인 프로젝트)", "Oct 31, 2026 – present (personal project)")],
         [
           L("형태", "Format"),
           L("Claude Code 플러그인 (스킬 + 서브에이전트)", "Claude Code plugin (skill + subagents)"),
