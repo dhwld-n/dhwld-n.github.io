@@ -162,7 +162,13 @@ window.PROJECTS = (function () {
       }],
       meta: [
         [L("개발 기간", "Duration"), L("2026.10.31 ~ 진행 중 (개인 프로젝트)", "Oct 31, 2026 – present (personal project)")],
-        [L("인원 구성", "Team"), L("1인 개발", "Solo")],
+        [
+          L("인원 구성", "Team"),
+          L(
+            "1인 개발 — 기획 · 디자인 방향 · 결과물 검증은 직접, 스킬 · 에이전트 구현은 AI 코딩 도구(Claude Code)와 협업",
+            "Solo — planning, design direction and checking the output myself; skills and agents built together with an AI coding tool (Claude Code)"
+          ),
+        ],
         [
           L("형태", "Format"),
           L("Claude Code 플러그인 (스킬 + 서브에이전트)", "Claude Code plugin (skill + subagents)"),
